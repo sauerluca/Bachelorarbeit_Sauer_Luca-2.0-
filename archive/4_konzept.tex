@@ -1,0 +1,185 @@
+\chapter{Konzeption des erweiterten Geschäftsszenarios}
+\section{Technische Konzeption}
+\subsection{Frameworks}
+Zur Erweiterung von SAP S/4HANA stehen auf der SAP Cloud Platform verschiedene Werkzeuge zur Verfügung, um SAPUI5-Oberflächen zu erstellen und um eigene Anwendungskomponenten zu entwickeln, die die Funktionalität von SAP S/4HANA erweitern. Die Anwendungskomponenten werden dabei häufig in der Programmiersprache Java entwickelt.  Java ist eine der wichtigsten Programmiersprachen der SAP Cloud Platform.
+\autocite{Schneider.2018}
+
+\paragraph{SAPUI5} 
+Das Framework SAPUI5 basiert auf dem \ac{MVC} Prinzip, das heute in vielen Entwicklungsumgebungen verbreitet ist. Es ermöglicht eine strikte Aufteilung des Datenmodells (Model) von der Darstellung von Daten auf der Benutzeroberfläche (View) und der Verarbeitungssteuerung (Controller). Die Ansicht generiert eine Webseite mit Daten, die über das Model bereitgestellt und vom Controller verwaltet werden. Das Prinzip der Aufteilung bezieht sich ebenfalls auf die Trennung von betriebswirtschaftlicher Logik (z.B. in Java) und UI-Logik (Präsentationslogik auf der Benutzeroberfläche). Basierend auf JavaScript, \ac{HTML5} und \ac{CSS3} ermöglicht SAPUI5 die Entwicklung intuitiv bedienbarer Benutzeroberflächen für verschiedene Endgeräte. Das Framework stellt hierfür viele vorgefertigte Kontrollelemente und Layoutoptionen bereit, die für Konsistenz zwischen SAPUI5-Applikationen sorgen. Diese Elemente können erweitert oder durch maßgeschneiderte Eigenentwicklungen ersetzt werden und machen SAPUI5 zu einer flexiblen Lösung um Unternehmenssoftware mit unterschiedlichen Anforderungen unter einem einheitlichem Design zu vereinen. 
+\autocite{Goebels.2017}
+
+\paragraph{Java}
+Die SAP Cloud Platform erlaubt mit Java als Programmiersprache, moderne objektorientierte Cloud-Anwendungen zu programmieren. Um solche Anwendungen effizient und kostengünstig zu entwickeln, reicht der reine Sprachumfang nicht aus bzw. ist es nicht zielführend, jede Standardsituation selbst von Grund auf zu programmieren. Für viele dieser Standardanforderungen existieren daher Java-Bibliotheken, deren Klassen und Methoden bereits vieles abnehmen. Die SAP Cloud Platform unterstützt dabei, Java-Anwendungen in einer Cloud-Umgebung zu bauen, zu deployen und zu betreiben. Als Laufzeitumgebung steht dabei \ac{Java EE} mit einer großen Auswahl an APIs und einem einfachen Programmiermodell zur Verfügung. Das ermöglicht eine schnelle und effiziente Anwendungsentwicklung. 
+
+\paragraph{SAP \ac{SDK}s}
+Um die Entwicklung von Cloud-Anwendungen auf der SAP Cloud Platform zu vereinfachen, bietet SAP zwei sich ergänzende Java-basierte \ac{SDK}s an. Diese bieten eine Vielzahl von Modulen, die sich auf bestimmte Entwicklungszwecke konzentrieren.
+
+\paragraph{SAP Cloud Platform SDK for Service Development}
+Das \textit{SAP Cloud Platform SDK for Service Development} stellt generische Entwicklungsbibliotheken und -tools bereit, damit Anwendungsentwickler generische Erweiterungen auf der SAP Cloud Platform problemlos erstellen können.
+
+\paragraph{SAP S/4HANA Cloud SDK}
+Das \textit{SAP S/4HANA Cloud SDK} basiert auf dem \textit{SAP Cloud Platform SDK for Service Development} und bietet SAP S/4HANA-spezifische Funktionen, um Anwendungsentwicklern weitere Vereinfachungen für die Programmierung von Side-by-Side-Erweiterungen für SAP S/4HANA zu ermöglichen. Im Detail stellt das SDK durch die enthaltenen Bibliotheken Funktionen für die folgenden Bereiche, die für die Arbeit relevant sind, zur Verfügung:
+\begin{itemize}
+    \item Aufbau und Verwaltung von Schnittstellen zu SAP S/4HANA Cloud
+    \item Standardisierte Datenmodelle für Microservices im \textit{SAP API Business Hub}
+\end{itemize}
+
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Authentifizierungskonzeption}
+Bei der angestrepten Cloud-Anwendung handelt es sich um ein verteiltes System, da die Komponenten nicht in ein und demselben System ausgeführt werden. So müssen Schnittstellen zwischen den Systemen geschalten werden, die, ohne Schutz, das System angreifbar und damit auch unsicher machen. Daher ist es notwendig, zumindest eine Zugriffskontrolle einzuführen. 
+\autocite{Hammerschall.2005}
+
+Um eine sichere Kommunikation über das Internet zu garantieren, verwendet SAP die Security Assertion Markup Language (SAML). Um eine Kommunikation beim Aufruf zwischen der SAP Cloud Platform und SAP S/4HANA zu ermöglichen, wird der Standard Open Authorization (OAuth) verwendet.
+\autocite{Schneider.2018}
+
+SAP S/4HANA Cloud enthält einen sogenannten SAP Cloud Platform Identity Authentification Tenant. An diesen Service können Identity Provider angeschlossen werden, sodass ein Solcher als Schaltstelle für alle Cloud-Angebote von SAP dient. Die Konfigurationseinstellungen werden nur im SAP Cloud Platform Identity Authentication Tenant gepflegt. An diesen Identity Provider muss auch die SAP Cloud Platform angeschlossen werden, um die Cloud-Anwendung abzusichern. Damit die SAP Cloud Platform bei einem eingehenden Aufruf einen Benutzer akzeptiert, muss zwischen dem SAP-Cloud-Platform-Account und SAP Cloud Platform Identity Authentication eine Vertrauensbeziehung, auch als \textit{Trust} bezeichnet, eingerichtet werden.
+
+Im Rahmen der Arbeit wird ein Aufruf mit Anwendungsbenutzer benötigt, da nur der Produktionsplaner Zugriff auf die Cloud-Anwendung haben darf. Meldet sich ein Benutzer am SAP S/4HANA System oder an der Cloud-Anwendung auf der SAP Cloud Platform an, sendet dieses System die Anfrage an den Browser, mit der Aufforderung, sich am Identiy Provider Tenant anzumelden. SAP S/4HANA akzeptiert den Benutzer als angemeldet und führt die Cloud-Anwendung unter dem Anwendungsbenutzer aus. Dies bedeutet, dass alle Berechtigungen für den Anwendungsbenutzer, wie sie im System konfiguriert sind, ausgeführt werden und dass diese auf der SAP Cloud Platform Seite überprüft werden können. \autocite{Schneider.2018}
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Architekturkonzeption}
+Durch die technisch konzipierte Erweiterung des Geschäftsszenarios ergibt sich die, in Abbildung \ref{fig:architektur_nachher}, abgebildete Architektur. Die Authentifizierungsfunktion ist immer der erste Berührungspunkt der Cloud-Anwendung oder dem SAP S/4HANA Cloud System. Es ist festzuhalten, dass nur bei einer erfolgreichen Authentifizierung, Zugang zu den weiteren Aufrufen der Cloud-Anwendung gewährt wird.
+
+Eine weitere Neuerung in der Architektur ist die Nutzung der Microservices des SAP API Business Hubs, die sich ebenfalls in der Cloud befindet. Über diesen werden die, für die Cloud-Anwendungen nötigen, Daten verarbeitet. Das SAP S/4HANA Cloud Launchpad ist im Grunde genommen keine Neuheit, es wird jedoch um eine weitere Kachel, die zur Cloud-Anwendung verlinkt, ergänzt. Somit wird eine nahtlose Integration in den Prozess-Lebenszyklus von SAP S/4HANA Cloud gewährleistet. \autocite{Herzig.2018}
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/AR_Architektur_Nachher.png}
+	\caption[Aktualisierte Architektur]
+	{\label{fig:architektur_nachher}Aktualisierte Architektur}
+\end{figure}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Fachliche Konzeption}
+\subsection{Konzeption des aktualisierten Stammdatenmodells}
+Wie in Kapitel 3.6 geschildert, soll durch ein simplifiziertes Stammdatenmodell, die Komplexität der Anwendung reduziert werden, um so eine intuitive Lösung zu realisieren. Die Idee dahinter ist einen Schritt zurückzugehen und das Stammdatenmodell näher zu betrachten. Da im \ac{SaaS}-Angebot SAP S/4HANA Cloud keine Möglichkeit besteht, das Stammdatenmodell selbst zu modifizieren, sollen in der Anwendung lediglich diese Daten visualisiert werden, die für den Prozess relevant sind. Neben den Arbeitsplatzkapzitäten gibt es die Kapazitätsangebote und die Schichten im Stammdatenmodell des Prozesses. Da das Ziel ein simplifiziertes Stammdatenmodell ist, sollen dem Benutzer keine nicht-relevante Attribute gezeigt werden. Durch das Simplifizieren und Reduzieren beim Data Mapping, bleiben von 47 Attributen 12 prozess-relevante Attribute, die im Folgenden hierarchisch dargestellt sind 
+\autocite{api.2018}
+: 
+
+\tikzstyle{every node}=[draw=black,thick,anchor=west]
+\tikzstyle{parent}=[fill=gray!30]
+
+\begin{figure}[H]
+	\centering 
+	\begin{tikzpicture}[%
+			grow via three points={one child at (0.5,-0.7) and
+			two children at (0.5,-0.7) and (0.5,-1.4)},
+		edge from parent path={(\tikzparentnode.south) |- (\tikzchildnode.west)}]
+		\node {Arbeitsplatzkapazität}
+		child { node {ID}}		
+		child { node {Typ}}
+		child { node {Kapazitätstyp}}
+		child { node {Kapazitätskategorie}}
+		child { node [parent] {Kapazitätsangebote}
+			child { node {Gültig von}}
+			child { node {Gültig bis}}
+			child { node [parent] {Schichten}
+				child { node {Wochentag}}
+				child { node {Arbeitsbeginn}}
+				child { node {Arbeitsende}}
+				child { node {Pausenzeit}}
+				child { node {Auslastung in \%}}
+				child { node {Anzahl der Kapazitäten}}
+			}
+		};
+	\end{tikzpicture}
+	\caption[Aktualisiertes Stammdatenmodell]
+	{\label{fig:stammdaten_neu}Aktualisiertes Stammdatenmodell}
+\end{figure}
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Konzeption des aktualisierten Aktivitätsdiagramms}
+Anders als bei anderen Industrien, steht die Steigerung der Effizienz im  Produktionsprozess als „Schlüssel zum Erhalt der Wettbewerbsfähigkeit“ im Mittelpunkt der Planung. Ein Konzept zur Effizienzsteigerung in der Produktion ist die sogenannte \textit{Lean Production}. Lean Production ist von dem Gedanken geprägt jegliche Verschwendung im Einsatz von Zeit und Ressourcen zu vermeiden. Eine der aufgeführten Maßnahmen ist das Ersetzen von iterativen Prozessen durch Prozesse mit kurzen Durchlaufzeiten.
+\autocite{Syska.2006}
+
+Ausgehend von Kapitel 3.5.3 haben wir in unserem Szenario einen iterativen Prozess bei der Stammdatenpflege ermittelt, den es nun zu ersetzen gilt. Eine erfolgreiche Umsetzung des aktuellen Prozesses beruht auf der Wiederholung derselben Schritte für alle betroffenen Arbeitsplatzkapazitäten, was eine Massenverarbeitung der Arbeitsplatzkapazitäten nahe legt. Ausgangspunkt von Massenverarbeitungen ist die Auswahl von Zielgruppen, die potentielle Gemeinsamkeiten aufweisen. Im Rahmen der Arbeit ist unsere Zielgruppe die Menge von Engpässen betroffenen Arbeitsplatzkapazitäten, die alle eine Modifikation der Kapazitätsangebote erfordern. Um diese Situation herstellen zu können, wählen wir den im folgenden Aktivitätsdiagramm gewählten Prozessablauf: 
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/ppn2.png}
+	\caption[Aktualisiertes Aktivitätsdiagramm]
+	{\label{fig:prozess_nachher}Aktualisiertes Aktivitätsdiagramm}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		Auslöser                                     &   
+		Der Produktionsplaner möchte Engpässe an betroffenen Arbeitsplätzen durch Modifikationen an Kapazitätsangeboten beheben.  \\ 
+		\hline\hline
+		Input                                         &   
+		Handlungsbedarf durch die Auswertung der Kapazitätsauslastung  \\ 
+		\hline\hline
+		Aktivitäten\footnote{PP = Produktionsplaner} &   
+		\begin{minipage}{5in}
+		\begin{enumerate} 
+		\renewcommand{\labelenumi}{(\arabic{enumi})}
+		\item Starten der Cloud-Anwendung (Side-by-Side Erweiterung)
+    	\item Wahl der betroffenen Arbeitsplatzkapazitäten
+    	\item Festlegung eines Gültigkeitszeitraums
+    	\item Pflege von Schichten
+        \item Speichern der Änderungen
+    	\item Ende des Prozesses
+		\end{enumerate}
+		\vspace{1pt}		\end{minipage} \\
+		\hline\hline
+		Output                                        &   
+		Modifizierte Kapazitätsangebote von Arbeitsplätzen  \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:aktivitäten_nachher}Aktualisierte-Prozessbeschreibung}
+\end{table}
+
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Designkonzeption}
+Auf Grundlage der vorangegangenen technischen und fachlichen Konzeption und der in Kapitel 3.7 ermittelten Anforderungen wurde das Design der Cloud-Anwendung entworfen, welche den in Kapitel 3.3 beschriebene Use Case abdeckt. Da sich diese Arbeit mit der Bereitstellung einer hohen Benutzbarkeit der angestrebten Cloud-Anwendung beschäftigt, sind die Formen der Benutzerunterstützung sowohl auf einer übergeordneten Ebene des Prozesses als auch im Kontext des Designs zu berücksichtigen.
+
+Die in Abbildung \ref{fig:main_screen} dargestellte Oberfläche enthält neben einer Vielzahl von Filtermöglichkeiten (FA2-1), eine Toolbar mit Such-, Hilfe-Funktion, sowie ein Benutzermenü, welche gemäß den SAPUI5 Guidelines entwickelt wurden. Darüber hinaus bietet die Oberfläche dem Benutzer einen Überblick aller Arbeitsplatzkapazitäten in Form eines Planungskalenders (FA2-2). Dieser bietet dem Produktionsplaner die Möglichkeit seine Modifikationen, welche auf der Oberfläche optisch hervorgehoben werden, zu überwachen und detaillierte Einblicke in seine Kapazitätssituaion zu bekommen (FA1-2). Ein Button mit der Aufschrift \enquote{Refresh} dient zudem zur Aktualisierung der Daten (FA1-3). Die einzelnen Einträge können über die Kästchen auf der linken Seite markiert und über den Button \enquote{Adjust} zur Modifizierung ausgewählt werden (FA1-4).
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/first_screen.png}
+	\caption[Startbildschirm der Benutzeroberfläche]{\label{fig:main_screen}Startbildschirm der Benutzeroberfläche}
+\end{figure}
+
+
+Auf Modifizierungs-Ebene erscheint eine Bearbeitungsmaske für die Eingabe der zu ändernden Daten für die zuvor ausgewählten Arbeitsplatzkapazitäten. Diese Bearbeitungsmaske bietet die Funktion den Gültigkeitszeitraum der Modifikation einzustellen und dient der Konfiguration der verfügbaren Schichten, durch die sich die Angebotskapazität berechnet. Durch die Betätigung des Buttons \enquote{Save} wird das Speichern der Modifikation angestoßen, wodurch die Änderungen über die REST-Schnittstelle an das SAP S/4HANA-Cloud-System gesendet werden (FA2-3). Nach dem Ende des Speicher-Prozesses wird eine Rückmeldung über den Erfolg oder Misserfolg des Vorhabens gegeben (FA3-1). Abbildung \ref{fig:adjust} stellt die Grundstruktur dieser Bearbeitungsmaske graphisch dar. Der gesamte Prozess wird von einer Validierungsfunktionaliät begleitet, die durch Erfolgs- und Fehlermeldungen, sowie Hinweisen zu möglichen Fehlerursachen schrittweise den Prozess unterstützt und den Benutzer durch die Anwendung führt (FA1-5). Die Visualisierung der Validierungsfunktionaliät ist in Abbildung \ref{fig:wizard} dargestellt.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics{img/wizard.png}
+	\caption[Step-by-Step Wizard als Validierungshilfe]{\label{fig:wizard}Step-by-Step Wizard als Validierungshilfe}
+\end{figure}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/second_screen.png}
+	\caption[Bearbeitungsmaske zur Modifikation der Kapazitätsangebote]{\label{fig:adjust}Bearbeitungsmaske zur Modifikation der Kapazitätsangebote}
+\end{figure}
+
+% \begin{figure}[H]
+% 	\centering 
+% 	\includegraphics[width=\textwidth]{img/popover.png}
+% 	\caption[UI]{\label{fig:UI}UI}
+% \end{figure}

@@ -1,0 +1,101 @@
+\documentclass[
+	12pt,
+	BCOR=5mm,
+	DIV=12,
+	headinclude=on,
+	footinclude=off,
+	parskip=half,
+	bibliography=totoc,
+	listof=entryprefix,
+	toc=listof,
+	pointlessnumbers,
+	plainfootsepline]{scrreprt}
+
+%	Konfigurationsdatei einziehen
+\input{config}
+
+\begin{document}
+%% BITTE GEBEN SIE HIER DEN TITEL UND DIE AUTORIN / DEN AUTOR DER ARBEIT AN!
+%% DIESE INFORMATIONEN _MÜSSEN_ GESETZT SEIN, UM TITELBLATT, ABSTRACT UND
+%% EIGENSTÄNDIGKEITSERKLÄRUNG AUTOMATISCH ANZUPASSEN!
+\TitelDerArbeit{Entwicklung eines dynamischen Geschäftsprozesses zur ereignisgesteuerten Betriebsdatenerfassung in SAP S/4HANA Cloud}
+\AutorDerArbeit{Luca Sauer}
+\Firma{SAP SE}
+\Kurs{WWI-16-SC-B}
+
+\input{titlepage}
+
+\normalfont
+\setlength\epigraphwidth{0.8\textwidth}
+\setlength\epigraphrule{0pt}
+\renewcommand{\epigraphflush}{center}
+
+%--------------------------------
+% Verzeichnisse - nicht benötige Verzeichnisse bitte auskommentieren / löschen.
+%--------------------------------
+\pagenumbering{gobble}
+%   Sperrvermerk
+% \input{sperrvermerk/nondisclosurenotice}
+
+%	Kurzfassung
+\input{abstract}
+
+%	Inhaltsverzeichnis
+\tableofcontents
+
+% TO-DOs
+\listoftodos
+
+
+% 	Abkürzungsverzeichnis (siehe Datei acronyms.tex!)
+\input{acronyms}
+\ohead{Acronyms} % Neue Header-Definition
+
+\pagenumbering{Roman} % Römische Seitennummerierung
+
+%	Abbildungsverzeichnis
+\listoffigures
+
+%	Tabellenverzeichnis
+\listoftables
+
+%	Listingsverzeichnis
+\lstlistoflistings
+
+% 	Algorithmenverzeichnis
+\listofalgorithms
+
+
+
+%--------------------------------
+% Start des Textteils der Arbeit
+%--------------------------------
+\clearpage
+\ihead{\chaptername~\thechapter} % Neue Header-Definition (inner header)
+\ohead{\headmark} % Neue Header-Definition (outer header)
+\pagenumbering{arabic}  % Arabische Seitenzahlen
+
+% Auf diese Weise sollten Sie versuchen, für jedes einzelne Kapitel eine eigene Datei anzulegen und mittels input-Kommando einzuziehen.
+\setcounter{secnumdepth}{3}
+% \input{kapitel/1_Ausgangssituation.tex}
+\input{chapters/index.tex}
+
+%	Literaturverzeichnis
+\ihead{} % Neue Header-Definition
+\printbibliography[title=Literaturverzeichnis]
+\counterwithin{figure}{chapter}
+
+\cleardoublepage
+% Der Anhang beginnt hier - jedes Kapitel wird alphabetisch aufgezählt. (Anhang A, B usw.)
+\appendix
+\ihead{\appendixname~\thechapter} % Neue Header-Definition
+
+% appendix.tex einziehen
+\input{appendix/index.tex}
+
+% Ehrenwörtliche Erklärung ewerkl.tex einziehen
+\input{ewerkl.tex}
+
+
+\end{document}
+

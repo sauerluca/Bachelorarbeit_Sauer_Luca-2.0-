@@ -1,0 +1,259 @@
+\chapter{Grundlagen}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Historie und derzeitige Situation}
+Betrachtet man die Entwicklung dessen, wie Unternehmen Informationen verarbeiten, spielt \ac{IT} seit dem Ende der 50er Jahre eine entscheidende Rolle. Damals bestand ihr Zweck in der Automatisierung einzelner Aufgaben. Daraus resultierte die Anwendung monolithischer Standardsoftware. Diese war durch hohe Redundanz und manuellen Datenaustausch zwischen den einzelnen Anwendungen gekennzeichnet. Vor diesem Hintergrund stieg der Bedarf nach Integrationsmöglichkeiten von Standardsoftware mit anderen Anwendungen verschiedenster Art.  
+
+Erste Überlegungen zur Integration von Standardsoftware begannen in den 60er Jahren. Mainframe-basierte Systeme vereinfachten in den 70er Jahren die Integration durch das Schaffen einer zentralisierten homogenen Infrastruktur. Der Fokus lag dabei auf der Fertigung von standardisierten Schnittstellen. Nach diesem Zentralisieren waren die 80er Jahre von einem Voranschreiten der Dezentralisierung, insbesondere angetrieben durch die aufstrebende Client-Server-Architektur und Konzepten wie \ac{MRP} geprägt. Diese dezentrale Datenhaltung war eines der Probleme, die durch \ac{ERP} adressiert wurden. Allerdings konnten \ac{ERP}-Systeme die spezifischen Geschäftsprozesse in Unternehmen nicht umfassend genug abbilden, sodass sie häufig durch weitere Anwendungen ergänzt wurden, beispielsweise durch eigenentwickelte Erweiterungen. 
+% \autocite[53-59]{Kaib.2002}
+\autocite{Kaib.2002}
+
+Diese Situation führt in Zeiten des Cloud-Computings zu Problemen in verschiedenen Bereichen: 
+Um diese Problematik zu verstehen, ist ein historischer Abriss zur Thematik \enquote{Erweiterbarkeit von Standardsoftware am Beispiel der SAP} nützlich. Hierbei werden zwei sehr gegensätzliche Welten beleuchtet: die On-Premise und die Cloud-Welt.
+
+Der Programm-Quellcode des SAP \ac{ERP} und seiner Vorgänger kann für kundenspezifische Erweiterungen an fast jeder Stelle aufgerufen, kopiert und angepasst oder sogar modifiziert werden. Mit dieser Option sind praktisch alle Anforderungen abbildbar, die man an Softwareanpassungen stellen kann.
+
+Mit der Verbreitung betriebswirtschaftlicher Cloud-Software tritt ein neues Paradigma für Erweiterungen auf den Plan. In der Cloud ist es Praxis, dass nur noch von der Standardsoftware entkoppelte Erweiterungen mit der Cloud-Software kompatibel sind.
+% \autocite[33-34]{Schneider.2018}
+\autocite{Schneider.2018}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Stammdaten und Stammdatenmanagement}
+
+\subsection{Stammdaten}
+Die Bedeutung des Begriffs Stammdaten wird in der Literatur häufig kongruent verwendet. \citeauthor{alex65937} bezeichnen in Anlehnung an \citeauthor{Rosenberg.1987} den englischen Begriff \textit{master data} als Daten, die über einen bestimmten Zeitraum unverändert bleiben und nennen hierfür einige Beispiele: \textit{Kunden, Material und Lieferanten}. Dennoch wirft diese Definition die Frage danach auf, wie ein bestimmter Zeitraum definiert ist.
+% \autocite[1]{alex65937}
+\autocite{alex65937}
+\autocite{Rosenberg.1987}
+
+Eine präzisere Definition findet sich bei \citeauthor{Hildebrand.2008}. Dort wird der Begriff Stammdaten wie folgt definiert und vom Begriff Bewegungsdaten abgegrenzt: Stammdaten werden als der Datenbestand, auf dem Geschäftsprozesse aufbauen, und der über einen längeren Zeitraum unverändert gültig ist bezeichnet. Nach \citeauthor{Hildebrand.2008} entstehen Bewegungsdaten während einer betrieblichen Transaktion - der Buchung eines Geschäftsvorfalls (z.B. eine Bestellung oder einer Rechnung) - und repräsentieren diese Ereignisse. 
+% \autocite[26]{Hildebrand.2008} 
+\autocite{Hildebrand.2008} 
+Diese Objekte besitzen dieselben Eigenschaften, die \citeauthor{alex65937} zur Definition des Begriffs \textit{master data} heranziehen. Vergleicht man die Änderungshäufigkeit von Eigenschaften eines Kunden ist diese sicherlich geringer als die einer Bestellung, welche einen gewissen Lebenszyklus durchläuft. Bewegungsdaten setzen somit einzelne Instanzen von Stammdaten miteinander in Beziehung. Diese müssen zuvor existieren, da sie sonst nicht miteinander verbunden werden können. Anderseits kann beispielsweise ein Kunde existieren, ohne eine Bestellung aufzugeben. 
+% \autocite[27]{Hildebrand.2008} 
+\autocite{Hildebrand.2008} 
+
+Mit Stammdaten wird also eine Teilmenge der an Geschäftsvorfällen beteiligten Objekte bezeichnet, über deren Eigenschaften ein unternehmensweiter Konsens besteht. Damit kann zu jedem Zeitpunkt über alle Systeme hinweg eine einzige Sicht auf eine Instanz gewährleistet werden kann.
+
+Zusammenfassend werden Stammdaten in der vorliegenden Arbeit als Entitäten, Beziehungen und Attribute verstanden, die für Unternehmen, Geschäftsvorfälle und Anwendungssysteme von entscheidender Bedeutung sind und über einen definierten Zeitraum unverändert gültig sind.
+
+Stammdaten nehmen damit eine relevante Rolle in der Planung und der Durchführung von Geschäftsvorfällen ein und können als Fundament der \ac{IT}-Strategie von Unternehmen aller Wirtschaftsbereiche betrachtet werden.
+
+\subsection{Stammdatenmanagement}
+
+Entsprechend der Definition von \citeauthor{Berson.2010} handelt es sich beim Stammdatenmanagement um die Einrichtung eines unternehmensweiten Frameworks zur Haltung und Pflege von Stammdaten. Der englische Begriff \textit{\ac{MDM}} wird von ihnen dabei als Framework von Prozessen und Technologien dargestellt. Dieses zielt auf die Haltung und Pflege einer maßgebenden, zuverlässigen, nachhaltigen, genauen und sicheren Datengrundlage ab, die eine einheitliche und ganzheitliche Version für Stammdaten und deren Beziehungen innerhalb eines Unternehmen sowie zwischen Unternehmen repräsentiert.
+% \autocite[11]{Berson.2010}
+\autocite{Berson.2010}
+
+Nach \citeauthor{dreibelbis_2008} sind die funktionalen Anforderungen an ein \ac{MDM}-System folgende:
+\begin{itemize}
+    \item die Bereitstellung eines konsistenten Verständnisses von Stammdaten
+    \item die Verfügbarkeit von Methoden für die konsistente Nutzung von Stammdaten
+    \item die Möglichkeit schnell und flexibel auf Änderungen zu reagieren 
+    % \autocite[37]{dreibelbis_2008}
+    \autocite{dreibelbis_2008}
+\end{itemize}
+
+\ac{MDM} ist also der Teil der IT-Strategie, dessen Umsetzung, in Form von betriebswirtschaftlichen Anwendungen, in erster Linie zur Effektivität und Effizienz der Unternehmens-\ac{IT} beitragen soll. Hierzu ist es unabdingbar die funktionalen Anforderungen, wie bereits dargestellt, über den gesamten Lebenszyklus der Daten hinweg konsistent zur Verfügung zu stellen. 
+
+Ein sehr wesentliches Ziel wurde bisher jedoch noch nicht betrachtet. Grundsätzlich können Unternehmen ihre Ziele mittels Planung erreichen. Die Lösung von Planungsaufgaben ist zumeist jedoch nicht trivial, sondern komplex und unsicher. Im Rahmen der Planung muss sich zwangsweise auch mit möglichen Entwicklungen in der Zukunft auseinandergesetzt werden, um die geeignetste Lösung zu antizipieren. Man spricht in diesem Kontext von flexibler Planung. Da Daten das Fundament der Planung darstellen, muss demzufolge das \ac{MDM} auch in der Lage sein Erweiterungs- und Integrationsspotentiale aufzubauen, zu erhalten und zu erweitern. 
+% \autocite[262-263]{Keuper.2010}
+\autocite{Keuper.2010}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Technologien und Produkte}
+
+\subsection{Cloud-Computing}
+Unter Cloud-Computing versteht man die Nutzung virtualisierter Rechen- und Speicherressourcen und moderner Web-Technologien, um skalierbare, netzwerk-zentrierte, abstrahierte \ac{IT}-Infrastrukturen, Plattformen und Anwendungen als \textit{on-demand} Dienste zur Verfügung zu stellen. Cloud-Computing verspricht Skalierbarkeit, Flexibilität, eine ständige Verfügbarkeit und niedrige Kosten. 
+% \autocite[16-18]{Sosinsky.2011}
+\autocite{Sosinsky.2011}
+
+Das Prinzip von Cloud-Computing ähnelt dem Outsourcing von Ressourcen oder Geschäftsprozessen: Jegliche Art von Aufwand wird in die Cloud verlagert, sodass sich der Benutzer auf die wesentlichen Aspekte seiner Arbeit fokussieren kann. Das bedeutet zum einen, dass sämtliche Ressourcen in der Cloud liegen und der Administrationsaufwand typischerweise beim  \ac{IT}-Dienstleister liegt. 
+% \autocite[6-9]{Repschlager.2010}
+\autocite{Repschlager.2010}
+
+\paragraph{Cloud-Architektur} 
+
+Nach dem \ac{NIST} gibt es unterschiedliche Möglichkeiten, Cloud-Services bereitzustellen. Unternehmen können sich für eine der drei Varianten entscheiden: Public, Private oder Hybrid Cloud. 
+% \autocite[7-8]{Sosinsky.2011}
+\autocite{Sosinsky.2011}
+Diese Arbeit fokussiert sich auf ein Public Cloud Angebot, weswegen im Folgenden nur diese Bereitstellungsmöglichkeit erläutert wird. 
+
+\textit{\textbf{Public Cloud}} beschreibt eine virtuelle Umgebung, deren Infrastruktur von einem \ac{IT}-Dienstleister administriert und bereitgestellt wird. Um als Public Cloud bezeichnet zu werden, müssen einige Kriterien erfüllt sein. So ist die Cloud zunächst über ein öffentliches Netzwerk, wie dem Internet, für eine breite Masse an Benutzern zugänglich zu machen. Der Benutzer greift in der Regel mit dem Web-Browser auf die gewünschten Services zu. Charakteristisch ist meist eine hohe Anzahl von Nutzern, damit der Anbieter hohe Skaleneffekte erzielen kann. Bei der Fokussierung des Massenmarkts sind standardisierte Dienste eine Voraussetzung und eine individuelle Anpassung der Services kaum möglich. 
+% \autocite[16]{Labes.2012}
+\autocite{Labes.2012}
+
+\paragraph{Cloud-Angebote}
+
+Daneben unterscheidet man die Cloud auch in Service-Angebote. Hierbei haben sich drei Services in
+den letzten Jahren besonders hervorgetan: \acf{IaaS}, \acf{PaaS} und \acf{SaaS}. 
+
+\textit{\textbf{\acl{IaaS}}} beschreibt die Bereitstellung von virtuellen Maschinen, virtuellem Speicher, virtueller Infrastruktur und anderer Hardware-Ressourcen, die Clients zur Verfügung stellen können. Der \ac{IaaS}-Dienstleister verwaltet die gesamte Infrastruktur, während der Client für alle anderen Aspekte der Bereitstellung verantwortlich ist. Dies kann das Betriebssystem, Anwendungen und Benutzerinteraktionen mit dem System umfassen.
+
+\textit{\textbf{\acl{PaaS}}} stellt virtuelle Maschinen, Betriebssysteme, Anwendungen, Services, Entwicklungsframeworks, Transaktionen und Kontrollstrukturen bereit. Der Client kann seine Anwendungen in der Cloud-Infrastruktur bereitstellen oder Anwendungen verwenden, die mit Sprachen und Tools programmiert wurden, die vom \ac{PaaS}-Dienstleister unterstützt werden.
+
+\textit{\textbf{\acl{SaaS}}} ist eine vollständige Betriebsumgebung mit Anwendungen, Managementmöglichkeiten und Benutzeroberfläche. Im \ac{SaaS}-Modell wird die Anwendung dem Client über ein öffentliches Netzwerk, wie dem Internet, zur Verfügung gestellt. Die Verantwortung des Kunden beginnt und endet mit der Eingabe und Verwaltung seiner Daten und der Benutzerinteraktion.
+% \autocite[10]{Sosinsky.2011}
+\autocite{Sosinsky.2011}
+
+\paragraph{Microservices}
+Auch die Idee der Microservices im Cloud-Umfeld ist noch nicht allzu lange her. Das Konzept beruht auf der serviceorientierten Architektur, die schon seit einigen Jahrzehnten verwendet wird. Zwar gibt es keine schlüssige wissenschaftliche Definition für Microservices. Im Kern geht es jedoch darum, kleine Anwendungen mit begrenzter Funktionalität zu bauen, die sich separat verteilen lassen. \autocite{Familiar.2015}
+
+\epigraph{
+\centering
+\enquote{It does one thing and it does it well.}
+\autocite{Familiar.2015}
+}{}
+
+Statt eine einzelne monolithische Anwendung die gesamte Geschäftslogik ausführen und die benötigten Funktionen bereitstellen zu lassen, spaltet ein auf Microservices basierender Ansatz die einzelnen geschäftlichen Fähigkeiten in individuelle Dienste auf und lässt diese, über klar definierte  Schnittstellen, sogenannte \acf{API}s und deren Konfiguration, interagieren. Diese verbreitetsten \ac{API}-Technologien im Umfeld des Cloud-Computings treten in Form von \ac{OData}-Webservices oder auch \ac{SOAP}-basierten Webservices auf. Zur Entwicklung von Microservices stehen jedoch auch zahlreiche andere \ac{API}-Technologien zur Verfügung, weshalb in dieser Arbeit nicht weiter auf die \ac{API}-Technologien eingegangen wird.  
+\autocite{Familiar.2015}
+
+\paragraph{Erweiterungsmöglichkeiten}
+Eine verbreitete Meinung ist es, dass \ac{SaaS}-Software nicht anpassbar ist und oft ist dies auch tatsächlich der Fall. Für benutzerorientierte Anwendungen wie eine Office-Suite ist dies auch meist der Fall. In diesen Suites werden lediglich Möglichkeiten geboten, Optionen oder Einstellungen festzulegen. Eine komplexe, betriebswirtschaftliche Standardsoftware stellt jedoch ganz andere Anforderungen an \ac{SaaS}-Software. Diese Problematik betriebswirtschaftlicher Standardsoftware erkannten auch schon \citeauthor{Schneider.2018} und formulierten es so:
+
+\epigraph{
+\enquote{Betriebswirtschaftliche Standardsoftware ohne Konfigurations- und Erweiterungsoptionen ist nicht marktfähig.}
+% \autocite[15]{Schneider.2018}
+\autocite{Schneider.2018}
+}{}
+
+Einige \ac{IT}-Dienstleister begegnen dieser Problematik indem sie Entwicklern standardisierte \acl{API}s und Microservices anbieten, damit diese die Möglichkeit haben, benutzerdefinierte Anwendungen zu erstellen und die Cloud-Anwendungen so erweitern zu können. Diese APIs können das verwendete Sicherheitsmodell, das Datenschema, die Workflow-Eigenschaften und andere grundlegende Merkmale des Services ändern. \ac{SaaS} bedeutet also nicht zwangsläufig, dass die Software statisch oder monolithisch ist.
+% \autocite[71]{Sosinsky.2011}
+\autocite{Sosinsky.2011}
+
+Zukünftig wird es in Architekturfragen darum gehen, Akzeptanz für unternehmensweite serviceorientierte Architekturen zu schaffen und diese umzusetzen. Auf diesem Weg sind organisatorische und technische Herausforderungen zu bewältigen wie die Reduktion der Komplexität durch zunehmende Standardisierung und die Sicherung des Innovationsschutzes durch standardisierte \ac{API}s.
+% \autocite[47]{Keuper.2010}
+\autocite{Keuper.2010}
+
+\subsection{SAP S/4HANA Cloud}
+SAP S/4HANA ist der Nachfolger des bisherigen Kernprodukts der SAP SE, dem SAP \ac{ERP}. SAP S/4HANA ist sowohl der Produktname der On-Premise-Version als auch der kompletten Produktfamilie. SAP S/4HANA Cloud bezeichnet die Cloud-Version.
+% \autocite[152]{Warnecke.2018}
+\autocite{Warnecke.2018}
+
+% \paragraph{Gemeinsame Codebasis}
+Es handelt sich aber, genau betrachtet, nicht um zwei unterschiedliche Produkte, sondern beide Versionen basieren auf einer gemeinsamen Quellcodebasis. Manche Funktionen gibt es jedoch nur in der On-Premise-Version von SAP S/4HANA, andere hingegen nur in SAP S/4HANA Cloud.
+\autocite[25]{Schneider.2018}
+
+% \paragraph{Public Cloud}
+SAP S/4HANA Cloud ist Teil des Public-Cloud-Angebots der SAP SE, bei dem die Unternehmenssoftware als \ac{SaaS} über das Internet bereitgestellt wird. Software über eine Public Cloud zu beziehen, bedingt eine hohe Standardisierung. Dadurch werden gewisse Möglichkeiten der On-Premise-Version ausgeschlossen.
+% \autocite[25]{Schneider.2018}
+\autocite{Schneider.2018}
+
+% \paragraph{Einschränkung}
+Eine wichtige Einschränkung des Public-Cloud-Angebots besteht darin, dass es keine Modifikationen erlaubt. Folglich dürfen die SAP-Programme nicht verändert werden. Das bedeutet, dass Erweiterungen nur über die erlaubten Erweiterungs-Frameworks in Form von Cloud-Anwendungen implementiert werden können.
+% \autocite[25]{Schneider.2018}
+\autocite{Schneider.2018}
+
+% \paragraph{Erweiterungskonzept}
+Durch die Entwicklung betriebswirtschaftlicher Cloud-Anwendungen tritt das in Kapitel 2.1 erwähnte Paradigma für Erweiterungen ein. Denn es sind nur solche Erweiterungen mit der den \ac{SaaS}-Angeboten kompatibel, die von der Standardsoftware entkoppelt sind. Dazu muss Folgendes sichergestellt werden: 
+\begin{itemize}
+    \item Zugriff auf Objekte der Standardsoftware nur über freigegebene stabile \ac{API}s
+    \item Erweiterungen dürfen den Betrieb der Kernanwendung nicht gefährden
+    \item Ein stabiler Lebenszyklus muss garantiert werden - Softwareaktualisierung müssen ohne manuelle Eingriffe und Anpassungen weiterhin funktionieren 
+    % \autocite[34]{Schneider.2018}
+    \autocite{Herzig.2018}
+\end{itemize}
+
+Um diesen unterschiedlichen Erwartungen nachzukommen, bietet SAP ein Konzept für SAP S/4HANA Cloud, das zwei unterschiedliche Arten von Erweiterungen vorsieht:
+\begin{itemize}
+    \item \textit{\textbf{In-App-Erweiterungen mit webbasierten Werkzeugen}} ermöglichen kleine und kontrollierte Erweiterungen in der Laufzeitumgebung der ursprünglichen Anwendung. Durch die In-App-Erweiterungen können Kunden S/4HANA Cloud bis zu einem gewissen Grad an ihre individuellen Bedürfnisse anpassen. Sie sind jedoch keine geeignete Lösung für größere Erweiterungen, weshalb sie für die Arbeit nicht von Relevanz sind.
+    \item \textit{\textbf{Side-by-Side-Erweiterungen}} sind die einzige Alternative für S/4HANA Cloud-Kunden, größere Erweiterungen zu implementieren. Der Erweiterungs-Quellcode wird auf einem separaten \ac{PaaS} wie der SAP Cloud Platform entwickelt und bereitgestellt.
+    % \autocite[34]{Schneider.2018}
+    \ \autocite{Herzig.2018}
+\end{itemize}
+
+\subsection{SAP Cloud Platform}
+Die SAP Cloud Platform ist ein offenes \ac{PaaS}-Angebot der SAP SE, auf der neue Side-by-Side-Erweiterungen in Form von Cloud-Anwendungen gebaut werden oder bestehende Anwendungen integriert oder erweitert werden können. Services und Funktionen der SAP Cloud Platform werden weltweit in Rechenzentren von SAP oder Partnern wie Amazon (Amazon Web Services, AWS), Microsoft (Microsoft Azure) oder Google (Google Cloud Platform, GCP) zur Verfügung gestellt. 
+% \autocite[246]{Elsner.2018}
+\autocite{Elsner.2018}
+
+Für den Neubau von Side-by-Side-Erweiterungen stehen folgenden Funktionen und Services zur Verfügung: 
+
+\begin{itemize}
+    \item Enwicklungsumgebungen und Entwicklungssprachen, darunter SAPUI5, Java, Node.js und ABAP
+    
+    \item Services zum Speichern von Daten, darunter SAP HANA, die Dokumentenverwaltung sowie weitere Persistenz-Services 
+    
+    \item Services, die den Bau von betriebswirtschaftlichen Cloud-Anwendungen unterstützen
+\end{itemize}
+
+Zur Erweiterung von SAP S/4HANA Cloud stehen auf der SAP Cloud Platform Werkzeuge zur Verfügung, um SAP-Fiori-Oberflächen zu erweitern oder um Side-by-Side-Erweiterungen zu entwickeln, die die Funktionalität von SAP S/4HANA erweitern. Die Integration mit SAP S/4HANA Cloud erfolgt über standardisierte SAP-\ac{API}s oder benutzerdefinierte \ac{API}s, wodurch eine Entkopplung erzwungen wird.
+% \autocite[434]{Schneider.2018}
+\autocite{Herzig.2018}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Grundlegende \acl{UCD} Techniken}
+\subsection{\acl{UCD}}
+
+\acl{UCD} umfasst alle Techniken, Prozesse, Methoden und Prozeduren, um bestimmte Produkte und Anwendungen benutzbar oder benutzbarer zu machen. Ein wesentlicher Grundsatz besteht hierbei darin, dass der Benutzer in den Mittelpunkt der Betrachtungen aller Prozesse rückt. 
+\autocite{Moser.2012}
+
+\epigraph{
+\enquote{Die Erwartungen an ein Produkt sind abhängig von der Situation, in der es verwendet wird. Dies muss im Design berücksichtigt werden.}
+% \autocite[8]{Moser.2012}
+\autocite{Moser.2012}
+}{}
+
+Eine standardisierte Definition der User Experience liefert die \citeauthor{ISO9241210} Norm. Dabei wird die User Experience, das Benutzererlebnis, wie folgt beschrieben: Wahrnehmung und Reaktionen einer Person, die aus der tatsächlichen und/oder erwarteten Benutzung eines Produktes, einer Anwendung oder einer Dienstleistung resultieren. 
+\autocite{ISO9241210}
+
+Neben User Experience liegt der Fokus bei der Softwareentwicklung auf \acl{UCD}. \ac{UCD} kennzeichnet sich durch drei wesentliche Grundprinzipien: Neben einer frühen Fokussierung auf den Benutzer, einschließlich dessen Aufgabenbereichen und Fähigkeiten, spielt auch die Evaluation und Bewertung der Usability des jeweiligen Produkts eine wesentliche Rolle. Weiterhin durchläuft die Anwendung einen iterativen Gestaltungsprozess. 
+\autocite{Thesmann.2016}
+
+\ac{UCD} wird gemäß \citeauthor{ISO9241210} durch vier wesentliche Merkmale charakterisiert: Neben einer aktiven Beteiligung des Benutzers als auch einem klaren Verständnis für dessen Aufgabenbereiche ist eine angemessene Kommunikation zwischen Benutzern und Maschinen essentiell. Darüber hinaus sollen mit \ac{UCD} iterative Designlösungen und interdisziplinäre Entwurfsprozesse angestoßen werden, um die Erzeugung von Produkten mit einem hohen Grad an Usability zu fördern.
+\autocite{ISO9241210}
+
+Usability ist im Standard \citeauthor{ISO924111} definiert als das Ausmaß, in dem ein Produkt von einem Benutzer verwendet werden kann, um bestimmte Ziele in einem bestimmten Kontext effektiv, effizient und zufriedenstellend zu erreichen. 
+\autocite{ISO924111}
+
+Die Aktivitäten, die in einem typischen \ac{UCD}-Projekt ausgeführt werden, können den folgenden fünf Kategorien zugeordnet werden: Umfang, Analyse, Design, Validierung und Bereitstellung. Ein strukturierter iterativer Prozess, der sich aus den Informationsbedürfnissen der entsprechenden Phasen zusammensetzt, verbindet insbesondere die vier wesentliche Merkmale von \ac{UCD} flexibel miteinander.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/ucd.png}
+	\caption[\acl{UCD} Aktivitäten]{\label{fig:ucd}\acl{UCD} Aktivitäten
+	\autocite[In Anlehnung an][]{Maedche.2012}
+	}
+\end{figure}
+
+Während sich User Experience auf die Formung eines Nutzererlebnisses, basierend auf der Wahrnehmung und den Reaktionen eines Benutzers in Bezug auf den Einsatz eines Produkts bezieht, liegt der Fokus von \ac{UCD} vielmehr auf den Techniken bei denen der Benutzer im Mittelpunkt steht, um die Benutzbarkeit einer Anwendung zu steigern. Im weiteren Verlauf von Kapitel 2 wird der Fokus auf den wichtigsten elementaren \ac{UCD}-Techniken liegen.
+
+\subsection{Methoden von \acl{UCD}}
+
+Um ein gutes Produkt zu gestalten, braucht man ein fundiertes Wissen über die Benutzer, ihre Ziele, Bedürfnisse, Gewohnheiten und Arbeitsabläufe sowie ihr Umfeld. Aus diesem Grund probiert man mithilfe von User Research dieses Wissen zu sammeln. User Research untersucht anhand von verschiedenen qualitativen und quantitativen Methoden das Verhalten und den Hintergrund der Benutzer und leitet daraus Informationen ab, welche helfen sollen, die richtigen Entscheidungen zu treffen. 
+\autocite{Moser.2012}
+
+Da die gesammelten Informationen ziemlich umfangreich und abstrakt sein können, ist es schwer abzuschätzen, ob für die Benutzer nun diese oder jene Lösung besser geeignet wäre. Aus diesem Grund werden, auf den Informationen basierend, vereinfachte Modelle wie beispielsweise Personas abgeleitet, die stellvertretend für die Benutzer, ihre Prozesse und ihren beruflichen Kontext stehen. 
+\autocite{Quirmbach.}
+
+\paragraph{Persona}
+Mit Hilfe von Personas werden Ziele, Vorgehensweise und Charaktereigenschaften einer Person abgebildet. Der Vorteil einer Persona ist simpel. Wenn Anwendungen oder sonstige Produkte entworfen werden, ist es für den Menschen einfacher, sich an den Eigenschaften und Fähigkeiten einer bestimmten Person zu orientieren - unabhängig davon, ob sie fiktiv oder real ist. Anstelle eines schleierhaften Konzepts des Nutzers wird eine Person geschaffen, die für die zukünftigen Entscheidungen in den Mittelpunkt gestellt wird. \autocite{Moser.2012}
+
+\paragraph{Use Case}
+Use-Cases sind Hilfsmittel, um benötigte Szenarien von Anwendungen oder sonstiger Produkte zu spezifizieren. Typischerweise werden sie verwendet, um die Anforderungen an eine Anwendung oder ein Produkt zu erfassen. Ein Use Case beginnt in der Regel mit einer Persona und wird im Laufe der Umsetzung immer detaillierter. Basierend auf den Benutzeranforderungen können in einem Use Case immer weitere Informationen mit einfließen. Ein Use Case beinhaltet eine zuvor definierte Persona in einer bestimmten Situation und beschreibt deren Ziele oder Vorgehensweise bei der Lösung bestimmter Aufgaben oder Probleme. 
+\autocite{Quirmbach.}
+
+\paragraph{Storyboard}
+Ein Storyboard ist die \enquote{Darstellung einer Handlungssequenz durch eine Reihe von Bildern}
+\autocite{Moser.2012}
+, welche die Interaktion zwischen dem Benutzer und dem Produkt verständlich darstellt.
+Der Vorteil von Storyboards ist die einfache Verständlichkeit, durch ihre visuelle und intuitive Darstellung.
+Sie sind eine sinnvolle Ergänzung zu Use Cases und werden auch gerne für Usability Tests eingesetzt.
+
+Da \acl{UCD} hauptsächlich auf Beobachtungen, Befragungen und Annahmen basiert, liefern sie keine genauen Ergebnisse. Trotzdem sind die Erkenntnisse ein wichtiger Wegweiser für das Design. Die daraus abgeleiteten Lösungen sollten aber in jedem Fall durch Usability Tests evaluiert werden.

@@ -1,0 +1,532 @@
+\chapter{Analyse eines ausgewählten Geschäftszenarios}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Rahmenbedingungen}
+Die vorliegende Arbeit befasst sich mit der Thematik der Erweiterbarkeitsmöglicheiten von \ac{SaaS}-Angeboten zur geschäftsorientierten Stammdatenpflege. Ziel der Arbeit ist ein Konzept, das die Stammdatenpflege eines geeigneten Geschäftsszenarios durch \ac{UCD}-Techniken benutzerfreundlicher gestaltet, sowie die Erweiterbarkeit eines \ac{SaaS}-Angebots durch ein \ac{PaaS}-Angebot am Beispiel der Erweiterbarkeit von SAP S/4HANA Cloud via SAP Cloud Platform, demonstriert.
+
+\paragraph{Umfeld der Geschäftsszenarien}
+Im Rahmen der Arbeit werden ausschließlich Geschäftsszenarien aus dem Umfeld der Industrielösung für die verarbeitende Industrie \textit{\textbf{SAP S/4HANA Cloud - Manufacturing}}, um genauer zu sein, der Komponente \textit{\textbf{Produktionsplanung}}, betrachtet.
+
+\paragraph{Betriebswirtschaftlicher Hintergrund} \ac{CIM} steht für ein Konzept der integrierten Informationsverarbeitung zur Unterstützung von betriebswirtschaftlichen und technischen Abläufen in Industriebetrieben. Dabei ist vor allem die rechnergestützte Produktionsplanung und -steuerung relevant. Insbesondere Kapazitätsangebote und -bedarfe, sowie deren Abgleich spielen in der Produktion eine tragende Rolle für reibungslose Abläufe der Prozesse. Ebenso wichtig ist die Fertigungssteuerung, die dafür sorgt, dass die Planung gemäß den betrieblichen Gegebenheiten, sowie interner und externer Anforderungen umgesetzt wird. Das \ac{CIM}  nimmt diese auf und verknüpft sie mit einem Informationssystem, welches den Informationsfluss einer Produktionslandschaft digitalisiert und dadurch hilft, Redundanzen und Inkonsistenzen zu vermeiden und Informationen über Schnittstellen anderen Anwendungen schnell verfügbar zu machen. So entsteht ein digitales Abbild der real existierenden Unternehmensarchitektur.
+\autocite{Dickersbach.2014}
+
+\paragraph{Stammdaten}
+Stammdaten beschreiben die Produktstruktur, die Produktionsprozesse und die verfügbaren Kapazitäten. Die Parameter in den Stammdaten steuern zu einem großen Teil die Planungs- und Ausführungsprozesse. Aus diesen Gründen kommt den Stammdaten eine herausragende Bedeutung zu. Die Disziplin in der Pflege der Stammdaten kann für den Erfolg oder Misserfolg der Produktion entscheidend sein.
+
+Die wesentlichen Stammdaten der Produktionsplanung und -steuerung in SAP S/4HANA Cloud - Manufacturing sind der Materialstamm, die Stückliste, der Arbeitsplan und der Arbeitsplatz. Die Stückliste und der Arbeitsplan werden jeweils mit Bezug zu einem Material angelegt. Der Arbeitsplatz hat keinen direkten Bezug zum Materialstamm und kann in mehreren Arbeitsplänen verwendet werden.
+\autocite{Dickersbach.2014}
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics{img/Stammdaten.png}
+	\caption[Stammdaten für die Produktionsplanung und -steuerung in SAP S/4HANA Cloud]{\label{fig:stammdaten}Stammdaten für die Produktionsplanung und -steuerung in SAP S/4HANA Cloud 
+		% 	\autocite[In Anlehnung an][100]{Dickersbach.2014}}
+		\autocite[In Anlehnung an][]{Dickersbach.2014}}
+\end{figure}
+
+\textbf{\textit{Material}}
+Allgemein werden mit dem Material alle eingesetzten und erzeugten Leistungen eines Industriebetriebs bezeichnet. Ein Material kann aber auch eine gehandelte Ware sein.
+
+\textbf{\textit{Stückliste}}
+Die Stückliste enthält die Menge aller Komponenten, wie Baugruppe, Einzelteile und Rohstoffe, die für die Fertigung eines Enderzeugnisses oder einer Baugruppe notwendig sind, sowie in Abhängigkeit von der entsprechenden Stücklistenart die strukturellen Beziehungen der einzelnen Komponenten zueinander.
+
+\textbf{\textit{Arbeitsplatz}}
+Arbeitsplätze bilden die zentrale kapazitive Größe innerhalb der Produktionsplanung. Eine Kapazität ist das Leistungsvermögen, um eine bestimmte Aufgabe zu erfüllen. Einem Arbeitsplatz können mehrere Kapazitäten zugeordnet werden, die sich durch ihre Kapazitätsart unterscheiden.
+
+\textbf{\textit{Arbeitsplan}}
+Im Rahmen der Arbeitsplanung wird beschrieben, was hergestellt 
+wird und wie und womit es hergestellt werden soll.
+\autocite{Dickersbach.2014}
+
+\paragraph{Vorgehensweise}
+Um einen umfassenden Überblick über das ausgewählte Geschäftsszenario zu bekommen, wird der Ist-Zustand der zugehörigen Lösung inklusive der zugehörigen Stammdaten in diesem Kapitel detailliert beleuchtet. Der Leser soll dadurch ein Verständnis über den Prozessablauf, die Architektur und Benutzeranforderungen, gewinnen. Auf dieser Basis lassen sich Aspekte ableiten, die Optimierungsbedarf enthalten. Das Vorgehen einer formalen Anforderungsanalyse, in welcher \enquote{die Anforderungen an das zu entwickelnde System ermittelt, festgelegt, beschrieben, analysiert und verabschiedet werden}
+\autocite{Partsch.2010}
+, wird in diesem Kapitel konsequent verfolgt.
+
+Nach \citeauthor{Balzert.2011} beinhaltet eine Anforderungsanalyse folgende Unterkapitel:
+\begin{itemize}
+	\item Ausgangssituation
+	\item Gesamtsystemarchitektur
+	\item Funktionale Anforderungen
+	\item Nicht-funktionale Anforderungen
+	\item Lieferumfang
+	\item Abnahmekriterien
+	      \autocite{Balzert.2011}
+\end{itemize}
+
+Da bei Ermittlung des Ist-Zustandes schon eine zugehörige Lösung vorliegt, wird diese auf Schwachstellen und fehlende Funktionen geprüft, welche in einem zusätzlichen Unterkapitel Verbesserungspotential dokumentiert werden. 
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Auswahl eines Geschäftsszenarios}
+
+\subsection{Übersicht von Szenarien}
+In Bezug auf die Problemstellung haben sich drei Szenarien herauskristallisiert. 
+
+Diese unterscheiden sich vornehmlich in der Komplexität der Lösung. Der Kontext in der Produktionsplanung bleibt in jedem Fall identisch. Die Szenarien sind an die vorhandenen Lösungen angelehnt und verfolgen konsequent den Zukunftstrend Cloud und den damit verbundenen Vor- und Nachteilen.
+
+\paragraph{Geschäftsszenario A: Kapazitätsbedarfplanung}\mbox{}\\
+Es liegt in der Verantwortung des Produktionsplaners vor der Annahme eines Produktionsauftrags zu kontrollieren, ob im angeforderten Zeitraum genügend Kapazitäten zur Erfüllung des Produktionsauftrags verfügbar sind, um gegebenenfalls eingreifen zu können. Grundlage für die Ermittlung des Kapazitätsbedarfs sind die Vorgabewerte und Mengen in den Produktionsaufträgen. Über Formeln in den Arbeitsplätzen wird aus diesen Daten in der Kapazitätsplanung der Kapazitätsbedarf berechnet. 
+
+\paragraph{Geschäftsszenario B: Kapazitätsangebotsplanung}\mbox{}\\
+Ergibt sich während der Kapazitätsbedarfplanung ein Kapazitätsengpass, ist der Produktionsplaner dafür verantwortlich die Kapazitäten der Arbeitsplätze, die für den Kapazitätsengpass verantwortlich sind, anzupassen. Falls dies nicht möglich sein sollte oder der Produktionsplaner seiner Aufgabe nicht gerecht wird, kann der Produktionsauftrag nicht angenommen werden.
+
+\paragraph{Geschäftsszenario C: Materialbedarfsplanung}\mbox{}\\
+Im Rahmen der Materialbedarfsplanung bestimmt der Produktionsplaner die zur Erfüllung des angenommen Produktionsauftrags benötigten Bedarfe an Baugruppen, Einzelteilen und Rohstoffen. Dabei werden sowohl die erforderliche Menge als auch der Bedarfstermin festgelegt. Die geplanten Bedarfe sind gegen im Lager vorhandene Materialien, Einzelteile und Baugruppen aufzurechnen. Notwendige Voraussetzung zur Ermittlung dieser Informationen ist, dass der Produktionsplaner sowohl auf die Daten zu den Lagerbewegungen und Fertigungszuständen als auch auf die geplanten Aufträge Zugriff hat.
+
+\subsection{Multikriterienanalyse}
+Hinter dem Begriff Multikriterienanalyse verbirgt sich eine Menge an wissenschaftlichen Methoden, die häufig für eine Entscheidungsfindung bei Projekten herangezogen werden. Der Fokus wird bei diesen Methoden auf Projekte gelegt, die mit einer Mehrzahl an Anforderungen und Risiken charakterisiert werden. Die Methoden unterscheiden sich in ihrer eigenen Komplexität und Bewertungsmaßstäben. Zwei Komponenten haben sie jedoch immer gemeinsam: Bei der ersten Komponente handelt es sich um Szenarien, diese sind zwingend notwendig, um überhaupt eine Multikriterienanalyse durchführen zu können. Die zweite Komponente sind Bewertungskriterien, an denen die vorher aufgeführten Szenarien gemessen werden. 
+\autocite{Velasquez.2013}
+
+In Ihrer Arbeit zum Thema \citetitle{Velasquez.2013} evaluieren \citeauthor{Velasquez.2013} die einzelnen Analysemethoden hinsichtlich ihrer Zweckmäßigkeit. Aufgrund der klaren Struktur, ist die Analytic-Hierarchy-Process-Methode bei einer überschaubaren Anzahl an Szenarien zu empfehlen. Zunächst einmal gilt es die Kriterien zu kategorisieren und in Unterkriterien zu untergliedern. So erhält man eine Matrix mit Kriterien, die auf elementarer Ebene heruntergebrochen ist. 
+
+Eine Kombination unterschiedlicher Kriterien wird eingesetzt, um sowohl die Anforderungen an Unternehmensanwendungen nach \citeauthor{Balzert.2011}, als auch die \ac{SaaS}-Eignungskriterien nach \citeauthor{Klein.2010} zu gewährleisten. Dadurch ergeben sich folgende Kriterien:
+
+\begin{itemize}
+    \item \textit{\textbf{Prozessmehrwert}}
+    von \ac{IT} bezieht sich auf die Leistungs- und Effizienzeffekte der Informationstechnologie sowohl auf Prozessebene als auch auf Kundenebene.
+    \item \textit{\textbf{Prozessumfang}}
+    wird bei ausgeprägter Komplexität des Szenarios als Zusatzaufwand angesehen und damit als negativ zu bewertet.
+    
+    \item \textit{\textbf{Schnittstellenkomplexität}}
+    bezeichnet die Anzahl und Form der benötigten Schnittstellen. Je mehr Schnittstellen eine Anwendung benötigt, desto höher ist der Aufwand für deren Migration und Pflege. Je standardisierter eine Schnittstelle ist, beispielsweise durch Microservices, desto geringere Anpassungskosten fallen an. 
+    
+    \item \textit{\textbf{Sicherheit}}
+    ist bei \ac{SaaS}-Entscheidungen oftmals ein kritischen Thema. Je sensibler die Daten sind, desto eher wird auf \ac{SaaS} verzichtet. Einer der Gründe dafür ist der bei einer \ac{SaaS}-Auslagerung oft unklare Ort der Datenspeicherung.
+    
+    \item \textit{\textbf{Zeitlimitation}}
+    hat eine hohe Priorität, da die Arbeit innerhalb eines vorgegebenen Zeitrahmens von 3 Monaten abzuschließen ist. Daher hat jeder zusätzliche Aufwand einen negativen Einfluss auf dieses Kriterium. 
+    \autocite{Balzert.2011}
+    \autocite{Klein.2010}
+\end{itemize}
+
+Die Szenarien werden nun den jeweiligen Kriterien gegenübergestellt. Bei positiver Einhaltung der Kriterien wird eine Verbindung zwischen Kriterien und Szenario gezogen. Die Anzahl der Verbindungen wird schlussendlich zusammengefasst und ein Fazit in Bezug auf die Entscheidungsfindung gezogen. Bei der Anwendung werden die Kriterien individuell gewichtet. Dabei kommt es im Wesentlichen darauf an, ob die Einhaltung der Kriterien maßgeblich zum Erfolg der Arbeit beitragen würde. Um die Gewichtung vorzunehmen, werden die Kriterien in Paaren gegeneinander abgewägt. 
+
+\newpage
+Daraus ergibt sich folgendes Schaubild:
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/ahp2.png}
+	\caption[Anwendung der Analytic-Hierarchy-Process-Methode]{\label{fig:ahp}Anwendung der Analytic-Hierarchy-Process-Methode
+	}
+\end{figure}
+
+Wie in Abbildung \ref{fig:ahp} zu sehen ist, wurden die Kriterien in zwei Ebenen (L1 -L2) aufgeteilt. Die oberste Ebene ist unterteilt in die Kriterien Prozess, Schnittstellen, Zeitlimit und Risiken. Dabei ist zu beachten, dass die Erfüllung der Subkriterien Mehrwert und Sicherheit als positiv zu bewerten sind, während die Erfüllung der Subkriterien von Umfang und Komplexität als Zusatzaufwand und damit als negativ zu bewerten sind. Deswegen sind auch das Kriterium Zeitlimit und das Subkriterium Komplexität mit einer vergleichsweise hohen Gewichtung zu bewerten, da die Arbeit einen fest definierten Arbeitszeitraum einzuhalten hat.
+
+\newpage
+Aus der vorangegangenen Analyse ergeben sich die folgenden Ergebnisse:
+\begin{table}[H]
+	\centering
+    \begin{tabular}{|l|c|c|c|}
+    	\hline
+    	\diagbox{Kriterien}{Szenario}                    & A & B & C \\
+    	\hline
+    	\multicolumn{4}{l}{\textbf{Prozess}} \\
+    	\hline
+    	Mehrwert \textbf{\textcolor{ForestGreen}{+1}}    & X  &  X &  X \\
+    	\hline
+    	Umfang \textbf{\textcolor{red}{-1}}  &   &   & X  \\
+    	\hline
+    	\multicolumn{4}{l}{\textbf{Schnittstellen}} \\
+    	\hline
+    	Komplexität \textbf{\textcolor{red}{-3}}    & X  &   &  X \\
+    	\hline
+    	\multicolumn{4}{l}{\textbf{Zeitlimit}} \\
+    	\hline
+    	Zeitlimit \textbf{\textcolor{ForestGreen}{+3}}    & X  &  X &   \\
+    	\hline
+    	\multicolumn{4}{l}{\textbf{Risiken}} \\
+    	\hline
+    	Sicherheit \textbf{\textcolor{ForestGreen}{+1}}        & X  &  X & X  \\
+    	\hline
+    	\hline
+    	\textbf{Resultat}                                   &  2 &  5 & -2  \\
+    	\hline
+    \end{tabular}
+	\caption{\label{tab:Multikriterienanalyse}Resulat der Multikriterienanalyse}
+\end{table}
+
+Die Analytic-Hierarchy-Process-Methode zeigt, dass Szenario B im vorgegebenen Rahmen am geeignetsten ist. Obwohl die Szenarien A und C ebenso relevant in der Produktionsplanung sind, übersteigt der benötigte Aufwand der beiden Szenarien den möglichen Umfang der Arbeit. Szenario C würde zum aktuellen Stand vermutlich die meisten Kunden von der Erweiterbarkeit überzeugen, da beinahe sämtliche Produktionsplanung-\ac{API}s zur Stammdatenpflege zum Einsatz kommen und komplex verknüpft werden müssten. Auch wenn der Umfang des Prozesses bei Alternative B deutlich geringer ist, so werden immernoch drei der Produktionsplanung-\ac{API}s verwendet.
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Durchführung User Research}
+\subsection{Persona}
+Die Durchführung der User Research beginnt in diesem Kontext mit der Identifizierung der entsprechenden Benutzerzielgruppe, der Persona, und geht dann zur Definition des umzusetzenden Use Cases über.
+
+Für die Arbeit lautet der Name der Persona \textit{Peter Planermann}. Diese lag vor Arbeitsbeginn noch nicht vor und wird in Anlehnung an das ausgewählte Szenario genauer definiert. Die beschriebene Persona beruht auf den Ausarbeitungen von \citeauthor{Dickersbach.2014}
+gemäß dem Buch \citetitle{Dickersbach.2014}.
+\autocite{Dickersbach.2014}
+
+Die Persona \textit{Peter Planermann} ist 48 Jahre alt und arbeitet als Produktionsplaner. In seinem bisherigen Berufsverlauf konnte er viele Erfahrungen und Kenntnisse in den Bereichen Kapazitätsplanung und Digitalisierung erwerben. Zum Thema Digitalisierung vertritt er folgende Position: 
+
+\epigraph{
+\centering
+\enquote{Automation soll Arbeit erleichtern, nicht wegnehmen.}
+}{--- \textit{Peter Planermann}}
+
+Seine Hauptaufgabenbereiche liegen in der Überwachung und Planung der Produktionsaufträge, der Begleitung bei der Umsetzung von Produktionsprozessen, als auch in der Gestaltung von mitarbeiterfreundlichen und gleichzeitig produktivitätssteigernden Prozessen. Peters technische Affinität ist seine wesentliche Stärke. \textit{Peter Planermann} versucht mit der ständigen Verbesserung der Arbeitsprozesse seiner Mitarbeiter stets ein hohes Maß an Zufriedenheit sicherzustellen, einen reibungslosen Ablauf der Produktionsaufträge in der Fertigung zu gewährleisten, als auch die Produktionsprozesse effektiv und vor allem effizient zu handhaben.
+
+Im Umgang mit \ac{IT}-Anwendungen bevorzugt \textit{Peter Planermann} sowohl eine intuitive Benutzeroberfläche mit einheitlichem Zugangspunkt, einen effizienten Prozess, als auch alle relevanten Informationen auf einen Blick. Darüber hinaus bevorzugt er die Möglichkeit repetitive Aufgaben weitestgehend zu automatisieren, die verfügbaren Kapazitäten und Produktionsaufträge so auf die Zeit zu verteilen, dass die Bedarfsmengen möglichst genau abgedeckt werden und keine Engpässe an den Arbeitsplätzen entstehen können. 
+
+Im Abschnitt 3.2.2 wird das entsprechende Anwendungsszenario (Use Case) dargestellt, in welchem \textit{Peter Planermann} zur Bearbeitung bestimmter Aufgaben und zur Erreichung relevanter Ziele agieren wird.
+
+\subsection{Use Case}
+
+Die Grundlage des Use Cases liegt, basierend auf der beschriebenen Ausgangssituation des Scope Items \citetitle{SAPBestPracticesExplorer.2018} aus dem \citeauthor{SAPBestPracticesExplorer.2018} vor und wird in der vorliegenden Arbeit verwendet und vertieft. 
+
+Gegenstand der Ausgangssituation ist die Auswertung der Kapazitätsauslastung, sowie die Erkennung von Engpässen an Arbeitsplätzen. Nachdem die Kapazitätsbelastung und der Kapazitätsbedarf ausgewertet sind, muss, falls Engpässe an Arbeitsplätzen identifiziert wurden, das Kapazitätsangebot geändert werden, um die Anforderungen der Produktionsaufträge zu erfüllen. \autocite{SAPBestPracticesExplorer.2018}
+
+Das folgende Aktivitätsdiagramm soll die Ausgangssituation in einem in SAP S/4HANA-Cloud-System zusätzlich veranschaulichen:
+\begin{figure}[H]
+	\centering \fbox{
+	\includegraphics[width=\textwidth]{img/Ausgangslage2.png}
+	}
+	\caption[Ausgangssituation]
+	{\label{fig:Ausgangssituation} Ausgangssituation in Anlehnung an 
+	\autocite{SAPBestPracticesExplorer.2018}}
+\end{figure}
+
+Mit dem in Kapitel 3.2.2 ausgewählten Geschäftsszenarios (Use Case) versucht \textit{Peter Planermann} die Engpässe an den betreffenden Arbeitsplätzen zu beheben. Hierzu müssen Modifikationen an den Kapazitätsangeboten der Arbeitplätze vorgenommen werden. Ausgangspunkt für die Definition des Kapazitätsangebots ist die Arbeitszeit an einem Arbeitsplatz. Sie wird durch Arbeitsbeginn und Arbeitsende festgelegt. Die Arbeitszeit kann jedoch nicht vollständig für die Produktion genutzt werden.
+\autocite{Dickersbach.2014}
+
+Die Arbeitszeit berechnet sich wie folgt aus der Differenz von Beginn und Ende der Arbeitszeit, sowie der Pausendauer: 
+
+\begin{equation*}
+   Arbeitszeit=(\text{Arbeitsende}\bumpeq\text{Arbeitsbeginn})-Pausendauer
+\end{equation*}
+
+Neben der Arbeitszeit, bestimmen der Nutzungsgrad und die Anzahl der Einzelkapazitäten die tatsächlich verfügbare Kapazität:
+\begin{equation*}
+   Kapazitätsangebot=Arbeitszeit\times\text{Anzahl der Einzelkapazitäten}\times\frac{Nutzungsgrad}{100}
+\end{equation*}
+
+Der Produktionsplaner \textit{Peter Planermann} kann das Kapazitätsangebot durch manuelle Änderungen dieser Variablen ausbalancieren, um anstehende Engpässe in seinem Verantwortungsbereich zu beheben. Hierzu will er die betreffenden Arbeitsplatzkapazitäten auswählen und neue/modifizierte Schichten für den benötigten Zeitraum einpflegen.
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Durchführung Storyboard}
+Der Entwurf des Storyboards gestaltet sich weitestgehend aus dem Use Case heraus. Die in dem Anwendungsszenario enthaltenen Handlungsströme galt es zunächst zu separieren und strukturieren. Hierzu lag der Fokus zu Beginn auf dem Entwurf von Skizzen, welche die einzelnen Handlungen, wie zum Beispiel die Auswahl aller betreffenden Arbeitsplätze, in grober Form abbilden. Nach einigen Iterationen wurden die Skizzen sukzessive zu Wireframes weiterentwickelt und erweitert. Wireframes sind eine vereinfachte Darstellung von Anwendungen und Interaktionen. \autocite{Moser.2012}
+
+Der Entwurf der Wireframes erfolgte mit dem Wireframe-Werkzeug \textit{Balsamiq}, welches aufgrund der Empfehlung eines internen Kollegen ausgewählt wurde. Die Vorteile von \textit{Balsamiq} liegen einerseits darin, dass die Handhabung des Programms sehr einfach gehalten und die Einarbeitung mit einem geringen Zeitaufwand verbunden ist. 
+
+Nach Beendigung des Gestaltungsprozesses galt es, die Wireframes in eine geeignete Reihenfolge zu bringen, sodass inhaltlich eine Geschichte entsteht. Hierzu wurde zu den Screens jeweils eine kurze Beschreibung hinzugefügt, um den Ablauf der Handlung sowohl bildhaft als auch textuell zu skizzieren. Der Entwurf des Storyboards stellte im Kontext der Arbeit einen sehr entscheidenden Prozess dar, da diese Handlung als das Fundament des Anwendungprozesses genutzt wird.
+
+Im weiteren Verlauf des Abschnitts 3.4 wird die eigentliche Handlung in Form eines Storyboards näher erörtert. Diese beginnt mit dem Erhalt einer Auswertung der aktuellen Kapazitätsauslastung als Benachrichtigung und endet mit der Anpassung des Kapazitätsangebots bestimmter Arbeitsplätze.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/story_0.png}
+	\caption[Benachrichtigung über aktuelle Kapazitätsauslastung]{\label{fig:story1}Benachrichtigung über aktuelle Kapazitätsauslastung
+	}
+\end{figure}
+
+\textit{Peter Planermann} wird über die aktuelle Auswertung der Kapazitätsauslastung informiert. Er liest die Benachrichtigung und realisiert seinen Handlungsbedarf. Er klickt gemäß Abbildung \ref{fig:story1} auf \enquote{OK} und beginnt mit der Selektion der zu modifizierenden Arbeitsplätze. Nach Beendigung der Selektion betätigt er den Button \enquote{Kapazitätsangebote anpassen} und wird weitergeleitet (siehe Abbildung \ref{fig:story2}).
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/story_1.png}
+	\caption[Bearbeitungsmaske für dier Modifikation]{\label{fig:story2}Bearbeitungsmaske für dier Modifikation
+	}
+\end{figure}
+
+Es erscheint eine Bearbeitungsmaske für die Modifikation der ausgewählten Arbeitsplatzkapazitäten auf dem Screen. \textit{Peter Planermann} stellt den Gültigkeitszeitraum ein, der für die Bearbeitung des Produktionsauftrags XYZ nötig ist und klickt auf den Button \enquote{Weiter}. Anschließend konfiguriert er die benötigten Schichten die im Kapazitätsangebot gültig sein sollen. Im Falle einer erfolgreichen Validierung betätigt er den Button \enquote{Speichern}.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/story_2.png}
+	\caption[Erfolgsmeldung nach Speichern]{\label{fig:story3}Erfolgsmeldung nach Speichern
+	}
+\end{figure}
+
+\textit{Peter Planermann} wird über Erfolg oder Misserfolg der Änderung benachrichtigt. Die Kapazitätsangebote sind angepasst worden und der Prozess kann als abgeschlossen betrachtet werden.
+
+
+
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Anforderungsanalyse des Ist-Zustands}
+\subsection{Ausgangssituation}
+Ähnlich wie bei dem Bau eines Hauses ist es notwendig, den Bauplan der zu entwickelnden Software vorher genauestens zu definieren und zu analysieren. Oftmals kommt es vor, dass Entwicklungsprojekte abgebrochen oder verlängert werden müssen, weil die Erwartungen des Auftraggebers sich nicht mit der tatsächlichen Entwicklung decken. Das führt zu erhöhtem Kosten- und Zeitaufwand, die bei einem Projekt unbedingt zu vermeiden sind. Eine fundierte Anforderungsanalyse macht eine enge Abstimmung von Auftragnehmer und Auftraggeber unumgänglich. 
+\autocite{Booch.2006}
+
+Für eine Anforderungsanalyse steht eine Vielzahl an Methoden zur Auswahl. Um das Verhalten der Software zu modellieren, ist ein Aktivitätsdiagramm gemäß UML empfehlenswert. 
+\autocite{Booch.2006} 
+Um ein tieferes Verständnis für den Ist-Prozess zu gewinnen, ist es des Weiteren notwendig eine Prozessbeschreibung zu verfassen. Diese beschreibt genau, welcher Input akzeptiert wird und was der erwartete Output des Prozesses ist. Auch bei einer Verbesserung, Erweiterung oder Neuentwicklung der Software muss der erwartete Output vergleichbar sein, um die Zielsetzung des Prozesses zu verfolgen. 
+
+Weiterhin soll eine Übersicht der Gesamtarchitektur einen Einblick aus technischer Sicht gewähren. Nach der gründlichen Beleuchtung der Architektur werden die identifizierten Verbesserungspotentiale benannt und kurz erläutert.
+
+\paragraph{Darstellung des Ist-Aktivitätsdiagramms} Um den Prozess überhaupt anzustoßen, ist die Initiative des Produktionsplaners gefragt. Dieser muss sich für eine Modifikation der Kapazitätsangebote von Arbeitsplätzen entscheiden. Als erfolgreich kann der Prozess erst dann deklariert werden, wenn der Produktionsplaner als Output eine neue Kapazitätsauslastung erhält bei der keine Engpässe existieren. Eine Aufschlüsselung des Prozesses nach Aktivitäten ist in Tabelle \ref{tab:aktivitäten} zu sehen.
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=\textwidth]{img/ppv.png}
+	\caption[Ist-Aktivitätsdiagramm]
+	{\label{fig:prozess_vorher} Ist-Aktivitätsdiagramm}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		Auslöser                                     &   
+		Der Produktionsplaner möchte Engpässe an betroffenen Arbeitsplätzen durch Modifikationen an Kapazitätsangeboten beheben. \\ 
+		\hline\hline
+		Input                                         &   
+		Handlungsbedarf durch die Auswertung der Kapazitätsauslastung \\ 
+		\hline\hline
+		Aktivitäten &   
+		\begin{minipage}{5in}
+		\begin{enumerate} 
+		\renewcommand{\labelenumi}{(\arabic{enumi})}
+		\item Starten der Anwendung
+		\item Iterative Vorgehensweise bis zur Zielerreichung:
+    		\begin{enumerate} 
+    		\renewcommand{\labelenumi}{(\arabic{enumi})}
+    		\item Wahl einer Arbeitsplatzkapazität
+    		\item Erstellung einer Angebotskapazität
+    		\item Festlegung eines Gültigkeitszeitraums
+    		\item Pflege von Schichten in der Angebotskapazität
+    		\item Speichern der Änderungen
+    		\end{enumerate}
+    	\item Ende des Prozesses
+		\end{enumerate}
+		\vspace{1pt}		\end{minipage} \\
+		\hline\hline
+		Output                                        &   
+		Modifizierte Kapazitätsangebote von Arbeitsplätzen  \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:aktivitäten}Ist-Prozessbeschreibung }
+\end{table}
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Gesamtsystemarchitektur}
+Wie in Abbildung \ref{fig:architektur_vorher} veranschaulicht, besteht die Ist-Architektur zum aktuellen Zeitpunkt aus zwei Schichten. Eine Schicht beinhaltet den Produktionsplaner und die dazugehörigen \ac{IT}-Geräte und auf der anderen Schicht befindet sich die Applikation eines S/4HANA Cloud System, das in einer Public Cloud gehostet wird. Die Architektur garantiert laut dem \citetitle{sla.2018} der \citeauthor{sla.2018} eine Systemverfügbarkeit von 99,5 \% pro Monat. 
+\autocite{sla.2018} 
+
+Benutzer können via eines externen Zugriffs über das SAP S/4HANA Cloud Launchpad auf die Cloud-Anwendungen des Systems zugreifen. Dabei werden dem Benutzer fest definierte Schnittstellen und Prozesse vorgegeben. Diese können vom Benutzer in der Standardsoftware nicht modifiziert werden. 
+
+\begin{figure}[H]
+	\centering 
+	\includegraphics[width=0.5\textwidth]{img/AR_Architektur_Vorher.png}
+	\caption[Ist-Architektur ]
+	{\label{fig:architektur_vorher}Ist-Architektur }
+\end{figure}
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Verbesserungspotential}
+Bei der Betrachtung des Aktivitätsdiagramms und der Architektur konnten einige Probleme festgestellt werden. Stand jetzt müsste jeder beliebige Benutzer, unabhängig von individuellen Anforderungen, den vorgeschriebenen Prozess nutzen. Da es sich bei der Stammdatenpflege, um höchst spezifizierte Prozesse handelt, ist es wichtig sicherzustellen, dass eine Möglichkeit zur Konfiguration oder Modifikation gewährleistet wird.(siehe VP1 in Tabelle \ref{tab:potentiale}) Außerdem fällt auf, dass der im Aktivitätsdiagramm dargestellte Prozess durch die iterative Vorgehensweise, welche den Prozess ineffektiv macht, nicht für das Geschäftsszenario optimiert ist. (siehe VP2).
+
+In Anhang A sind Screenshots der aktuellen Anwendung in einem S/4HANA Cloud System zu sehen. In Screenshot \ref{fig:alt4} ist erkennbar, dass die Daten nicht benutzerfreundlich visualisiert werden (siehe VP3). In wenigen Fällen werden diese unzureichend oder nicht erklärt. Obwohl mit einem strukturierten Stammdatenmodell gearbeitet wird, existieren in der Anwendung Probleme die Stammdaten intuitiv für die Visualisierung aufzubereiten. Somit ist anzunehmen, dass das Stammdatenmodell für eine benutzerfreundliche Oberfläche unausgereift ist (siehe VP4).
+
+Weiterhin liegt keine Funktion vor, die vom Benutzer getätigte Eingaben auf Validität überprüft (siehe VP5). Dieser muss also regelmäßig manuell prüfen, ob seine Eingaben valide sind. Schließlich fällt auf, dass keine Möglichkeit vorhanden ist, auf einen Blick zu überprüfen, welche Daten überhaupt modifiziert wurden (siehe VP6).
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		ID  &   
+		Beschreibung  \\ 
+		\hline\hline
+		VP1 &   
+		Keine Modifikationsmöglichkeiten  \\ 
+		VP2 &   
+		Unausgereifter Prozessablauf \\ 
+		VP3 &   
+		Mangelhafte Bedienbarkeit  \\ 
+		VP4 &   
+		Kontraintuitives Stammdatenmodell  \\ 
+		VP5 &   
+		Keine Überprüfung der Validität der Eingaben  \\ 
+		VP6 &   
+		Kein Überblick über getätigte Modifikationen  \\ 
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:potentiale}Verbesserungspotentiale des Ist-Systems}
+\end{table}
+
+% 
+% 
+% 
+% 
+% 
+% 
+\newpage
+\section{Lieferumfang}
+Abgeleitet von den in Kapitel 3.5.3 aufgezeigten Verbesserungspotentialen und den Ergebnissen der Ist-Analyse, werden die einzelnen Aspekte innerhalb des Lieferumfangs in die Kategorie \textit{in-scope}, dem zu erfassenden Bereich, sowie der Kategorie \textit{out-of-scope}, also alle Punkte, die außerhalb des Lieferumfangs liegen, eingeordnet.
+
+\paragraph{In-Scope}
+Folgende Inhaltspunkte werden in dieser Arbeit näher beleuchtet konzipiert und evaluiert:
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		ID  &   
+		Beschreibung  \\ 
+		\hline\hline
+		IS1 &   
+		Umsetzung des ausgewählten Szenarios mit optimiertem Prozess  \\ 
+		IS2 &   
+		Simplifiziertes Stammdatenmodell etablieren  \\ 
+		IS3 &   
+		Aufsetzen einer Erweiterung als Cloud-Anwendung   \\ 
+		IS4 &   
+		Gewährleistung einer hohen Benutzerfreundlichkeit der Benutzeroberfläche  \\ 
+		IS5 &   
+		Implementierung einer Authentifizierungsmechanismus \\ 
+		IS6 &   
+		Implementierung einer Validierungsfunktion \\ 
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:scope}In-Scope}
+\end{table}
+
+\paragraph{Out-of-Scope}
+Ausgehend von Tabelle \ref{tab:scope} ergeben sich resultierend die Aspekte, welche in dieser Arbeit außerhalb des Erfassungsbereiches liegen. Gründe hierfür sind unter Anderem Zeitmangel und die höhere Komplexität einzelner Punkte. Zudem müssten manche Informationen extern oder unter nicht-vertretbarem Zeit- und Kostenaufwand eingeholt werden, um beispielsweise Aspekte wie die Datenschutzeregelungen zu evaluieren. Diese Aspekte sind im Folgenden aufgelistet:
+
+\begin{itemize}
+    \item Konzeption und Implementierung eines Rechtemanagements, um festzulegen, welche Daten in erster Linie modifiziert werden dürfen
+    \item Prüfung der legalen Regelungen im Bezug auf Datenschutz
+    \item Auswahl und Evaluation unterschiedlicher Cloud-Anbieter
+\end{itemize}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Anforderungen}
+Im Folgenden sind funktionale Anforderungen(\acs{FA}) und nicht-funktionale Anforderungen (\acs{NFA}) an die Erweiterung aufgeführt. Die \acs{FA} werden einer der zwei Klassifizierungen [SOLL] oder [MUSS] zugeordnet. 
+%
+Zusätzlich erfolgt eine Gruppierung in [Cloud-Anwendung], [Schnittstelle] und [Übergreifende Funktionalitäten] 
+%
+Die NFA sind, gemäß \citeauthor{ISO25063}, untergliedert in Leistungs- und Qualitätsanforderungen sowie Randbedingungen.
+\autocite{ISO25063}
+
+\subsection{Funktionale Anforderungen}
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l l X|} 
+		\hline
+		ID              &   
+		Klassifizierung &   
+		Beschreibung \\ 
+
+		\hline\hline
+		\multicolumn{3}{|l|}{Cloud-Anwendung} \\
+		\hline
+		FA1-1           &   
+		[MUSS]          &   
+		Bei Starten der Anwendung wird eine Authentifizierung des Clients durchgeführt  \\ 
+		FA1-2           &   
+		[MUSS]          &   
+	    Eine Arbeitsplatz-Liste wird angezeigt, die alle bisherigen Modifikationen an den Kapazitäten aus einer zeitlichen Planungsperspektive visualisiert\\ 
+		FA1-3           &   
+		[MUSS]          &   
+		Die Arbeitsplatzkapazitäts-Daten werden auf Knopfdruck aktualisiert  \\
+		FA1-4           &   
+		[MUSS]          &   
+	    Eine oder mehrere Arbeitsplatzkapazitäten können ausgewählt und modifiziert werden  \\
+	    FA1-5           &   
+		[MUSS]          &   
+	    Die Anwendung validiert die getätigten Eingaben des Benutzers, bevor ein Speichern möglich wird  \\ 
+		\hline
+		
+		\hline\hline
+		\multicolumn{3}{|l|}{Schnittstelle} \\
+		\hline
+		FA2-1           &   
+		[MUSS]          &   
+		Der Benutzer kann die Daten über die Schnittstellen zum S/4HANA Cloud System filtern und sortieren  \\ 
+		FA2-2           &   
+		[MUSS]          &   
+	    Daten können aus einem S/4HANA Cloud System geladen und an den Client gesendet werden  \\ 
+		FA2-3           &   
+		[MUSS]          &   
+		Daten können vom Client an ein S/4HANA Cloud System gesendet  \\
+		FA2-4           &   
+		[SOLL]          &   
+		Das Modifizierungen der Daten werden persistent gespeichert  \\ 
+		
+		\hline\hline
+		\multicolumn{3}{|l|}{Übergreifende Funktionalitäten} \\
+		\hline
+		FA3-1           &   
+		[SOLL]          &   
+		Die Anwendung zeigt Fehlermeldungen an, wenn eine der vorherigen Funktionalitäten nicht erfolgreich war  \\ 
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:anforderungen}Funktionale Anforderungen an das System}
+\end{table}
+% 
+% 
+% 
+% 
+% 
+% 
+\subsection{Nicht-funktionale Anforderungen}
+
+\paragraph{Leistungsanforderungen}
+\begin{itemize}
+    \item Die Responsezeit der Cloud-Anwendung liegt unterhalb einer Minute
+    \item Die Cloud-Anwendung weist eine hohe Verfügbarkeit von mindestens 99 \% auf
+    \item Die Cloud-Anwendung ist skalierbar und kann auch unter hoher Belastung (>100 Anfragen) adequat agieren
+    \item Die Cloud-Anwendung kann in allen gängigen Browsern fehlerfrei ausgeführt und angezeigt werden
+\end{itemize}
+\paragraph{Qualitätsanforderungen}
+\begin{itemize}
+    \item Die Cloud-Anwendung ist vor unbefugtem Zugriff durch technische Mechanismen geschützt
+    \item Fehler werden vom System erkannt, klassifiziert und an den Benutzer zurückgemeldet
+    \item Die Bedienung soll intuitiv sein und einen hohen Grad an Benutzbarkeit aufweisen
+    \item Bei Ausfall der Cloud-Anwendung ist das S/4HANA Cloud System nicht betroffen
+    \item Modifikationen werden bei vorzeitigem Abbruch, komplett zurückgesetzt
+    \item Klassen und Methoden sind unabhängig und können entsprechend leicht gewartet werden
+\end{itemize}
+\paragraph{Randbedingungen}
+\begin{itemize}
+    \item Die Standard Anwendungssprache ist Englisch.
+    \item Die Cloud-Anwendung interagiert nur mit dem verbundenen S/4HANA Cloud System
+    \item Die zu verwendenden Frameworks sind Java und SAPUI5
+    \item Eine ausreichend gute Dokumentation ist vorhanden, die es Personen, die nicht unmittelbar in die Entwicklung involviert waren, ermöglicht die Cloud-Anwendung zu warten
+\end{itemize}
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Abnahmekriterien}
+Resultierend aus dem erarbeiteten Konzept der Arbeit wird ein Prototyp entstehen der als Beispiel-Quellcode einen Mehrwert, sowie eine Orientierungshilfe für die Kunden und die Partner der SAP generieren soll. In diesem Rahmen soll der Prototyp auf dem \textit{SAP Extensibility Explorer} veröffentlicht werden. Der \textit{SAP Extensibility Explorer} bietet die Möglichkeit eine Liste von vorgefertigten Erweiterungsszenarien zu durchsuchen, die heruntergeladen und verwendet werden können. Jedes Beispiel umfasst eine Dokumentation, den Quellcode, die Architektur und den Prozessablauf. Die Szenarien sollen helfen, die technischen Aspekte der Erweiterung von SAP S/4HANA Cloud zu verstehen. Der Quellcode der Szenarien kann anschließend von Kunden als Vorlage zum Erstellen ähnlicher Erweiterungen verwendet werden. Die Abnahmekriterien die sich daraus für die Arbeit und den resultierenden Prototyp ergeben sind im Folgenden aufgelistet:
+\begin{itemize}
+    \item Versionsverwaltung durch ein GitHub-Respository
+    \item Dokumentation (inklusive Installationsanweisungen, Vorraussetzungen, Testskript)
+    \item Abnahme durch einen Entwickler (Software-Architekturpraktiken, Code-Smell)
+    \item \textit{Sample Code Publication Request} an die Rechtsabteilung (Umfasst Lizenzierung und Copyright)
+\end{itemize}

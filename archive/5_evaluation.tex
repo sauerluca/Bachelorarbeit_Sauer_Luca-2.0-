@@ -1,0 +1,113 @@
+\chapter{Evaluation der Arbeitsergebnisse}
+\section{Vorehensweise der Evaluation}
+Abschließend soll nun auf Grundlage der vorangegangenen Anforderungsanalyse und der Umsetzung der Lösungskonzepte, letztendlich auch ein Abgleich zwischen dem Soll- und Ist-Zustand gemacht werden. Es soll erkenntlich werden, ob die Realisierung der Lösungsvorschläge die Anforderungen tatsächlich erfüllen oder nicht. Dazu soll zu Beginn die Auswirkungen der Entwicklung auf das Design dargestellt werden. Dieses zeigt unmittelbar, ob die Entwicklung überhaupt eine Veränderung hervorgerufen hat. Im nächsten Schritt wird nochmals ein Gesamtüberblick über die Architektur, sowie das Aktivitätsdiagramm gegeben. Im letzten Schritt werden die funktionalen und nicht-funktionalen Anforderungen gegengeprüft, um schlussendlich eine Aussage zum Erfüllungsgrad des Konzepts machen zu können.
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Aktualisierte Gesamtsystemarchitektur}
+\subsection{Design}
+Das Ergebnis der Entwicklung erkennt der Benutzer zumeist an der Oberfläche und der tatsächlichen Anzeige. Aus diesem Grund soll in diesem Unterkapitel kurz gezeigt werden, inwiefern sich die Entwicklung auf das Design auswirkt. Die Auswahlmaske des ersten Screen der Ausgangssituation, wie sie in Screenshot \ref{fig:alt1} dargestellt ist, wurde ersetzt. An ihre Stelle tritt eine benutzerfreundlichere Visualisierung aller Arbeitsplatzkapazitäten (Screenshot \ref{fig:neu1}).
+
+Erst bei Auswahl einer oder mehrerer Arbeitsplatzkapazitäten und der anschließenden Betätigung des Buttons \enquote{Save}, wird die dazugehörige Bearbeitungsmaske für die ausgewählten Arbeitsplatzkapazitäten geladen (Screenshot \ref{fig:neu2}). Solange keine Eingaben getätigt oder Eingaben inkorrekt sind, scheitert die Validierung. Fehlermeldungen mit Hinweisen auf die Ursache erscheinen und der Benutzer ist nicht in der Lage zu speichern (Screenshot \ref{fig:neu3}). Sind alle Eingaben getätigt und validiert, ist der Benutzer in der Lage seine Modifikation zu sichern und bekommt Rückmeldung über Erfolg oder Misserfolg seines Vorhabens (Screenshot \ref{fig:neu4} und \ref{fig:neu5}).
+
+Das Design für die Übersicht und Bearbeitung ist, wie gefordert, schlicht und intuitiv. Es verschwindet wieder, sobald der Benutzer sich die Aktualisierung ansieht. Eine  Evaluierung und eine Testphase mit einem Endbenutzer wurden im Rahmen der Arbeit jedoch nicht umgesetzt. Zudem existieren weitaus mehr Alternativen bezüglich der Oberfläche, als das Design, das in dieser Arbeit wahrgenommen wurde. 
+
+\subsection{Aktivitätsdiagramme}
+Initial wurde der Prozess, wie in Abbildung \ref{fig:prozess_vorher} gezeigt, durch iterative Schritte ausgeführt. Mittlerweile kann der Prozess in einer Iteration abgeschlossen werden. Die Aktivitäten hierfür sind in Tabelle \ref{tab:aktivitäten_nachher} zusammengefasst. 
+Generell ist festzuhalten, dass der Prozess nach dem Konzept der \textit{Lean Production}, wie es von \citeauthor{Syska.2006} erklärt wird, nun effizienter sein sollte.
+\autocite{Syska.2006}
+Bei beiden Prozessen wird vorausgesetzt, dass eine erfolgreiche Authentifizierung vorliegt. Der Output bleibt weiterhin gleich: Der Produktionsplaner kann die Engpässe der betroffenen Arbeitsplätze, durch Modifikationen an deren Kapazitätsangeboten, beheben.
+
+\subsection{Architektur}
+Ausgangslage des Erweiterungskonzepts von SAP S/4HANA Cloud war die, in Abbildung \ref{fig:architektur_vorher}, vereinfacht visualisierte Architektur. Wie in Abbildung  \ref{fig:architektur_nachher} abgebildet, handelt es sich, um eine in Kapitel 2.3 angesprochene und in Kapitel 4 konzeptionierte Side-by-Side Erweiterung des Standards von SAP S/4HANA Cloud. Der Quellcode der entwickelten Cloud-Anwendung wird nun, entkoppelt vom SAP S/4HANA-Cloud-System, auf der SAP Cloud Platform entwickelt und bereitgestellt. Die verwendeten Frameworks sind Java, zur Entwicklung der betriebswirtschaftlichen Logik und SAPUI5, um eine übergreifende und einheitliche User Experience über die Applikationen von SAP S/4HANA Cloud bis hin zur Erweiterung zu gewährleisten.
+
+Wie aus der Abbildung hervorgeht, greift die Erweiterung ausschließlich über die betriebswirtschaftliche Logik auf das SAP S/4HANA-Cloud-System zu; das heißt beim Benutzen der für die Stammdatenpflege des Geschäftsszenarios benötigten Schnittstellen, in dem sie die Funktionalitäten der Microservices im \textit{SAP API Business Hub} in Anspruch nimmt. Die Authentifizierung des Benutzers ist immer der erste Berührungspunkt zwischen Cloud-Anwendung und Client. Es ist festzuhalten, dass nur bei einer erfolgreichen Authentifizierung des Clients, Zugang zu den weiteren Funktionen der Cloud-Anwendung gewährt wird. Die Schnittstelle zu \ac{API}s der Microservices, mit denen die Cloud-Anwendung kommuniziert, wurde auf der SAP Cloud Platform, mithilfe des \enquote{Connectivity}-Services, eingerichtet.
+% 
+% 
+% 
+% 
+% 
+% 
+\section{Soll-Ist-Vergleich}
+\subsection{Abgleich aller funktionalen Anforderungen}
+Die Umsetzung der Anforderungen, die in Kapitel 3 definiert wurden, sollen in einem Soll-Ist-Vergleich geprüft werden. Dabei sollen eventuelle Abweichungen identifiziert und der allgemeine Erfüllungsgrad des erarbeiteten Konzepts bestimmt werden. Die aufgenommenen funktionalen Anforderungen werden gegen die tatsächlich implementierten Funktionen abgewägt. Bei Überschneidungen, wird angenommen, dass diese funktionale Anforderung erfüllt ist. Identifizierte Abweichungen können in neuen Anforderungen resultieren, die für eine Weiterentwicklung relevant sein kann. 
+
+In Tabelle \ref{tab:eval} sind die einzelnen \acs{FA} aufgelistet. In der Spalte Umsetzung sind die Funktionen aufgeführt, in welchen die \acs{FA} erfüllt wurde. Ein Erfüllungsgrad gibt an, in welchem Ausmaß diese erfüllt wurde. Das  erfüllt 100\% aller als [MUSS] deklarierten funktionalen Anforderungen, die als [SOLL] deklarierte Anforderung wurde jedoch nicht umgesetzt.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l X l|} 
+		\hline
+		ID    &   
+		Umsetzung &
+		Erfüllungsgrad \\ 
+		\hline\hline
+		\multicolumn{3}{|l|}{Cloud-Anwendung} \\
+		\hline
+		FA1-1 &   
+		Identitiy Provider Tenant &
+		100\% \\ 
+		FA1-2 &   
+		Planungskalender in der Cloud-Anwendung &
+		100\% \\ 
+		FA1-3 &   
+		Aktualisierungs-Button &
+		100\% \\
+		FA1-4 &   
+		Selektionskästchen und Bearbeitungsmaske &
+		100\% \\
+		FA1-5 &   
+		Step-by-Step Wizard &
+		100\% \\
+		\hline\hline
+		\multicolumn{3}{|l|}{Schnittstelle} \\
+		\hline
+		FA2-1 &   
+		Filterbar im Planungskalender &
+		100\%  \\ 
+		FA2-2 &   
+		Funktionalität im Mikroservice schon vorhanden &
+		100\%  \\ 
+		FA2-3 &   
+		Funktionalität im Java-Quellcode vorhanden &
+		100\%  \\ 
+		FA2-4 &   
+		Funktionalität nicht vorhanden &
+		0\%  \\ 
+		\hline\hline
+		\multicolumn{3}{|l|}{Übergreifende Funktionalitäten} \\
+		\hline
+		FA3-1 &   
+		Fehlermeldungen werden an der Oberfläche ausgegeben &
+		100\%  \\ 
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:eval}Erfüllungsgrad der funktionalen Anforderungen}
+\end{table}
+
+\subsection{Abgleich aller nicht-funktionalen Anforderungen}
+An den Abgleich der \acs{FA} schließt sich der Abgleich der \acs{NFA} an. Diese können weniger genau bestimmt werden, da beispielsweise Metriken, wie Performance oder Systemausfallzeiten nicht bekannt sind. Es werden daher nur die \acs{NFA} betrachtet, zu denen eine aussagekräftige Annahme getroffen werden kann.
+
+\paragraph{Leistungsanforderungen}
+\begin{itemize}
+    \item Die Cloud-Anwendung wurde auf unterschiedlichen Endgeräten in allen gängigen Browsern ausgeführt. Die Ausführung war stets fehlerfrei und auch die Darstellungen korrekt.
+\end{itemize}
+\paragraph{Qualitätsanforderungen}
+\begin{itemize}
+    \item Durch die Einführung der Authentifizierung, ist das System vor unbefugtem Zugriff geschützt.
+    \item Fehler werden vom System erkannt, klassifiziert und in Form eines Logs auf der SAP Cloud Platform abgelegt. Da die Testphase nicht lange war und keine Endnutzer das System getestet haben wird davon ausgegangen, dass noch nicht alle Fehler abgefangen werden konnten.
+    \item Die Cloud-Anwendung erlaubt nur eine Visualisierung, der relevanten Stammdaten und der Benutzer wird durch einen Step-by-Step Wizard durch die nötigen Prozessschritte geführt.    
+    \item Die Cloud-Anwendung und die implementierten Funktionalitäten sind unabhängig von einem S/4HANA Cloud System. Bei Ausfall oder Fehler innerhalb dieser Funktionen, wird der Systemablauf des S/4HANA Cloud Systems nicht beeinträchtigt.
+    \item Modifikationen werden bei vorzeitigem Abbruch, komplett zurückgesetzt.
+    \item Die Klassen und Funktionen sind eindeutig benannt und können einzeln gewartet und modifiziert werden, ohne den restlichen Systemablauf zu beeinträchtigen.
+\end{itemize}
+\paragraph{Randbedingungen}
+\begin{itemize}
+    \item Die Standard Anwendungssprache ist Englisch.
+    \item Die Cloud-Anwendung interagiert nur mit dem verbundenen S/4HANA Cloud System.
+    \item Die verwendeten Frameworks sind Java und SAPUI5.
+    \item Eine sehr ausführliche Dokumentation ist vorhanden, da dies ein Abnahmekriterium nach Kapitel 3.8 darstellt.
+\end{itemize}
