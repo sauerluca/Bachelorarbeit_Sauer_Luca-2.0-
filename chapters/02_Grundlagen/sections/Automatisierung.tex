@@ -1,7 +1,7 @@
 \section{Automatisierung von Geschäftsprozessen}\label{sec:Automatisierung}
 Über Geschäftsprozesse lässt sich die Unternehmensstrategie mit den unterstützenden Informations- und Anwendungssystemen verknüpfen.
-In einem wirkungsvollen Unternehmensmanagement müssen demnach diese drei Ebenen der Strategie, der Geschäftsprozesse und der IT in ihrer Gesamtheit berücksichtigt werden.
-Insbesondere bei der IT-Unterstützung der operativen Geschäftsprozessausführung auf der unteren Ebene ist es vorteilhaft, die Kluft zwischen den realen Geschäftsprozessen und deren informationstechnischen Repräsentation möglichst klein zu halten.
+In einem wirkungsvollen Unternehmensmanagement müssen demnach diese drei Ebenen der Strategie, der Geschäftsprozesse und der \ac{IT} in ihrer Gesamtheit berücksichtigt werden.
+Insbesondere bei der \ac{IT}-Unterstützung der operativen Geschäftsprozessausführung auf der unteren Ebene ist es vorteilhaft, die Diskrepanzen zwischen den tatsächlichen Geschäftsprozessen und deren informationstechnischen Repräsentation möglichst gering zu halten.
 
 Der Einsatz von Modellierungsverfahren für Geschäftsprozesse ist ein angemessenes Mittel zur Verknüpfung der betriebswirtschaftlichen mit der informationstechnischen Perspektive.
 Da diese durch semiformale Notationsweisen sowohl komplexe Sachverhalte der Betriebswirtschaft systematisch unterstützt als auch die notwendige Genauigkeit für den Entwurf von Informationssystemen bietet.
@@ -28,14 +28,16 @@ Bei der Konzeption derartiger Geschäftsprozessmodelle wird das in Abbildung \re
        \arcarrow{179}{271}{Ausf{\"u}hrung}
     \end{tikzpicture}
     \caption[Phasenmodell bei der Automatisierung von Geschäftsprozessen]
-    {Phasenmodell des Lebenszyklus von Geschäftsprozessen\footnote{in Anlehnung an \author{Scheer.1991} \citeyear{Scheer.1991} \cite{Scheer.1991}} }
+    {Phasenmodell des Lebenszyklus von Geschäftsprozessen \protect\footnotemark}
     \label{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen}
 \end{figure}
+\footnotetext{in Anlehnung an \citeauthor{Scheer.1991} \citeyear{Scheer.1991} \cite{Scheer.1991} }
 
 Im ersten Schritt wird eine \ac{IT}-orientierte fachliche Ausgangslösung erstellt.
 Diese ergibt sich aus der eingehenden Analyse eines neuen oder existierenden Geschäftsprozesses, in Abbildung \ref{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen} im linken oberen Bereich veranschaulicht, durch die zunächst die grundsätzlichen Anforderungen des zu untersuchenden Geschäftsprozesses sichtbar gemacht werden. 
 Aus diesem Grund werden hier auch noch alle Perspektiven zusammen betrachtet.
-In der darauf folgenden Konzeptionsphase wird, auf Basis der zuvor erhobenen Anforderungen an einen Geschäftsprozess, dessen Modellierung auf fachlicher Ebene durchgeführt. Anschließend wird das Fachkonzept, unabhängig von Implementierungsgesichtspunkten, mit technischen Anforderungen an das Anwendungssystem angereichert, sodass es als Ausgangspunkt für eine konsistente softwaretechnische Implementierung dienen kann. 
+Die darauf folgenden Konzeptionsphase behandelt, auf Basis der zuvor erhobenen Anforderungen an einen Geschäftsprozess, dessen Modellierung auf fachlicher Ebene. 
+Anschließend wird das Fachkonzept, unabhängig von Implementierungsgesichtspunkten, mit technischen Anforderungen an das Anwendungssystem angereichert, sodass es als Ausgangspunkt für eine konsistente softwaretechnische Implementierung dienen kann. 
 Dabei wird jedoch noch kein Bezug zu plattformspezifischen Verarbeitungssprachen hergestellt. 
 Das technisch spezifizierte Konzept kann geändert werden, ohne dass dies Auswirkungen auf das Fachkonzept hat.
 Dies bedeutet jedoch nicht, dass Fachkonzept und technische Spezifikation isoliert voneinander entwickelt werden können. 
@@ -64,7 +66,7 @@ Auf diese Weise können Webservices beispielsweise aus einem Geschäftsprozess h
 Zur Änderung eines Geschäftsprozesses bedarf es dann lediglich einer Anpassung der Kontrollstrukturen mit veränderten Aufrufen der bestehenden oder zusätzlicher Webservices. 
 Die Schnittstelle zum Zugriff auf einen Webservice wird dabei mittels der vom W3C (World Wide Web Consortium) standardisierten Web Services Description Language (WSDL) auf XML-Basis spezifiziert.
 
-Ferner können auch von Menschen ausgeführte Geschäftsaktivitäten als Dienste gekapselt und mit IT-Schnittstellen ausgestattet werden, indem die Aufforderung zum Beginn der manuellen Aktivität durch eine geeignete IT-Ausgabe signalisiert wird, woraufhin der erfolgreiche Abschluss der manuellen Aktivität oder ein möglicherweise erforderlicher Abbruch wiederum durch eine IT- Eingabe quittiert wird. 
+Ferner können auch von Menschen ausgeführte Geschäftsaktivitäten als Dienste gekapselt und mit \ac{IT}-Schnittstellen ausgestattet werden, indem die Aufforderung zum Beginn der manuellen Aktivität durch eine geeignete \ac{IT}-Ausgabe signalisiert wird, woraufhin der erfolgreiche Abschluss der manuellen Aktivität oder ein möglicherweise erforderlicher Abbruch wiederum durch eine \ac{IT}-Eingabe quittiert wird. 
 Auf diese Weise ist auch die Integration manueller Aktivitäten in einen au- tomatisierten Geschäftsprozess möglich. 
 Hierfür existiert die Spezifikation Web Services Human Task (WS-HumanTask), die vom unabhängigen Standardisierungsgremium OASIS (Organization for the Advancement of Structured Information Standards) vereinheitlicht wird.
 
