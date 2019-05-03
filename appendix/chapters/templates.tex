@@ -71,15 +71,25 @@
 	}
 \end{figure}
 
-\begin{figure}[H]
+\begin{algorithm}[H]
 \centering 
-\lstinputlisting[style=JavaScriptStyle, caption=test.js]{code/test.js}
-\end{figure}
+\inputminted[linenos]{java}{code/test.java}
+\caption{test.java}
+\end{algorithm}
 
-\begin{figure}[H]
+\begin{algorithm}[H]
 \centering 
-\lstinputlisting[style=JavaStyle, caption=test.java]{code/test.java}
-\end{figure}
+% \lstinputlisting[style=JavaStyle, caption=test.java]{code/test.java}
+\inputminted[linenos]{js}{code/test.js}
+\caption{test.js}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+% \lstinputlisting[language=ABAP, caption=test.abap]{code/test.abap}
+\inputminted[linenos]{ABAP}{code/test.abap}
+\caption{test.abap}
+\end{algorithm}
 
 \begin{definitionForm}[Definition]
 Diese Hervorhebungen können für deine Arbeit an machen stellen sehr nützlich sein. Besonders bei Definitionen macht es einen guten Eindruck, wenn diese in solch einer Form dargestellt ist. 
@@ -133,19 +143,60 @@ DHBW Richtlinie: Laut den aktuellen Angaben der DHBW sind diese Boxen nicht notw
 		\textbf{Kriterium}  &   
 		\textbf{Beschreibung}  \\ 
 		\midrule
-		VP1 &   
+		OP1 &   
 		Keine Modifikationsmöglichkeiten  \\  \cmidrule(r){1-1} \cmidrule(r){2-2}
-		VP2 &   
+		OP2 &   
 		Unausgereifter Prozessablauf \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
-		VP3 &   
+		OP3 &   
 		Mangelhafte Bedienbarkeit  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
-		VP4 &   
+		OP4 &   
 		Kontraintuitives Stammdatenmodell  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
-		VP5 &   
+		OP5 &   
 		Keine Überprüfung der Validität der Eingaben  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
-		VP6 &   
+		OP6 &   
 		Kein Überblick über getätigte Modifikationen  \\
 	    \bottomrule
 	\end{tabularx}
-	\caption{\label{tab:potentiale}Verbesserungspotentiale des Ist-Systems}
+	\caption{\label{tab:potentiale}Optimierungspotenziale des Ist-Systems}
 \end{table}
+
+
+
+% \resizebox{\textwidth}{!}{%
+% \begin{tikzpicture}
+
+% % Fragestellungs
+% \node (goal) [goal] {Entwicklung eines dynamischen Gesch{\"a}ftsprozesses zur ereignisgesteuerten Betriebsdatenerfassung mit SAP S/4HANA Cloud};
+
+% % Wozu?
+% \node (wozu) [question, node distance=7cm and 0.5cm, above left=of goal] {Wohin?};
+% \draw [] (goal) |- (wozu);
+
+
+% % Einleitung
+% \node (einleitung)[main,draw,rectangle, minimum height = 6cm, node distance=0.5cm and 0.5cm, below=of wozu] {};
+
+% \node (Einleitung) at (einleitung.north) [anchor=north] {\ref{ch:einleitung} \nameref{ch:einleitung}};
+% \node (Motivation) [submain,below=of Einleitung] {Motivation}
+% \node (Problemstellung) [submain, below=of Motivation] {Problemstellung};
+% \node (Zielsetzung) [submain, below=of Problemstellung] {Zielsetzung};
+% \node (Vorgehen) [submain, below=of Zielsetzung] {Vorgehen};
+
+% \draw [->] (Motivation) -- (Motivation |- Problemstellung.north); 
+% \draw [->] (Problemstellung) -- (Problemstellung |- Zielsetzung.north); 
+% \draw [->] (Zielsetzung) -- (Zielsetzung |- Vorgehen.north); 
+% % \draw [->] (gui1) -- (gui1 |- pssub1.north); 
+
+% % Was?
+% \node (was) [question, node distance=6cm and 0.5cm, above right=of goal] {Was?};
+% \draw [] (goal) |- (was);
+
+% % Grundlagen
+% \node (grundlagen)[main,draw,rectangle, minimum height = 4cm, node distance=0.5cm and 0.5cm, below=of was] {};
+
+% \node (Grundlagen) at (grundlagen.north) [anchor=north] {\ref{ch:Grundlagen} Stand der Wissenschaft und Technik};
+% \node (Automatisierung) [submain,below=of Grundlagen] {Automatisierung von Gesch{\"a}ftsprozessen};
+% \node (pssub2) [submain, below=of Automatisierung] {};
+
+% \end{tikzpicture}
+% }%

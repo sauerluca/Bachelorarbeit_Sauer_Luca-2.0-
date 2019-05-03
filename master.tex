@@ -18,18 +18,24 @@
 %% BITTE GEBEN SIE HIER DEN TITEL UND DIE AUTORIN / DEN AUTOR DER ARBEIT AN!
 %% DIESE INFORMATIONEN _MÜSSEN_ GESETZT SEIN, UM TITELBLATT, ABSTRACT UND
 %% EIGENSTÄNDIGKEITSERKLÄRUNG AUTOMATISCH ANZUPASSEN!
-\TitelDerArbeit{Entwicklung eines dynamischen Geschäftsprozesses zur ereignisgesteuerten Betriebsdatenerfassung in SAP S/4HANA Cloud}
+\TitelDerArbeit{Entwicklung eines dynamischen Geschäftsprozesses zur ereignisgesteuerten Betriebsdatenerfassung mit SAP S/4HANA Cloud}
 \AutorDerArbeit{Luca Sauer}
 \Firma{SAP SE}
 \Kurs{WWI-16-SC-B}
 
-\input{titlepage}
+\input{titlepage} 
+
 
 \normalfont
 \setlength\epigraphwidth{0.8\textwidth}
 \setlength\epigraphrule{0pt}
 \renewcommand{\epigraphflush}{center}
 
+
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\counterwithin{figure}{chapter}
+\counterwithin{algorithm}{chapter}
 %--------------------------------
 % Verzeichnisse - nicht benötige Verzeichnisse bitte auskommentieren / löschen.
 %--------------------------------
@@ -60,10 +66,10 @@
 \listoftables
 
 %	Listingsverzeichnis
-\lstlistoflistings
+% \lstlistoflistings
 
 % 	Algorithmenverzeichnis
-% \listofalgorithms
+\listofalgorithms
 
 
 
@@ -84,6 +90,10 @@
 \ihead{} % Neue Header-Definition
 \printbibliography[title=Literaturverzeichnis]
 \counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+\counterwithin{figure}{chapter}
+\counterwithin{algorithm}{chapter}
+
 
 \cleardoublepage
 % Der Anhang beginnt hier - jedes Kapitel wird alphabetisch aufgezählt. (Anhang A, B usw.)
