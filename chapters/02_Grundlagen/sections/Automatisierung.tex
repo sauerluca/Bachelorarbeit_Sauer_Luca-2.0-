@@ -3,21 +3,42 @@
 In einem wirkungsvollen Unternehmensmanagement müssen demnach diese drei Ebenen der Strategie, der Geschäftsprozesse und der \ac{IT} in ihrer Gesamtheit berücksichtigt werden.
 Insbesondere bei der \ac{IT}-Unterstützung der operativen Geschäftsprozessausführung auf der unteren Ebene ist es vorteilhaft, die Diskrepanzen zwischen den tatsächlichen Geschäftsprozessen und deren informationstechnischen Repräsentation möglichst gering zu halten.
 
-Der Einsatz von Modellierungsverfahren für Geschäftsprozesse ist ein angemessenes Mittel zur Verknüpfung der betriebswirtschaftlichen mit der informationstechnischen Perspektive.
-Da diese durch semiformale Notationsweisen sowohl komplexe Sachverhalte der Betriebswirtschaft systematisch unterstützt als auch die notwendige Genauigkeit für den Entwurf von Informationssystemen bietet.
-Ein Modell repräsentiert dabei im Allgemeinen eine Repräsentanz eines Ausschnittes der realen Welt, im konkreten Fall die Abbildung eines existenten Geschäftsprozesses, die entweder in Gestalt eines Ist-Modells die derzeitige Situation oder in der Ausprägung eines Soll-Modells eine potenziell angestrebte Möglichkeit darstellt.
+Der Einsatz von Verfahren zur geschäftsprozessorientierten Systemgestaltung wird als adäquates Mittel zur Verknüpfung der betriebswirtschaftlichen mit der informationstechnischen Perspektive angesehen, da derart Verfahren durch semiformale Notationsweisen sowohl komplexe Sachverhalte der Betriebswirtschaft systematisch unterstützten als auch die notwendige Genauigkeit für den Entwurf von Informationssystemen bieten.
+Ein Geschäftsprozessmodell repräsentiert dabei im Allgemeinen eine Repräsentanz eines Ausschnittes der realen Welt, im konkreten Fall die Abbildung eines existenten Geschäftsprozesses, die entweder in Gestalt eines Ist-Modells die derzeitige Situation oder in der Ausprägung eines Soll-Modells eine potenziell angestrebte Möglichkeit darstellt.
 
-Mit der Geschäftsprozessmodellierung werden verschiedene Einsatzzwecke verfolgt.
+Mit der Modellierung von Geschäftsprozessen werden verschiedene Einsatzzwecke verfolgt.
 Dies betrifft zum einen die organisatorische Gestaltung, beispielsweise zur Dokumentation, Reorganisation oder Optimierung von strategischen und operativen Geschäftsprozessen. 
-Auf der anderen Seite können, durch das Zusammenfügen der betriebswirtschaftlichen mit der informationstechnischen Perspektive, Anwendungssysteme konstruiert werden, welche für die Automatisierung von Geschäftsprozessen eine entscheidende Rolle spielen.
-Um ein Geschäftsprozessmodell letztlich in einem Anwendungssystem abzubilden, existieren verschiedene alternative Ansätze, wie etwa die Ableitung von zugehörigen Anforderungen und anschließende Umsetzung durch prozessorientierte Architekturen, die unternehmensspezifische Anpassung von Standardsoftware oder die direkte Umsetzung in ausführbare Modelle in geeigneten Ausführungsumgebungen.
-Im Rahmen dieser Arbeit wird lediglich der erste Ansatz in Betracht gezogen.
+Auf der anderen Seite können durch das Zusammenfügen der betriebswirtschaftlichen mit der informationstechnischen Perspektive Kriterien für die Gestaltung von Informationssystemen bestimmt werden, welche für die Automatisierung von Geschäftsprozessen eine herausragende Rolle spielen.
+Unter der Automatisierung von Geschäftsprozessen wird in der vorliegenden Bachelorarbeit in Anlehnung an \citeauthor{Abolhassan.2016} \cite{Abolhassan.2016} sowie \citeauthor{Jobst.2010} \cite{Jobst.2010} die maschinelle Unterstützung und vollständige oder teilweise maschinelle Ausführung manueller Geschäftsprozesse verstanden.
+
+Um ein Geschäftsprozessmodell letztlich in Gestalt eines Informationssystems abzubilden, existieren verschiedene alternative Ansätze, wie etwa die Verwendung des Geschäftsprozessmodells zur Beschreibung von zugehörigen Anforderungen an eine anschließende softwaretechnische Implementierung in Form eines Anwendungssystems, die unternehmensspezifische Anpassung von Standardsoftware oder die direkte Umsetzung in ausführbare Modelle in geeigneten Ausführungsumgebungen.
+\cite{Lehmann.2008} Im Rahmen dieser Arbeit wird lediglich der erste Ansatz in Betracht gezogen, demnach werden Anwendungssysteme als Aufgabenträger zur Automatisierung von Geschäftsprozessen verstanden, wohl wissend, dass nicht jeder Geschäftsprozess vollständig automatisierbar ist.
 
 \subsection{Merkmale und Kriterien}
+Der Einsatz von Verfahren zur geschäftsprozessorientierten Systemgestaltung bietet die Möglichkeit automatisierbare Geschäftsprozesse in fachlich sowie technisch spezifizierten Geschäftsprozessmodellen formalisiert und detailliert zu erfassen.
+Grundsätzlich lässt sich die Gestaltung von Geschäftsprozessen dieser Art in einem kreisförmigen Lebenszyklusmodell zum Ausdruck bringen, das in die organisatorische Unternehmensgestaltung integriert werden muss.
+Ein solches Modell beschreibt den sich wiederholenden, idealtypischen Ablauf der verschiedenen Aufgaben der Geschäftsprozessentwicklung und betont dadurch dessen kontinuierlichen Charakter gegenüber einmaligen und isolierten Prozessverbesserungsinitiativen.
 
-Der Einsatz von Modellierungsverfahren bietet die Möglichkeit automatisierbare Geschäftsprozesse in fachlich sowie technisch spezifizierten Geschäftsprozessmodellen formalisiert und detailliert zu erfassen.
-Grundsätzlich ist die Umsetzung von Geschäftsprozessen dieser Art durch entsprechende organisatorische aber auch technische Maßnahmen durchzuführen.
-Bei der Konzeption derartiger Geschäftsprozessmodelle wird das in Abbildung \ref{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen} illustrierte Phasenmodell herangezogen.
+In der Literatur findet sich eine Vielzahl unterschiedlicher Lebenszyklusmodelle.
+\cite{MacedodeMorais.2014} 
+Diese unterscheiden sich zwar hintsichtlich der Anzahl, Benennung sowie Partitionierung der einzelnen Aufgaben in Lebenzyklusphasen, in ihrer Essenz weichen sie jedoch nicht fundamental voneinander ab.
+\cite{Houy.2010}
+In der vorliegenden Bachelorarbeit wird das etablierte Lebenszyklusmodell von \citeauthor{Scheer.1991}
+\cite{Scheer.1991} zugrunde gelegt.
+Der Ablauf dieses aus vier Phasen bestehenden Modells ist in Abbildung \ref{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen} illustriert und wird im Folgenden näher beleuchtet.
+
+Im ersten Schritt wird eine \ac{IT}-orientierte fachliche Ausgangslösung erstellt.
+Diese ergibt sich aus der eingehenden Analyse eines neuen oder existierenden Geschäftsprozesses, in Abbildung \ref{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen} im linken oberen Bereich veranschaulicht, durch die zunächst die grundsätzlichen Anforderungen des zu untersuchenden Geschäftsprozesses sichtbar gemacht werden.
+\cite{Schwegmann.2002}
+Aus diesem Grund werden hier auch noch alle Perspektiven zusammen betrachtet.
+
+Die darauf folgende Konzeptionsphase behandelt, auf Basis der zuvor erhobenen Anforderungen an einen Geschäftsprozess, dessen Beschreibung auf fachlicher Ebene. 
+Die formale Beschreibung von Fachkonzepten wird als Modellierung bezeichnet. 
+Anschließend wird das Fachkonzept, unabhängig von Implementierungsgesichtspunkten, mit technischen Anforderungen an das Anwendungssystem angereichert, sodass es als Ausgangspunkt für eine konsistente softwaretechnische Implementierung dienen kann.
+Dabei wird jedoch noch kein Bezug zu plattformspezifischen Programmiersprachen hergestellt. 
+Das technisch spezifizierte Konzept kann geändert werden, ohne dass dies Auswirkungen auf das Fachkonzept hat.
+Dies bedeutet jedoch nicht, dass Fachkonzept und technische Spezifikation isoliert voneinander entwickelt werden können. 
+Mehr noch soll nach Abschluss der fachkonzeptionellen Darstellung der betriebswirtschaftliche Inhalt so definiert sein, dass ausschließlich \ac{IT}-bezogene Argumente, wie das Leistungsverhalten eines Informationssystems, keine Auswirkungen auf die Fachinhalte nehmen können.  
 
 \begin{figure}[H]
 	\centering 
@@ -33,63 +54,74 @@ Bei der Konzeption derartiger Geschäftsprozessmodelle wird das in Abbildung \re
 \end{figure}
 \footnotetext{in Anlehnung an \citeauthor{Scheer.1991} \citeyear{Scheer.1991} \cite{Scheer.1991} }
 
-Im ersten Schritt wird eine \ac{IT}-orientierte fachliche Ausgangslösung erstellt.
-Diese ergibt sich aus der eingehenden Analyse eines neuen oder existierenden Geschäftsprozesses, in Abbildung \ref{fig:Phasenmodell bei der Automatisierung von Geschäftsprozessen} im linken oberen Bereich veranschaulicht, durch die zunächst die grundsätzlichen Anforderungen des zu untersuchenden Geschäftsprozesses sichtbar gemacht werden. 
-Aus diesem Grund werden hier auch noch alle Perspektiven zusammen betrachtet.
-Die darauf folgenden Konzeptionsphase behandelt, auf Basis der zuvor erhobenen Anforderungen an einen Geschäftsprozess, dessen Modellierung auf fachlicher Ebene. 
-Anschließend wird das Fachkonzept, unabhängig von Implementierungsgesichtspunkten, mit technischen Anforderungen an das Anwendungssystem angereichert, sodass es als Ausgangspunkt für eine konsistente softwaretechnische Implementierung dienen kann. 
-Dabei wird jedoch noch kein Bezug zu plattformspezifischen Verarbeitungssprachen hergestellt. 
-Das technisch spezifizierte Konzept kann geändert werden, ohne dass dies Auswirkungen auf das Fachkonzept hat.
-Dies bedeutet jedoch nicht, dass Fachkonzept und technische Spezifikation isoliert voneinander entwickelt werden können. 
-Mehr noch soll nach Abschluss der fachkonzeptionellen Darstellung der betriebswirtschaftliche Inhalt so definiert sein, dass ausschließlich \ac{IT}-bezogene Argumente, wie das Leistungsverhalten eines Informationssystems, keine Auswirkungen auf die Fachinhalte nehmen können. 
-In der Implementierungsphase wird das Geschäftsprozessmodell in seine finale Ausprägung überführt somit in eine ausführbare Verarbeitungssprache transformiert, getestet und in eine Ausführungsumgebung integriert.
+In der Implementierungsphase wird das Geschäftsprozessmodell in seine finale Ausprägung überführt somit in eine ausführbare Programmiersprache transformiert, getestet und in ein Anwendungssystem integriert.
 Während der Ausführungsphase erfolgt häufig eine Überwachung des laufenden Geschäftsprozesses, um in einer nachfolgenden Iteration des gesamten Phasenmodells eine Optimierung des Geschäftsprozessmodells basierend auf den hieraus gewonnnen Erkenntnissen durchführen zu können.
 Der Fokus dieser Arbeit liegt insbesondere auf den Phasen von der Analyse bis zur softwaretechnischen Implementierung, wohingegen die Ausführung vernachlässigt wird.
 
+In der geschäftsprozessorientierten Systementwicklung steht während der Bildung des konzeptuellen Modells die ablauforientierte Sicht im Mittelpunkt.
+Geschäftsprozessorientierte Modellierungsansätze betrachten das darzustellende Informationssystem ausgehend von der der informationstechnischen Unterstützung menschlicher Arbeitsabläufe, die sie erfüllen sollen, und dem dazu notwendigen Vorgehen, das sich aus der Folge der durchzuführenden Aktivitäten ergibt.
+Dabei werden die zu erfüllenden Aufgaben systematisch analysiert und in Aktivitäten zerlegt, die anschließend entsprechend ihrer Reihenfolge in den Geschäftsprozess integriert werden.
+Eine Aktivität \footnote{Aktivitäten werden in anderen Werken oft auch als Geschäftsprozessschritte bezeichnet.} ist ein diskreter Schritt innerhalb eines Prozesses, welcher entweder manuell durch einen Menschen oder automatisch durch einen Dienst durchgeführt wird.
+Das daraus resultierende Geschäftsprozessmodell repräsentiert den zur Erfüllung der Aufgabe notwendigen Ablauf von Aktivitäten, mit welchem ein übergeordneter Geschäftszweck verfolgt wird.
 
+Durch die stetige Verbreitung von serviceorientierten Architekturen (\acs{SOA}) besteht für Unternehmen die Möglichkeit, vollständige Geschäftsprozesse oder einzelne Aktivitäten auf Basis modularer maschineller Dienste in einer lose gekoppelten Weise aufeinander abzustimmen und zu automatisieren. 
+Hierbei wird die wesentliche Geschäftslogik der Geschäftsprozesse oder Aktivitäten in maschinellen Diensten gekapselt, während der übergreifende Geschäftsprozess in Form eines Anwendungssystems die eher reaktive und demnach dynamische Ausführungssemantik implementiert. 
+Unter dem Aspekt der Wiederverwendbarkeit eines Dienstes in einer \ac{SOA} sollte des Weiteren der in Abbildung \todo{ref} illustrierte Umstand, dass maschinelle Dienste zur Ausführung einer Aktivität modular oder auch auf Basis weiterer Dienste aufgebaut sein können, einer kritischen Betrachtung unterzogen werden.
+Eine \ac{SOA} zielt auf eine optimale Unterstützung der fachlichen Geschäftsprozesse durch die Dynamisierung der Informationssysteme ab; Unternehmensstrategie und Informations- und Anwendungssysteme sollen besser integriert werden.
 
+\missingfigure{Der Nutzungsbaum eines Services \cite{Masak.2007}S.187}
 
+Sogenannte Webservices stellen dabei eine auf \ac{XML} ausgerichtete und auf offenen Standards basierende Technologie zur Realisierung einer \ac{SOA} dar, indem sie die in einer beliebigen Programmiersprache implementierte Geschäftslogik in Form von Diensten anhand vereinheitlichter Schnittstellen nach außen zur Verfügung stellen.
+\cite{Finger.2009b}
+Ein Webservice ist als Maschine-zu-Machine-Kommunikation zu betrachten. Diese Maschinen sprechen über offenen Standards miteinander. 
+Nachdem ein Webservice in ein Anwendungssystem integriert wurde, erfolgt die Kommunikation in der Regel automatisch. 
+Ein Endanwender auf der Seite der Benutzerschnittstelle wird nicht zur Kenntnis nehmen, dass das Anwendungssystem, das er bedient, mit einem Webservice kommuniziert. Dieses Prinzip entspricht ebenfalls dem Grundgedanken einer \ac{SOA}.
+Auf diese Weise können Webservices beispielsweise aus einem Geschäftsprozess heraus aufgerufen werden, ohne ihre konkrete Implementierung zu kennen, was insbesondere in einem geschäftsprozess- oder unternehmensübergreifenden Kontext ein bedeutender Faktor ist. Zur Änderung eines Geschäftsprozesses bedarf es lediglich einer Anpassung der Ausfürungssematntik des Anwendungssystems durch veränderte Aufrufe der bestehenden oder zusätzlicher Webservices. 
 
+Ferner können auch von Menschen ausgeführte Aktivitäten als Dienste gekapselt und mit Benutzerschnittstellen ausgestattet werden, indem die Aufforderung zum Beginn der manuellen Aktivität durch eine geeignete Ausgabe signalisiert wird, woraufhin der erfolgreiche Abschluss der manuellen Aktivität oder ein möglicherweise erforderlicher Abbruch wiederum durch eine Eingabe quittiert wird. 
+Auf diese Weise ist auch die Integration manueller Aktivitäten in einen automatisierten Geschäftsprozess möglich.
 
+Für die Konzeption und Implementierung von automatisierbaren Geschäftsprozessen ist eine passende Notation erforderlich, die verschiedene Kriterien erfüllen muss.
+Bei der Betrachtung dynamischer Geschäftsprozesse im Rahmen dieser Bachelorarbeit spielen dabei auch solche Merkmale eine herausragende Rolle, welche die Ausprägung dynamischer Eigenschaften anhand einer zielgerichteten Ereignisorientierung und Ereignisverarbeitung unterstützen.
+Im Fokus der Betrachtungen sind verschiedene Kriterien für die Auswahl einer geeigneten Modellierungssprache für das zugrunde liegende Geschäftsprozessmodell von Belang, die in Tabelle \ref{tab:Kriterien für Modellierungssprachen} jeweils mit einer kurzen Beschreibung ihrer Bedeutung aufgeführt sind.
 
-
-
-
-
-Das technisch spezifizierte Geschäftsprozessmodell, das einer formalen Syntax mit eindeutiger Ausführungssemantik folgt, wird häufig auch im deutschen Sprachgebrauch mit dem englischen Begriff Workflow betitelt, der historisch bedingt aus der informationstechnischen Unterstützung menschlicher Arbeitsabläufe stammt. 
-Obwohl diese Bezeichnung heutzutage durchaus breiter gefasst wird als in seiner ursprünglichen Bedeutung und insbesondere auch die prozessorientierte Integration unterschiedlicher Anwendungssysteme umfasst, repräsentiert ein Geschäftsprozess als Abgrenzung dazu ein höherwertiges Gut im Unternehmen, mit welchem ein übergeordnetes Geschäftsziel verfolgt wird. 
-Aus diesem Grund wird in dieser Arbeit anstatt von einem Workflow weiterhin vom technischen Geschäftsprozessmodell gesprochen, wohl wissend, dass nicht jeder Geschäftsprozess vollständig automatisierbar ist.
-
-Sogenannte Webservices stellen dabei eine auf XML (Extensible Markup Language) ausgerichtete und auf offenen Standards basierende Technologie zur Realisierung einer SOA dar, indem sie die in einer beliebigen Programmiersprache implementierte Anwendungslogik anhand vereinheitlichter Schnittstellen nach außen zur Verfügung stellen. 
-
-Auf diese Weise können Webservices beispielsweise aus einem Geschäftsprozess heraus aufgerufen werden, ohne ihre konkrete Implementierung zu kennen, was insbesondere in einem unternehmensübergreifenden Kontext ein bedeutender Faktor ist. 
-Zur Änderung eines Geschäftsprozesses bedarf es dann lediglich einer Anpassung der Kontrollstrukturen mit veränderten Aufrufen der bestehenden oder zusätzlicher Webservices. 
-Die Schnittstelle zum Zugriff auf einen Webservice wird dabei mittels der vom W3C (World Wide Web Consortium) standardisierten Web Services Description Language (WSDL) auf XML-Basis spezifiziert.
-
-Ferner können auch von Menschen ausgeführte Geschäftsaktivitäten als Dienste gekapselt und mit \ac{IT}-Schnittstellen ausgestattet werden, indem die Aufforderung zum Beginn der manuellen Aktivität durch eine geeignete \ac{IT}-Ausgabe signalisiert wird, woraufhin der erfolgreiche Abschluss der manuellen Aktivität oder ein möglicherweise erforderlicher Abbruch wiederum durch eine \ac{IT}-Eingabe quittiert wird. 
-Auf diese Weise ist auch die Integration manueller Aktivitäten in einen au- tomatisierten Geschäftsprozess möglich. 
-Hierfür existiert die Spezifikation Web Services Human Task (WS-HumanTask), die vom unabhängigen Standardisierungsgremium OASIS (Organization for the Advancement of Structured Information Standards) vereinheitlicht wird.
-
-Durch die stetige Verbreitung von dienstorientierten Architekturen, englisch Service-Oriented Architecture (SOA), besteht für Unternehmen die Möglichkeit, Geschäftsprozesse auf Basis modularer elektronischer Dienste in einer lose gekoppelten Weise auch unternehmensübergreifend zu komponieren und zu automatisieren. 
-Hierbei wird die wesentliche Geschäftslogik, welcher im Allgemeinen eine lange Lebensdauer beigemessen wird, in elektronischen Diensten gekapselt, während der übergreifende Geschäftsprozess die eher kurzfristig ausgerichteten und demnach veränderlichen Kontrollstrukturen implementiert.
-
-Für die Modellierung und Ausführung von automatisierbaren Geschäftsprozessen ist eine passende Notation erforderlich, die verschiedene Kriterien erfüllen muss.
-Bei der Betrachtung dynamischer Geschäftsprozesse im Rahmen dieser Bachelorarbeit spielen dabei auch solche Merkmale eine herausragende Rolle, welche die Ausprägung dynamischer Eigenschaften anhand einer umfassenden Ereignisorientierung und Ereignisverarbeitung begünstigen.
-Im Untersuchungsbereich sind verschiedene Kriterien für die Auswahl einer tauglichen Modellierungssprache für das zugrunde liegende Geschäftsprozessmodell von Belang, die in Tabelle XXX jeweils mit einer kurzen Erläuterung ihrer Bedeutung aufgeführt sind.
-
-\todo{Definiton Modellierungsverfahren für automatisierbare Geschäftsprozesse}
-
-
-\todo{Erklärung des Phasenmodells}
-
-\todo{Service-Oriented Architecture}
-
-\todo{Notwendigkeit einer Notation}
-
-\missingfigure{Kriterien für Modellierungssprachen für dynamische Geschäftsprozesse}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{l X} 
+		\toprule
+		\textbf{Kriterium}  &   
+		\textbf{Beschreibung}  \\ 
+		\midrule
+		Funktionalität &   
+		Unterstützung verschiedener Aktivitätsarten, die Darstellung sequenzieller, paralleler, alternativer und iterativer Prozessabläufe sowie die Verbindung von Aktivitäten mit Objekten, Relationen und Rollen.   \\  \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Verständlichkeit &   
+		Auf fachlicher Modellebene ist eine modellbasierte Darstellung der Geschäftsprozesse erwünscht, die von Fachleuten mit betriebswirtschaftlichem und technischem Hintergrund mit vertretbarem Aufwand verstanden werden kann. \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Formalisierbarkeit &   
+		Die Notation soll formale oder semiformale Modellierungsregeln aufweisen, damit die Konzeption korrekter Geschäftsprozessmodelle unterstützt wird und eine nahtlose Implementierung des technischen Geschäftsprozessmodells erfolgen kann.  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Unterstützung von \ac{SOA} &   
+		Maschinelle Dienste, insbesondere Webservices, und von Menschen durchgeführte Aktivitäten mit geeigneten Benutzerschnittstellen sollen nahtlos integriert werden können.  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Ereignisverarbeitung &   
+		Die Modellierungssprache soll ein Konzept für die Integration von Ereignissen in das Geschäftsprozessmodell enthalten und insgesamt eine hohe Ereignisorientierung aufweisen.   \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Standardisierung &   
+		Die Modellierungssprache soll durch eine zentrale Institution standardisiert worden sein oder zumindest einen anerkannten Industriestandard darstellen. \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Werkzeugunterstützung &   
+		Umfangreiche Softwarewerkzeuge für die Modellierung sollen verfügbar sein.  \\
+	    \bottomrule
+	\end{tabularx}
+	\caption[Kriterien für Modellierungssprachen]
+    {Kriterien für Modellierungssprachen für dynamische Geschäftsprozesse}
+    \label{tab:Kriterien für Modellierungssprachen}
+\end{table}
+\todo{Quellen}
 
 \subsection{Gegenüberstellung geeigneter Modellierungssprachen}
-Im Folgenden werden bekannte und weitverbreitete Notationssprachen für die Modellierung und Automatisierung von Geschäftsprozessen herangezogen, die als Basis für dynamische Geschäftsprozesse dienen können. Diese werden zunächst einzeln begreiflich gemacht und anschließend in Bezug auf die in Tabelle \todo{ref} genannten Kriterien in einer tabellarischen Übersicht gegenübergestellt.
+Im Folgenden werden bekannte und etablierte Notationssprachen für die Modellierung von Geschäftsprozessen herangezogen, die als Basis für dynamische Geschäftsprozesse dienen können. Diese werden zunächst einzeln begreiflich gemacht und anschließend in Bezug auf die in Tabelle \todo{ref} genannten Kriterien in einer tabellarischen Übersicht gegenübergestellt.
 
 \paragraph{EPK}
 
