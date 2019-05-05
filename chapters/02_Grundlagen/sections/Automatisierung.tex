@@ -91,7 +91,7 @@ Im Fokus der Betrachtungen sind verschiedene Kriterien für die Auswahl einer ge
 		\toprule
 		\textbf{Kriterium}  &   
 		\textbf{Beschreibung}  \\ 
-		\midrule
+		\toprule
 		Funktionalität &   
 		Unterstützung verschiedener Aktivitätsarten, die Darstellung sequenzieller, paralleler, alternativer und iterativer Prozessabläufe sowie die Verbindung von Aktivitäten mit Objekten, Relationen und Rollen.   \\  \cmidrule(r){1-1} \cmidrule(r){2-2}
 		
@@ -121,14 +121,94 @@ Im Fokus der Betrachtungen sind verschiedene Kriterien für die Auswahl einer ge
 \todo{Quellen}
 
 \subsection{Gegenüberstellung geeigneter Modellierungssprachen}
-Im Folgenden werden bekannte und etablierte Notationssprachen für die Modellierung von Geschäftsprozessen herangezogen, die als Basis für dynamische Geschäftsprozesse dienen können. Diese werden zunächst einzeln begreiflich gemacht und anschließend in Bezug auf die in Tabelle \todo{ref} genannten Kriterien in einer tabellarischen Übersicht gegenübergestellt.
+Im Folgenden werden bekannte und etablierte Modellierungssprachen für die Modellierung von Geschäftsprozessen herangezogen, die als Basis für dynamische Geschäftsprozesse dienen können. Diese werden zunächst einzeln begreiflich gemacht und anschließend in Bezug auf die in Tabelle \ref{tab:Kriterien für Modellierungssprachen} genannten Kriterien in einer tabellarischen Übersicht gegenübergestellt.
 
-\paragraph{EPK}
+\paragraph{\acl{EPK}}
+Die \textit{\acf{EPK}} stellt die zentrale Modellierungssprache in der \acf{ARIS} dar.
+Entwickelt wurde die \ac{ARIS}-Architektur bereits \citeyear{Scheer.1991} am Institut für Wirtschaftsinformatik in Zusammenarbeit mit dem \ac{CIM}-Technologie-Transfer-Zentrum an der Universität des Saarlandes in Kooperation mit der SAP AG auf der Grundlage von Petri-Netzen.\footnote{Am 07. Juli 2014 erfolgte eine Umwandlung der SAP AG von einer Aktiengesellschaft in eine Europäische Aktiengesellschaft (SE).}
+\cite{Scheer.1991}
+Der Modellierungsansatz der \ac{EPK} hat sich insbesondere im deutschsprachigen Raum als eine der meistverbreitetsten semiformale Methode zur Modellierung von Geschäftsprozessen durchgesetzt. 
+\cite{Gadatsch.2013}
+Ihre weite Verbreitung lässt sich unter anderem darauf zurückzuführen, dass die SAP SE die \ac{EPK} als Standard in ihr Softwareportfolio integriert hat. 
+\cite{Staud.2006}
+In \ac{EPK}s, die nicht rein sequentiell ablaufen, bilden Konnektoren die Verknüpfungsknoten. Gemeint sind hierbei die aus der Aussagenlogik stammenden konjunktiven, adjunktiven und disjunktiven Verknüfungen. Dadurch wird gewährleistet, dass auch alternative, parallele und iterative Geschäftsprozessabläufe durch logische Ereignisverknüpfungen erstellt werden können.
+\cite{Lehmann.2008}
+
+In einer erweiterten \ac{EPK} wird die einfache \ac{EPK}, die sich auf Ereignisse, Funktionen, Prozessschnittstellen, Konnektoren und Kanten beschränkt, um zusätzlich verschiedene Elemente wie die organisatorische Einheit, Informationsobjekte, Anwendungssysteme oder Prozesswegweiser ergänzt. 
+\cite{Seidlmeier.2015}
+Dadurch ist es möglich umfassende Geschäftsprozessmodelle mit all ihren Beziehungen zum Umfeld des Geschäftsprozesses in semiformaler Form darzustellen, um durch die Modellierungssprache alle Perspektiven auf den Geschäftsprozess miteinander zu verbinden.
+\cite{Gadatsch.2013}
 
 \paragraph{BPMN 2.0}
+
 
 \paragraph{UML}
 
 \paragraph{Gegenüberstellung der Modellierungssprachen}
+In Tabelle \ref{tab:Bewertung von Modellierungssprachen} wird die Eignung der vorgestellten Modellierungssprachen in Bezug auf die relevanten Kriterien aus dem vorherigen Abschnitt in tabellarischer Form gegenübergestellt.
 
-\missingfigure{Bewertung von Modellierungssprachen für dynamische Geschäftsprozesse}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{l Y Y Y} 
+		\toprule
+		\textbf{Kriterium}  &   
+	    \multicolumn{3}{c}{\textbf{Modellierungssprache}}	  \\   \cmidrule(r){2-4}
+	    
+	                  &   
+		\textbf{\acs{EPK}}\cite{Scheer.1991}\cite{Lehmann.2008}      &
+		\textbf{\acs{BPMN}}\cite{Weidlich.2010}\cite{Muller.2011}       &
+		\textbf{\acs{UML}}\cite{vanRanden.2016}\cite{Rumpe.2011}	    \\  \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+	    
+		Funktionalität &   
+		\CIRCLE  &
+		\CIRCLE   &
+		\CIRCLE		\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Verständlichkeit &   
+		\CIRCLE &
+		\CIRCLE   &
+		\LEFTcircle			\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Formalisierbarkeit &   
+		\LEFTcircle	 &
+		\CIRCLE   &
+		\CIRCLE		\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Unterstützung von \ac{SOA} &   
+		\Circle &
+		\CIRCLE   &
+		\Circle		\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Ereignisverarbeitung &   
+		\CIRCLE &
+		\CIRCLE   &
+		\LEFTcircle	\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Standardisierung &   
+		\LEFTcircle	 &
+		\CIRCLE   &
+		\CIRCLE		\\ \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4}
+		
+		Werkzeugunterstützung  &
+		\CIRCLE &
+		\CIRCLE   &
+		\CIRCLE		\\ 
+	    \bottomrule
+	    \multicolumn{4}{c}{
+	    Legende:
+	    \CIRCLE
+	    erfüllt
+	    \LEFTcircle
+	    bedingt erfüllt
+	    \Circle wenig bis nicht erfüllt}
+	\end{tabularx}
+	\caption[Bewertung von Modellierungssprachen]
+    {Bewertung von Modellierungssprachen für dynamische Geschäftsprozesse}
+    \label{tab:Bewertung von Modellierungssprachen}
+\end{table}
+   \todo{Quellen}
+Es wird ersichtlich, dass für die Spezifizierung dynamischer Geschäftsprozessmodelle zwar alle Modellierungssprachen durch Werkzeugunterstützung praktisch anwendbar sind, diese sich allerdings deutlich anhand anderer Kriterien unterscheiden. Auffallend ist des Weiteren, dass die Unterstützung der benötigten Funktionalitäten in allen betrachteten Modellierungssprachen gegeben ist, sodass grundsätzlich die Schlussfolgerung gezogen werden kann, dass alle Modellierungssprachen prinzipiell für die Modellierung dynamischer Geschäftsprozesse einsetzbar sind.
+
+Aufgrund der zwingenden Ereignisbehandlung des Geschäftsprozessmodells, um für die notwendige Dynamik des Geschäftsprozesses zu sorgen, werden lediglich \ac{EPK} und \ac{BPMN} 2.0 als Modellierungssprachen in Betracht gezogen. 
+\ac{BPMN} 2.0 zeichnet sich hierbei durch die erforderliche Untersützung von SOA mit Webservices und eine bessere Ausgestaltung der Ereignisverarbeitung mit umfassenderen Ereigniskonzepten sowie einer unabhängig regulierten Standardisierung aus. Letzteres drückt sich insbesondere in der Möglichkeit der grafischen Modellierung von Geschäftsprozessen und somit einer besseren Modellkonsistenz auf der fachlichen Ebene aus. Aus diesen Gründen fällt die Wahl schließlich auf den Einsatz von \ac{BPMN} 2.0 zur formalen Beschreibung des Geschäftsprozessmodells in Kapitel \ref{ch:Durchfuehrung}. 
