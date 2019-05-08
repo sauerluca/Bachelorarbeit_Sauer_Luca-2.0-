@@ -1,11 +1,54 @@
 \section{Darstellung der methodischen Vorgehensweise}\label{sec:methode}
-
+Das Vorgehen beinhaltet alle Aktivitäten der Methode mit hierarchischer Strukturierung und in geordneter Ablauffolge, die für eine Entwicklung dynamischer Geschäftsprozesse auf Basis von Ereignisverarbeitung in systematischer Weise bis hin zum ausführbaren Modell erforderlich sind. Das Vorgehen von [moby]dbpm, das in Abbildung 4.5 in der Übersicht dargestellt ist, besteht aus vier übergeordneten Schritten, die in einem Top-down-Ansatz von der Modellierung auf Geschäftsprozessebene und anschließender Modellierung auf Ereignisverarbeitungsebene über die Fertigstellung der Modelle für die Ausführung bis hin zum Transfer in die Ausführungsumgebung und schließlich der Ausführung der Modelle selbst reichen.
 \todo{einleiten}
+
+\todo{Warum lean manufacturing  MES vorziehen in der diskrten Fertigung nach \cite{Gerberich.2011}{s.266}}
 
 \missingfigure{Vorgehen in der Übersicht}
 
-\todo{erläutern}
+Beginnend bei der Modellierung auf Geschäftsprozessebene (1) wird der betrachtete Geschäftsprozess zunächst ohne Berücksichtigung von Dynamik grafisch in BPMN 2.0 modelliert (1. a). Im An- schluss wird dieser mit dynamischen Eigenschaften ausgestattet, indem aus den vorhandenen Aktivitäten sogenannte Dynamikeinheiten in Wechselwirkung mit Ereignissen gebildet werden (1. b). Hier werden demnach insbesondere die Ereignisse modelliert, die während des Prozessablaufs mit der Ereignisverarbeitungsebene ausgetauscht werden.
 
-\section{Beteiligte Rollen}\label{sec:rollen}
+Bei der anschließenden Modellierung auf Ereignisverarbeitungsebene (2) werden in einem neu- artigen modellbasierten Ansatz zunächst die zugehörigen Ereignisverarbeitungsregeln entwickelt. Diese spezifizieren insbesondere jene Ereignisse, welche die dynamischen Wirkungen im Geschäftsprozess auslösen. Hierzu wird die in Kapitel 6 konzipierte EPMN (Event Processing Model and Notation) verwendet (2. a). Als eingehende Ereignisse werden dabei sowohl die internen Ereignisse aus dem Geschäftsprozessmodell als auch weitere Ereignisse aus externen Ereignisquellen aufgegriffen. Überdies wird das zugrunde liegende Ereignismodell mit der jeweiligen Struktur aller in den Ereignisverarbeitungsregeln verwendeten Ereignisse spezifiziert (2. b).
 
-\todo{Optional}
+Nachfolgend werden die erstellten Modelle auf technischer Ebene für die Ausführung komplet- tiert (3). Dies betrifft einerseits die automatisierte Transformation des Ereignisverarbeitungsmodells in ausführbaren Code (3. a). Andererseits wird auch die technische Anbindung aller fachlich modellierten Dienste und Ereignisse im Geschäftsprozessmodell sowie der Ereignisquellen auf Ereignisverarbeitungsebene durchgeführt (3. b).
+
+Im letzten Schritt erfolgt schließlich der Transfer in die Ausführungsumgebung und die letztliche Ausführung der beiden Modelle selbst (4). Hierfür wird das Geschäftsprozessmodell in eine native BPMN 2.0-Engine überführt und dort ausgeführt (4. a), während das Ereignisverarbeitungsmodell mit dem Ereignismodell in einer geeigneten CEP-Engine läuft (4. b).
+
+
+
+
+
+Die wesentlichen Gestaltungselemente dieser Bachelorarbeit sind in der Übersicht in Tabelle \todo{} aufgeführt und werden in den darin genannten Abschnitten jeweils im Detail erläutert.
+
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{l X X} 
+		\toprule
+		\textbf{Kriterium}  &   
+		\textbf{Beschreibung}  \\ 
+		\textbf{Abschnitt}  \\ 
+		\toprule
+		Funktionalität &   
+		Funktionalität &
+		Funktionalität      \\  \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3}
+		
+		Funktionalität &   
+		Funktionalität &
+		Funktionalität      \\  \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3}
+		
+		Funktionalität &   
+		Funktionalität &
+		Funktionalität      \\  \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3}
+		
+		Funktionalität &   
+		Funktionalität &
+		Funktionalität      \\  \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3}
+		
+		Funktionalität &   
+		Funktionalität &
+		Funktionalität      \\  \bottomrule
+	\end{tabularx}
+	\caption[Gestaltungskriterien der konzipierten Vorgehensweise]
+    {Gestaltungskriterien der konzipierten Vorgehensweise}
+    \label{tab:Gestaltungskriterien der konzipierten Vorgehensweise}
+\end{table}

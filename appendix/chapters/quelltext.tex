@@ -1,7 +1,75 @@
 \chapter{Quelltext der softwaretechnischen Implementierung}\label{ah:coding}
 
-\tocless\section{Quelltext des Approuters}\label{ah:approuter}
+\tocless\section{Quelltexte der Ereignisverarbeitungsebene}\label{ah:approuter}
 
-\tocless\section{Quelltext der Frontend Applikation}\label{ah:frontend}
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/ProductionOrderController.java}
+\caption{ProductionOrderController.java}
+\label{code:EventMessagingService.java}
+\end{algorithm}
 
-\tocless\section{Quelltext der Backend Applikation}\label{ah:backend}
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/Application.java}
+\caption{Application.java}
+\label{code:Application.java}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/MessageController.java}
+\caption{MessageController.java}
+\label{code:MessageController.java}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/EventMessagingService.java}
+\caption{EventMessagingService.java}
+\label{code:EventMessagingService.java}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/ProductionOrderReleasedNotificationListener.java}
+\caption{ProductionOrderReleasedNotificationListener.java}
+\label{code:EventMessagingService.java}
+\end{algorithm}
+
+
+\tocless\section{Quelltexte der Benutzerschnittstelle}\label{ah:frontend}
+
+\begin{algorithm}[H]
+\centering 
+% \lstinputlisting[style=JavaStyle, caption=pr.java]{code/test.java}
+\inputminted[linenos]{js}{code/test.js}
+\caption{test.js}
+\end{algorithm}
+
+\todo{Ersetzen}
+
+\tocless\section{Sonstige Quelltexte}\label{ah:backend}
+
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/OCRDetectionService.java}
+\caption{Implementierung des Google Cloud Vision SDK}
+\label{code:Implementierung des Google Cloud Vision SDKs}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{java}{code/ProductionOrderService.java}
+\caption{Anwendungsbeispiel des SAP S/4HANA Cloud SDK}
+\label{code:Anwendungsbeispiel des SAP S/4HANA Cloud SDK}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\centering 
+% \lstinputlisting[language=ABAP, caption=test.abap]{code/test.abap}
+\inputminted[linenos]{ABAP}{code/RaiseEvent.abap}
+\caption{Anwendungsbeispiel von 'CL\_SWF\_EVT\_EVENT => RAISE'}
+\label{code:anhang abap event}
+\end{algorithm}
+

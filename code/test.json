@@ -1,0 +1,110 @@
+{
+  asyncapi: '1.1.0',
+  info: {
+    title: 'Events from SAP',
+    version: '1.0.0',
+    description: 'This is an event type catalog from an event provider of type SAP S/4HANA'
+  },
+  baseTopic: 'S4HANA',
+  servers: [
+    {
+      url: 'https://<HOST>.s4hana.ondemand.com:443/',
+      description: 'Allows you to consume events using the mqtt  protocol',
+      scheme: 'mqtt',
+      schemeVersion: '3.1.1',
+      'x-eventprovider': 'SAP S/4HANA'
+    }
+  ],
+  topics: {
+    'BO.ProductionOrder.Released': {
+      'x-sapobjecttype': 'ProductionOrder',
+      publish: {
+        'x-payload': 'Cloud Events',
+        description: 'Production Order Released',
+        $ref: '#/components/messages/CloudEventContext_EXT_BO_ProductionOrder_Released'
+      }
+    }
+  },
+  components: {
+    CloudEventContext_EXT_BO_ProductionOrder_Released: {
+      summary: 'Production Order Released',
+      description: 'Production Order Released',
+      headers: {
+        type: 'object',
+        $ref: '#/components/schemas/CloudEventContext'
+      },
+      payload: {
+        type: 'object',
+        properties: {
+          data: {
+            type: 'object',
+            $ref: '#/components/schemas/BO_ProductionOrder_ReleasedFields'
+          }
+        }
+      }
+    }
+  },
+  schemas: {
+    BO_ProductionOrder_ReleasedKEYFields: {
+      title: '',
+      description: '',
+      type: 'object',
+      properties: {
+        MANUFACTURINGORDER: {
+          type: 'string'
+        }
+      }
+    },
+    CloudEventContext: {
+      title: 'Schema for the CloudEvents context fields.',
+      description: 'This is a schema specification for the context fields as per CloudEvent standards.',
+      type: 'object',
+      required: [
+        'eventType',
+        'cloudEventsVersion',
+        'source',
+        'eventId'
+      ],
+      properties: {
+        eventType: {
+          description: 'Type of occurrence which has happened. Often this property is used for routing, observability, policy enforcement, etc.',
+          type: 'string'
+        },
+        cloudEventsVersion: {
+          description: 'The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.',
+          type: 'string'
+        },
+        source: {
+          description: 'This describes the event producer.',
+          type: 'string'
+        },
+        eventTime: {
+          description: 'Timestamp of when the event happened.',
+          type: 'string',
+          format: 'date-time'
+        },
+        eventId: {
+          description: 'ID of the event.',
+          type: 'string'
+        },
+        schemaURL: {
+          description: 'A link to the schema that the data attribute adheres to.',
+          type: 'string'
+        },
+        contentType: {
+          description: 'Describe the data encoding format',
+          type: 'string'
+        },
+        extensions: {
+          description: 'This is for additional metadata and this does not have a mandated structure.',
+          type: 'object'
+        }
+      }
+    },
+    data: {
+      title: 'data',
+      description: 'The event payload.',
+      type: 'string'
+    }
+  }
+}

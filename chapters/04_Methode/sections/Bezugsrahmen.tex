@@ -1,6 +1,6 @@
 \section{Verfahrensweisen und wesentliche Gestaltungsprinzipien}\label{sec:methodenGrundlage}
 Zur Konkretisierung des Verständnisses werden eingangs die Merkmale dynamischer Geschäftsprozesse beschrieben, um den inhaltlichen Fokus der Arbeit darzulegen.
-Da sich die Entwicklung der Methode grundsätzlich an den Ansätzen des sogenannten Software-Engineering orientiert, werden nachfolgend dessen Grundlagen skizziert, um die wesentlichen Gestaltungselemente der Methode in Erfahrung bringen, bevor die Konzepte von Lean Management charakterisiert werden, auf die sich die Methode insbesondere auf der Geschäftsprozessebene stützt.
+Da sich die Entwicklung der Methode grundsätzlich an den grundsätzlichen Ansätzen der Softwareentwicklung orientiert, werden nachfolgend dessen Grundlagen skizziert, um die wesentlichen Gestaltungselemente der Methode in Erfahrung bringen, bevor die Konzepte von Lean Management charakterisiert werden, auf die sich die Methode insbesondere auf der Geschäftsprozessebene stützt.
 
 
 % Mit den diskutierten informationstechnischen Konzepten, 
@@ -33,17 +33,31 @@ Da sich die Entwicklung der Methode grundsätzlich an den Ansätzen des sogenann
 \subsection{Charakterisierung dynamischer Geschäftsprozesse}
 \todo{defintion dynamischer Geschäftsprozess nochmals auf Basis von \ref{ch:Grundlagen}}
 
-\subsection{Grundlagen des Software-Engineering}
+Im Verständnis dieser Arbeit werden dynamische Geschäftsprozesse derart charakterisiert, dass sich deren Prozessablauf als unmittelbare und automatisierte Reaktion auf externe und interne Ereignisse sowie insbesondere auf identifizierte Ereignismuster zur Laufzeit ausrichten kann. Gemäß Abbildung \todo{} werden die zugehörigen Ereignisverarbeitungsregeln zur Echtzeitverarbeitung der relevanten Ereignisse und ihrer Beziehungen untereinander ausschließlich auf der Ereignisverarbeitungsebene implementiert, während die Kommunikation mit der Geschäftsprozessebene einzig mittels Ereignissen auf einer hohen Abstraktionsebene abläuft, die demnach als komplexe Ereignisse von ihrem jeweils zugrunde liegenden Ereignismuster abstrahieren.
+
+Die unmittelbare Reaktion auf ein solches komplexes Ereignis auf Geschäftsprozessebene soll sich im Rahmen der modellierten Optionen bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit dem Merkmal, möglichst reaktiv auf eintretende Ereignisse in der Ausführungsphase zu sein. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung in der Ereignisverarbeitungsebene, während der Prozessablauf selbst mit genügend Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßene Ausrichtung des Prozessablaufs als Reaktion auf die zur Laufzeit identifizierten Ereignisse und Ereignismuster realisieren zu können.
+
+\subsection{Grundlagen der Softwareentwicklung}
+Mit zunehmendem Fortschritt von Softwaresystemen ging im Zeitverlauf zugleich auch eine steigende Komplexität im Entwicklungsprozess einher. Beim Rückblick in die Vergangenheit ist als Strategie zur Bewältigung dieser Komplexität ein Trend zur fortwährenden Erhöhung des Abstraktionsgrades zu erkennen, der von der anfänglichen Nutzung von Maschinensprachen über Assembler, prozedurale und objektorientierte Sprachen bis hin zur aktuell bevorzugten Verwendung von Modellierungssprachen führt.
+
+Der Ursprung des Methoden-Engineering entspringt der Disziplin der Wirtschaftsinformatik, de- ren Essenz in der Herleitung systematischer Handlungsempfehlungen mittels ingenieurmäßigen Verfahrensweisen liegt. Hauptgegenstand des Methoden-Engineering ist demnach die Anwendung ingenieurmäßiger Entwurfsmethoden für den Entwurf, die Beschreibung und häufig auch die Ausführung von Entwurfsmethoden selbst. Bestehende Arbeiten auf diesem Gebiet unterscheiden sich zwar meist in ihren Begrifflichkeiten und Verfahrensweisen, jedoch können allgemein- gültige Elemente der Beschreibung von Methoden konstatiert werden, die von den verschiedenen Ansätzen in der Literatur weitgehend unterstützt werden. Diese wesentlichen Elemente und ihre Beziehungen untereinander sind in Abbildung 4.1 in schematischer Darstellung illustriert und werden anschließend erläutert. 
 
 \todo{Ingenieurmäßiges Vorgehen hervorheben  nach \cite{Scheer.1991}}
-
+Die unmittelbare Reaktion auf ein solches komplexes Ereignis auf Geschäftsprozessebene soll sich im Rahmen der modellierten Optionen bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit dem Merkmal, möglichst reaktiv auf eintretende Ereignisse in der Ausführungsphase zu sein. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung in der Ereignisverarbeitungsebene, während der Prozessablauf selbst mit genügend Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßene Ausrichtung des Prozessablaufs als Reaktion auf die zur Laufzeit identifizierten Ereignisse und Ereignismuster realisieren zu können.
 \todo{Softwareentwicklungsprozesses}
 
 \todo{Prototyping}
+Mit der Ausführung von Aktivitäten, die hierarchisch strukturiert sein können und in ihrer zeitlichen Abfolge als Gesamtheit das Vorgehen darstellen, werden im Rahmen einer Methode jeweils eines oder mehrere Ergebnisse erzeugt. Dabei können vorhandene Ergebnisse auch zur Generierung weiterer Ergebnisse oder zur Modifizierung bestehender Ergebnisse in Aktivitäten verwendet werden. 
+Die Ergebnisse, die ebenfalls hierarchisch strukturiert sein können, werden in geeigneter Weise erfasst, beispielsweise als formale Modelle, und in ihrer Gesamtheit als Dokumentationsmodell festgehalten. Das Metamodell repräsentiert dabei das konzeptuelle Modell für die Ergebnisse, welche somit in problemorientierter Weise jeweils eine Instanz des Metamodells darstellen. Um Ergebnisse zu erstellen, werden bei der Ausführung der Aktivitäten Techniken eingesetzt, die als Anleitung für diese Aktivitäten dienen und von Werkzeugen adäquat unterstützt werden können. Dieser kurze Abriss zu den Grundlagen des Methoden-Engineering soll an dieser Stelle genügen, während für weiterführende Erläuterungen auf die genannte Literatur in diesem Umfeld verwiesen sei.
+
+Dahingegen zielen das konzipierte Metamodell und die Technik der modellbasierten Entwicklung lediglich auf die Ereignisverarbeitungsebene ab, da mit der Nutzung von BPMN 2.0 auf der Geschäftsprozessebene bereits ein Standard vorliegt, für den ein entsprechendes Metamodell definiert ist und auch diverse Methoden zur Modellierung von Geschäftsprozessen verfügbar sind.
 
 \cite{JorgBecker.2001}
 
- \missingfigure{Wesentliche Gestaltungselemente der konzipierten Methode}
+ \missingfigure{Tabelle nach dissertation Wesentliche Gestaltungselemente der konzipierten Methode}
+ \cite{Huber.2016}
+ 
+ \cite{Wagner.2018}
 
 \subsection{Lean Management}
 
