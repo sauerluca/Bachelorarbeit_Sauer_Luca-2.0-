@@ -23,6 +23,16 @@ Dynamische und somit ereignisorientierte Geschäftsprozesse operieren prinzipiel
 Diese erfüllen ihre Aufgaben in erster Linie separat und in paralleler Weise, kommunizieren allerdings mittels des Austauschs von Ereignissen miteinander, was in diesem Kontext den maßgeblichen Aspekt darstellt. 
 Abbildung \ref{fig:Ebenen dynamischer Geschäftsprozesse} illustriert in schematischer Darstellung die Zusammenhänge.
 
+\begin{figure}[H]
+	\centering 
+    \includegraphics[width=\textwidth]{img/dynamicbp.png}	
+    \caption[Ebenen dynamischer Geschäftsprozesse]
+    {Ebenen dynamischer Geschäftsprozesse \protect\footnotemark}
+    \label{fig:Ebenen dynamischer Geschäftsprozesse}
+\end{figure}
+\footnotetext{in Anlehnung an \citeauthor{Vidackovic.2014} \citeyear{Vidackovic.2014} \cite{Vidackovic.2014} }
+
+
 Auf der Ereignisverarbeitungsebene werden eingehende Ereignisse aus diversen externen und internen Ereignisquellen kontinuierlich analysiert, wobei zudem Ereignisse generiert werden können, welche wiederum dieselbe Analyse durchlaufen. 
 Da zwischen der Ereignisverarbeitungsebene und der Geschäftsprozessebene mit Ereignissen kommuniziert werden kann, können diese generierten Ereignisse als unmittelbare Reaktion eine dynamische Wirkung auf den Ablauf des laufenden Geschäftsprozess ausüben.
 Der Geschäftsprozess fungiert demnach einerseits als eine der internen Ereignisquellen für die Ereignisverarbeitungsebene und andererseits als wesentlicher Ereigniskonsument der generierten Ereignisse zur Adaption des Prozessablaufs.
@@ -33,14 +43,6 @@ Auf der Geschäftsprozessebene erfolgt der operative und automatisierte Ablauf v
 Bei den Aktivitäten kann es sich darüber hinaus auch um manuelle Benutzeraufgaben handeln, die zwar von Menschen ausgeführt werden, aber dennoch mittels informationstechnischen Schnittstellen in einen automatisierten Prozessablauf integriert werden können.
 \cite{Bruns.2010}
 
-\begin{figure}[H]
-	\centering 
-    \includegraphics[width=\textwidth]{img/dynamicbp.png}	
-    \caption[Ebenen dynamischer Geschäftsprozesse]
-    {Ebenen dynamischer Geschäftsprozesse \protect\footnotemark}
-    \label{fig:Ebenen dynamischer Geschäftsprozesse}
-\end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Vidackovic.2014} \citeyear{Vidackovic.2014} \cite{Vidackovic.2014} }
 
 In ereignisorientierten im Gegensatz zu ablauforientierten Geschäftsprozessen üben Ereignisse zur Laufzeit einen signifikanten Einfluss auf den Prozessablauf aus, sodass die Geschäftsprozesse anhand geeigneter Ereignisverarbeitungsregeln mit dynamischen Eigenschaften ausgestattet werden können. 
 
@@ -68,18 +70,19 @@ Es fehlen allerdings Möglichkeiten zur Modellierung wesentlicher Konzepte der E
 Da der Forschungsansatz wohl aber auf die automatisierte Ausführung von Geschäftsprozessen mithilfe von digitalen Diensten ausgerichtet ist, bleibt der Ansatz für die softwaretechnische Implementierung in Kapitel von Relevanz. 
 
 \paragraph{SOEDA-Methode}
-SOEDA beschreibt ein Verfahren zur Entwicklung von Anwendungen durch die Zusammenführung von serviceorientierten (SOA) und ereignisgesteuerten Architekturen (EDA). Geschäftsprozesse werden hier mit EPK modelliert und in WS-BPEL umgewandelt. Mit Hilfe einer rudimentären Ereigniskopplungstechnik werden komplexe Ereignisse mittels grafischer und nicht-formaler Modellierung vom Geschäftsprozessmodell auf die zugrunde liegenden singulären Ereignisse heruntergebrochen, so dass ein Entwickler die Regeln der Ereignisverarbeitung anschließend manuell in einer spezifischen Ereignisverarbeitungssprache implementieren kann. Schließlich wird das Geschäftsprozessmodell durch Hinzufügen technischer Details zum WS-BPEL-Modell ausführbar.
-
-Schwächen der SOEDA-Methode sind die unzureichende Modellierung von Ereignisverarbeitungsregeln und das Fehlen einer automatischen Transformation in ein ausführbares Ereignisverarbeitungsmodell. Auch fehlen dynamische Anpassungen des Geschäftsprozesses zur Laufzeit, da Ereignisse nur als Teil des normalen Geschäftsprozessablaufs betrachtet werden. Mit der Version 2.0 verfügt die BPMN nun nicht nur über eine grafische Notation, sondern auch über die Semantik der technischen Ausführung und kann somit direkt in einer Engine ausgeführt werden. Damit scheint der Umweg einer Transformation vom EPC zum WS-PEL nicht mehr notwendig zu sein, zumal eine Konsistenz des Geschäftsprozessmodells auf betriebswirtschaftlicher und technischer Ebene wünschenswert ist.
+SOEDA beschreibt ein Verfahren zur Entwicklung von Anwendungssystemen durch die Zusammenführung von serviceorientierten (SOA) und ereignisgesteuerten Architekturen (EDA). Geschäftsprozesse werden hier mit \ac{EPK}s modelliert. 
 \cite{MatthiasWieland.2009} 
-\cite{Bruns.2010}S.37
+Mit Hilfe einer Technik zur Kopplung werden Ereignisse mittels grafischer und nicht-formaler Modellierung vom Geschäftsprozessmodell auf die zugrunde liegenden Aktivitäten heruntergebrochen, so dass ein Entwickler die Regeln der Ereignisverarbeitung anschließend in einer spezifischen Programmiersprache implementieren kann. 
+Schließlich wird das Geschäftsprozessmodell durch Hinzufügen technischer Details auf eine folgende Implentierung vorbereitet.
+\cite{Bruns.2010}
+
+Schwächen der SOEDA-Methode sind die unzureichende Modellierung von Ereignisverarbeitungsregeln durch die Verwendung von \ac{EPK}s. 
 \cite{RobraBissantz.2009}
-% SOEDA bezeichnet eine Methode zur Entwicklung von Anwendungen durch die Verschmelzung aus dienstorientierten (SOA) und ereignisgesteuerten Architekturen (EDA). Geschäftsprozesse werden hier mit EPK modelliert und in WS-BPEL transformiert. Mithilfe einer rudimentären Technik zur Ereignisverknüpfung werden die komplexen Ereignisse aus dem Geschäftsprozessmodell mittels grafischer und nicht-formaler Modellierung auf die zugrunde liegenden singulären Ereignisse her- untergebrochen, sodass anschließend ein Entwickler die Ereignisverarbeitungsregeln von Hand in einer Engine-spezifischen Ereignisverarbeitungssprache implementieren kann. Durch Hinzufügen technischer Details zum WS-BPEL-Modell wird das Geschäftsprozessmodell schließlich ausführbar.
-
-% Schwächen der SOEDA-Methode liegen in der unzulänglichen Modellierung von Ereignisverarbeitungsregeln und dem Fehlen einer automatischen Transformation in ein ausführbares Ereignis- verarbeitungsmodell. Auch mangelt es an dynamischen Anpassungen des Geschäftsprozesses zur Laufzeit, da Ereignisse lediglich als Bestandteil des regulären Geschäftsprozessablaufs betrachtet werden. Ab Version 2.0 verfügt die BPMN neben einer grafischen Notation nun auch über die tech- nische Ausführungssemantik und ist somit direkt in einer Engine ausführbar. Somit erscheint der Umweg einer Transformation von EPK zu WS-BPEL als nicht mehr erforderlich, zumal eine Konsistenz im Geschäftsprozessmodell auf Geschäfts- und technischer Ebene erstrebenswert ist.
-
-
+Auch fehlt eine dynamische Reaktionsfähigkeit des Geschäftsprozesses zur Laufzeit, da Ereignisse nur als Teil des normalen Geschäftsprozessablaufs betrachtet werden. Mit der Version 2.0 verfügt die \ac{BPMN}, wie in Abschnitt \ref{sec:Automatisierung} erwähnt, nun nicht nur über eine grafische Notation, sondern auch über die Semantik der technischen Ausführung. Damit scheint der Umweg einer Transformation über \ac{EPK}s im zuge dieser Bachelorarbeit nicht notwendig zu sein, zumal eine Konsistenz des Geschäftsprozessmodells auf betriebswirtschaftlicher und technischer Ebene wünschenswert ist.
 
 \paragraph{Gegenüberstellung der Ansätze}
+Auf Basis der Darstellung der existierenden Forschungsansätze wird ersichtlich, dass die bestehenden Forschungsansätze für die Anreicherung von Geschäftsprozessmodellen mit Konzepten der Ereignisverarbeitung jeweils einen bestimmten Fokus besitzen, dessen Herausforderungen im Einzelfall ausreichend erfüllt werden. 
+So lassen sich beispielsweise Ereignisse und Aktivitäten mithilfe der Methode \enquote{Entwicklung agiler Geschäftsprozesse mit Ereignisverarbeitung} von \citeauthor{Alexopoulou.2008} zielgerichtetkoppeln, fachliche Aspekte wie die der SOEDA-Methode oder die technischen Möglichkeiten der \enquote{RESTful SOA} finden dabei jedoch keine Betrachtung. 
 
-\todo{}
+Folglich lässt sich sagen, dass bisher noch kein Lösungsansatz mit einer ganzheitlichen und durchgängigen Vorgehensweise existiert, die eine vollständige, formale sowie fachlich orientierte Modellierung von Geschäftsprozessen mit dynamischen Eigenschaften auf Basis von Ereignisverarbeitung ermöglicht.
+

@@ -100,17 +100,16 @@ Unter dem Aspekt der Wiederverwendbarkeit eines Dienstes in einer \ac{SOA} sollt
 
 Sogenannte Webservices stellen dabei eine auf \ac{XML} ausgerichtete und auf offenen Standards basierende Technologie zur Realisierung einer \ac{SOA} dar, indem sie die in einer beliebigen Programmiersprache implementierte Geschäftslogik in Form von Diensten anhand vereinheitlichter Schnittstellen nach außen zur Verfügung stellen.
 \cite{Masak.2005}
-Ein Webservice ist als Maschine-zu-Machine-Kommunikation zu betrachten. Diese Maschinen sprechen über offenen Standards miteinander. 
+An dieser Stelle sei jedoch der Hinweis erlaubt, dass das Konzept der Serviceorientierung allgemeiner ist und schon früher existierte als Webservices. Webservices sollten daher nur als eine, wenn auch nur zum Verfassungszeitpunkt dieses Buches als wahrscheinlich am besten geeignete Möglichkeit zur Realisierung serviceorientierter Architekturen betrachtet werden.
+
+Ein Webservice ist als Maschine-zu-Machine-Kommunikation zu verstehen. Diese Maschinen sprechen über offenen Standards miteinander. 
 \cite{Finger.2009b}
 Nachdem ein Webservice in ein Anwendungssystem integriert wurde, erfolgt die Kommunikation in der Regel automatisch. 
 Ein Endanwender auf der Seite der Benutzerschnittstelle wird nicht zur Kenntnis nehmen, dass die Anwendungssoftware, die er bedient, mit einem Webservice kommuniziert. Dieses Prinzip entspricht ebenfalls dem Grundgedanken einer \ac{SOA}.
 \cite{Teusch.2016}
-Auf diese Weise können Webservices beispielsweise aus einem Geschäftsprozess heraus aufgerufen werden, ohne ihre konkrete Implementierung zu kennen, was insbesondere in einem geschäftsprozess- oder unternehmensübergreifenden Kontext ein bedeutender Faktor ist. Zur Änderung eines Geschäftsprozesses bedarf es lediglich einer Anpassung der Ausführungssemantik der Anwendungssoftware durch veränderte Aufrufe von bestehenden oder zusätzlichen Webservices. 
+Auf diese Weise können Webservices beispielsweise aus einem Geschäftsprozess heraus aufgerufen werden, ohne ihre konkrete Implementierung zu kennen, was insbesondere in einem geschäftsprozess- oder unternehmensübergreifenden Kontext ein bedeutender Faktor ist. Zur Änderung eines Geschäftsprozesses bedarf es lediglich einer Anpassung der Ausführungssemantik der Anwendungssoftware durch veränderte Aufrufe von bestehenden oder zusätzlichen Webservices.
 
-\todo{SOA Texte durch SAP Book Quelle ersetzen \cite{Pohl.2009} \cite{Hoppe.2011}}
-% \begin{attentionForm}[SOA und Webservices nicht grundsätzlich synonym]
-% An dieser Stelle sei jedoch der Hinweis erlaubt, dass das Konzept der Serviceorientierung allgemeiner ist und schon früher existierte als Webservices. Webservices sollten daher nur als eine, wenn auch zum Verfassungszeitpunkt dieses Buches als wahrscheinlich am besten geeignete Möglichkeit zur Realisierung serviceorientierter Architekturen betrachtet werden.
-% \end{attentionForm}
+% \todo{SOA Texte durch SAP Book Quelle ersetzen \cite{Pohl.2009} \cite{Hoppe.2011}}
 
 Ferner können auch von Menschen ausgeführte Aktivitäten als Dienste gekapselt und mit Benutzerschnittstellen ausgestattet werden, indem die Aufforderung zum Beginn der manuellen Aktivität durch eine geeignete Ausgabe signalisiert wird, woraufhin der erfolgreiche Abschluss der manuellen Aktivität oder ein erforderlicher Abbruch wiederum durch eine Eingabe quittiert wird. 
 Auf diese Weise ist auch die Integration manueller Aktivitäten in einen automatisierten Geschäftsprozess möglich.
