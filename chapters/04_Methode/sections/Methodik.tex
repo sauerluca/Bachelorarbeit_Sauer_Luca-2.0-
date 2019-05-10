@@ -1,6 +1,34 @@
 \section{Darstellung der methodischen Vorgehensweise}\label{sec:methode}
+
+Die ursprüngliche Maxime, möglichst hohe Rechenleistung und Prozessorauslastung zu ermöglichen, rückte mit leistungsfähigerer und günstigerer Hardware gegenüber konkurrierenden Zielen wie der Flexibilität der Architektur oder der Gestaltung benutzerfreundlicher Oberflächen in den Hintergrund. Modulbasierter Einsatz, Benutzerorientierung und flexible Prozesse gewannen an Bedeutung.
+
+Nach der Gründung der Firma SAP im Jahre 1972 wurden zunächst ebenfalls Produkte aus dem Großrechnerumfeld angeboten. Zukunftsweisend war, dass die Lösungen im Gegensatz zu vielen Mitbewerbern bereits modulbasiert waren. Das explosive Wachstum von SAP begann mit der R/3-Produktfamilie, die den teilweise dezentralisierten Client-Server-Ansatz verfolgte. SAP konnte damit ihren Umsatz zwischen 1991 und 1996 mehr als verfünffachen. Die Software gilt heute als einer der De-facto-Standards der Informationstechnologie. 
+
+Auch hier ist das Wachstum damit zu erklären, dass überholte Prozesse und Annahmen auf den Prüfstand gestellt und durch effizientere, zeitgemäße und bedarfsgerechte Ansätze abgelöst wurden. Die zahlreichen großen IT-Unter- nehmen, die im Zuge dieses Paradigmenwandels weitreichende Restrukturierungen vornehmen mussten, um ihren Fortbestand zu sichern, erlitten damit ein ähnliches Schicksal wie heute Teile der etablierten Automobilindustrie. 
+
+Mit SAP NetWeaver ist seit den letzten zehn Jahren eine webbasierte und offene Integrations- und Applikationsplattform verfügbar. Anwendungen von Drittanbietern können damit effizient und über offene Standards an SAP- Lösungen angebunden werden. Damit sind Möglichkeiten verfügbar, um einzelne Module und Funktionsbausteine bedarfsgerecht einzusetzen und verschiedene Technologien auf einer gemeinsamen Systembasis zu integrieren. 
+
+Im Gegensatz zu einst starren und unbeweglichen großen IT-Systemen ist damit eine gute Grundlage gegeben, um nach sinnvollen Möglichkeiten zur Umsetzung von Lean-Prinzipien zu suchen.
+
+Da Webservices auf Internettechnologie basieren, ist es nicht notwendig, auf Feldebene SAP GUI Frontends einzusetzen. Das Terminal für die Mitarbeiter der Fertigung, die Werker, kann beliebig gestaltet werden. Folgende Ver- schwendungen werden damit vermieden:
+
+Erfassungsfehler durch schlechte Lesbarkeit durch zu kleine Bildschirm- auflösung oder zu kleine Buttons
+
+Erfassungsfehler durch schlechte Lesbarkeit durch zu kleine Bildschirmauflösung oder zu kleine Buttons
+
+unnötige Bewegungen des Werkers, etwa zum Ausziehen von Handschu- hen, um für Mausbedienung gestaltete Oberflächen zu bedienen
+
+Es ist damit nicht notwendig, in jedem Bereich, der ERP-Funktionen nutzen und zum konsolidierten Datenbestand beitragen soll, vollwertigen SAP- Zugang zu schaffen. Vielmehr kann aus einem Portfolio von vordefinierten Webservices das passende Element ausgewählt und eingebunden werden.
+
+Durch Webservices und die serviceorientierte Architektur ist die Integration der Fertigung mit einem Minimum an Komplexität möglich. Der Leitidee der Lean Production, nach der IT-Aufgaben in der Regel nicht wertschöpfend sind und daher so weit wie möglich ausgedünnt und auf die wesentlichen Bestandteile reduziert werden müssen, wird damit Rechnung getragen.
+
+
+Die Realisierung von SOA erfolgt in diesem Beitrag konform zum Architekturstil REpresentational State Transfer (REST). Durch den Entwurf serviceorientierter Architekturen nach den Bedingungen und Technologien von REST entsteht die RESTful SOA. Zielsetzung des vorliegenden Beitrags ist die modellbasierte Spezifikation von RESTful SOA zur Automatisierung von Geschäftsprozessen. 
+
 Das Vorgehen beinhaltet alle Aktivitäten der Methode mit hierarchischer Strukturierung und in geordneter Ablauffolge, die für eine Entwicklung dynamischer Geschäftsprozesse auf Basis von Ereignisverarbeitung in systematischer Weise bis hin zum ausführbaren Modell erforderlich sind. Das Vorgehen von [moby]dbpm, das in Abbildung 4.5 in der Übersicht dargestellt ist, besteht aus vier übergeordneten Schritten, die in einem Top-down-Ansatz von der Modellierung auf Geschäftsprozessebene und anschließender Modellierung auf Ereignisverarbeitungsebene über die Fertigstellung der Modelle für die Ausführung bis hin zum Transfer in die Ausführungsumgebung und schließlich der Ausführung der Modelle selbst reichen.
 \todo{einleiten}
+
+\todo{andere seite ==> relativ am andfang \cite{Gerberich.2011}{s.266}}
 
 \todo{Warum lean manufacturing  MES vorziehen in der diskrten Fertigung nach \cite{Gerberich.2011}{s.266}}
 
@@ -14,9 +42,12 @@ Nachfolgend werden die erstellten Modelle auf technischer Ebene für die Ausfüh
 
 Im letzten Schritt erfolgt schließlich der Transfer in die Ausführungsumgebung und die letztliche Ausführung der beiden Modelle selbst (4). Hierfür wird das Geschäftsprozessmodell in eine native BPMN 2.0-Engine überführt und dort ausgeführt (4. a), während das Ereignisverarbeitungsmodell mit dem Ereignismodell in einer geeigneten CEP-Engine läuft (4. b).
 
+\todo{gründe \cite{Gerberich.2011}{s.29}}
+
+Die verwendeten Fertigungsprozesse werden durch Lean Production im Erfolgsfall verschlankt. Verschlankung ist hier aber nicht gleichbedeutend mit Vereinfachung. Unter Verschlankung fällt die Vermeidung von Verschwen- dung, und damit auch die Vermeidung eines unnötigen organisatorischen Overheads. Dieses Prinzip liegt beispielsweise Kanbansystemen, aber auch den eigenverantwortlich agierenden Arbeitsgruppen der Fertigung zugrunde.
 
 
-
+\todo{ Nutzenpotential VOB MES \cite{Gerberich.2011}s.76}
 
 Die wesentlichen Gestaltungselemente dieser Bachelorarbeit sind in der Übersicht in Tabelle \todo{} aufgeführt und werden in den darin genannten Abschnitten jeweils im Detail erläutert.
 

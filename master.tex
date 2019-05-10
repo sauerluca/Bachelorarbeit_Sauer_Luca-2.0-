@@ -14,6 +14,13 @@
 %	Konfigurationsdatei einziehen
 \input{config}
 
+% \usepackage{setspace}
+% %\singlespacing
+% % \onehalfspacing
+% %\doublespacing
+% % or
+% \setstretch{2}   %% change this number as you wish. 1.667 is double spacing.
+
 \begin{document}
 %% BITTE GEBEN SIE HIER DEN TITEL UND DIE AUTORIN / DEN AUTOR DER ARBEIT AN!
 %% DIESE INFORMATIONEN _MÜSSEN_ GESETZT SEIN, UM TITELBLATT, ABSTRACT UND
@@ -28,9 +35,23 @@
 
 \normalfont
 \setlength\epigraphwidth{0.8\textwidth}
+\renewcommand*{\textflush}{flushright}
+\renewcommand*{\epigraphsize}{\normalsize}
 \setlength\epigraphrule{0pt}
-\renewcommand{\epigraphflush}{center}
-
+\renewcommand{\epigraphflush}{flushright}
+\def\quotepage{%
+      \clearpage%
+      \thispagestyle{empty}%
+      \addtocounter{page}{-1}%
+      \pagebreak
+      \hspace{0pt}
+      \vfill
+      \epigraph{\itshape \enquote{In der digitalen Wirtschaft braucht die Fertigung zusammenhängende und intelligente Lösungen, die es Produktionsmitarbeitern ermöglichen, Fertigungsprozesse transparenter und effizienter zu gestalten und aus Erkenntnissen sofortige Maßnahmen abzuleiten. In der Industrie 4.0 sind Software und Technologie der Schlüssel für Innovationen.}}{\textbf{Bernd Leukert, 2017} \cite{Schell.2017} \\ \textit{Ehemaliges Vorstandsmitglied der SAP SE}}
+      \vfill
+    \hspace{0pt}
+    \pagebreak
+      \clearpage
+      }
 
 \counterwithin{figure}{chapter}
 \counterwithin{table}{chapter}
@@ -42,6 +63,9 @@
 \pagenumbering{gobble}
 %   Sperrvermerk
 % \input{sperrvermerk/nondisclosurenotice}
+
+\quotepage
+\newpage
 
 %	Kurzfassung
 \input{abstract}

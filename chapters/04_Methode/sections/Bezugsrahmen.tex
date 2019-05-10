@@ -33,7 +33,7 @@ Da sich die Entwicklung der Methode grundsätzlich an den grundsätzlichen Ansä
 \subsection{Charakterisierung dynamischer Geschäftsprozesse}
 \todo{defintion dynamischer Geschäftsprozess nochmals auf Basis von \ref{ch:Grundlagen}}
 
-Im Verständnis dieser Arbeit werden dynamische Geschäftsprozesse derart charakterisiert, dass sich deren Prozessablauf als unmittelbare und automatisierte Reaktion auf externe und interne Ereignisse sowie insbesondere auf identifizierte Ereignismuster zur Laufzeit ausrichten kann. Gemäß Abbildung \todo{} werden die zugehörigen Ereignisverarbeitungsregeln zur Echtzeitverarbeitung der relevanten Ereignisse und ihrer Beziehungen untereinander ausschließlich auf der Ereignisverarbeitungsebene implementiert, während die Kommunikation mit der Geschäftsprozessebene einzig mittels Ereignissen auf einer hohen Abstraktionsebene abläuft, die demnach als komplexe Ereignisse von ihrem jeweils zugrunde liegenden Ereignismuster abstrahieren.
+Im Verständnis dieser Arbeit werden dynamische Geschäftsprozesse so charakterisiert, dass sich deren Prozessablauf als unmittelbare und automatisierte Reaktion auf externe und interne Ereignisse sowie insbesondere auf identifizierte Ereignismuster zur Laufzeit ausrichten kann. Gemäß Abbildung \todo{} werden die zugehörigen Ereignisverarbeitungsregeln zur Echtzeitverarbeitung der relevanten Ereignisse und ihrer Beziehungen untereinander ausschließlich auf der Ereignisverarbeitungsebene implementiert, während die Kommunikation mit der Geschäftsprozessebene einzig mittels Ereignissen auf einer hohen Abstraktionsebene abläuft, die demnach als komplexe Ereignisse von ihrem jeweils zugrunde liegenden Ereignismuster abstrahieren.
 
 Die unmittelbare Reaktion auf ein solches komplexes Ereignis auf Geschäftsprozessebene soll sich im Rahmen der modellierten Optionen bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit dem Merkmal, möglichst reaktiv auf eintretende Ereignisse in der Ausführungsphase zu sein. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung in der Ereignisverarbeitungsebene, während der Prozessablauf selbst mit genügend Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßene Ausrichtung des Prozessablaufs als Reaktion auf die zur Laufzeit identifizierten Ereignisse und Ereignismuster realisieren zu können.
 
@@ -60,12 +60,32 @@ Dahingegen zielen das konzipierte Metamodell und die Technik der modellbasierten
  \cite{Wagner.2018}
 
 \subsection{Lean Management}
+Lean Production ist eines der zentralen Themen der Fertigungsoptimierung der letzten Jahre. Allerdings: Schlanke Ansätze, die durch visuelles Management gesteuert werden sollen und sich an physischen Beständen orientieren, stehen auf den ersten Blick in starkem Kontrast zu zentralen Planungslösungen wie der SAP-Software-Suite. Während im Automotive-Umfeld bekannte Elemente wie Kanban mittlerweile einen hohen Reifegrad an SAP-Integration besitzen, sind für viele andere Aspekte der Lean Production nur wenige Wege der SAP-Abbildung bekannt. An dieser Stelle setzt das vorliegende Buch an und zeigt, wie bestehende Installationen optimal für Lean Production genutzt werden können und welche Erweiterungen bei der Umsetzung weiterer Elemente der schlanken Fertigung unterstützen können. Unsere Zielgruppe
 
+Lean Management beschäftigt sich mit der Prozesseffizienz und Prozesseffektivität. Verschwendung steht der Effizienz und Effektivität entgegen und muss entsprechend vermieden werden.
+
+Der Begriff Lean Management beschreibt ein komplexes System, das vielfältige Ansätze und Philosophien miteinander verbindet, um Prozesse im gesamten Unternehmen dadurch wertschöpfender zu gestalten, dass die Verschwendung von Ressourcen erkannt und eliminiert wird.
+
+Lean Management beinhaltet organisatorische Prinzipien, integrierte Strategien zur Erreichung des Unternehmensziels, betriebswirtschaftliche, logistische und ingenieurwissenschaftliche Maßnahmen, aber auch Vorgaben an jeden einzelnen Mitarbeiter.
+
+Lean Production darf damit im Umfeld der Produktionsmethoden heute als
+einer der De-facto-Industriestandards gelten.
+
+In der Geschichte der Informationstechnologie sind Parallelen erkennbar. Auch die Anlagen zur Datenverarbeitung sind hochkomplexe Produkte, und die Architekturen und Prozesse, die in frühen Entwicklungsphasen etabliert wurden, waren starr strukturiert und zentral organisiert. Der gesamte Prozess der Informationsverarbeitung war von zentralen Instanzen starr geregelt, die einzelnen Mitarbeiter hatten klar verteilte Rollen mit scharf abgegrenzten Aufgabenbereichen.
+
+Die ursprüngliche Maxime, möglichst hohe Rechenleistung und Prozessorauslastung zu ermöglichen, rückte mit leistungsfähigerer und günstigerer Hardware gegenüber konkurrierenden Zielen wie der Flexibilität der Architektur oder der Gestaltung benutzerfreundlicher Oberflächen in den Hintergrund. Modulbasierter Einsatz, Benutzerorientierung und flexible Prozesse gewannen an Bedeutung.
+
+Prozesse sollen nicht nur in der Lean-Production-Lehre so schlank und effizient wie möglich gestaltet werden. Aus Sicht schlanker, schnell veränderlicher Prozesse wirken auch IT-Systeme oft unnötig, komplex und unflexibel und scheinen nur mit hohem Aufwand an die konkreten Anforderungen angepasst werden zu können. Der Konflikt zwischen IT- und Prozessgestaltung soll in den folgenden Abschnitten weiter analysiert und auf Lösungsansätze hin untersucht werden.
+
+Lean Production stellt alle Tätigkeiten im Unternehmen infrage, die nicht direkt wertschöpfend sind.
+Konzentration auf die wertschöpfenden Prozesse ist eine der zentralen Ideen der Lean Production. Jede Tätigkeit wird zunächst daran gemessen, ob sie direkte Wertschöpfung aus Sicht des Kunden erzeugt. Nicht wertschöpfende Tätigkeiten stellen eine Verschwendung (Muda) dar, die es zu eliminieren gilt.
+      
+Sämtliche Tätigkeiten und Vorgehensweisen im Unternehmen werden im Rahmen der Muda-Reduzierung auf ihren direkten Beitrag zur Wertschöpfung hin untersucht. Elemente, die sich im Rahmen dieser Analyse als überflüssig oder kontraproduktiv erweisen, sollen dann eliminiert werden.
 \todo{Historie von lean Mangement}
 
 \todo{Kundenbedürfnisse nach \cite{Kieviet.2019}{S.23}}
 
-\todo{Kategorien und Verschwendung nach \cite{Kieviet.2019}{S.37}}
+\todo{Kategorien und Verschwendung nach \cite{Kieviet.2019}{S.37} und \cite{Schell.2017}}
 
 \todo{Leanmanagement konzepte}
 % Forschungsseitiger Schwerpunkt seiner Tätigkeit am Institut liegt in den anwendungsorientierten Methoden der Schlanken Produktion, welche in der Prozesslernfabrik CiP erforscht und einem breiten Teilnehmerkreis aus Universität und Industrie vermittelt werden. Darüber hinaus werden Lösungsansätze zur nahtlosen Integration von Produktion, Logistik und Verkehr erarbeitet.
