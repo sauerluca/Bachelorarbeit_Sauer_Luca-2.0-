@@ -18,137 +18,129 @@ Industriellen Betrieben mangelt es jedoch häufig an Transparenz in den wertsch�
 Eine zeitnahe Rückkopplung zwischen den vom Management gesetzten Zielen und der tatsächlich erreichten Leistung bei der Abwicklung wertschöpfender Geschäftsprozesse findet oftmals nur unzureichend statt. 
 \cite{Grauer.2019}
 
-Die Vision einer ganzheitlichen und transparenten Betrachtung der betrieblichen Geschäftsprozesse zur Leistungserstellung führte in den Siebzigerjahren zu den Anfängen der computerintegrierten Fertigung, englisch \acf{CIM}. 
+Die Vision einer ganzheitlichen und transparenten Betrachtung der betrieblichen Geschäftsprozesse zur Leistungserstellung führte in den Siebzigerjahren zu den Anfängen der computerintegrierten Fertigung, englisch \textit{\acf{CIM}}. 
 Mit der zunehmenden Durchdringung von Industriebetrieben mit \ac{IT}-Systemen, erregte das Modell der computerintegrierten Fertigung anschließend weltweit Aufsehen und etablierte die durchgängig \ac{IT}-gestützte Betriebsdatenerfassung der betriebswirtschaftlichen und technische Aufgaben eines Industriebetriebs auf Basis einer bereichsübergreifenden Datenbasis.
-\citeauthor{Scheer.1990}
+\cite{Scheer.1990}
 
+Um den unterschiedlichen Auffassungen über \ac{CIM} eine gemeinsame Definition zu verleihen, sprach der \citeauthor{AusschufurWirtschaftlicheFertigung.1985} im Jahre \citeyear{AusschufurWirtschaftlicheFertigung.1985} eine Empfehlung aus, ihn als integrierten \ac{IT}-Einsatz in allen mit der Produktion zusammengehörenden Bereichen eines Industriebetriebs zu verstehen. 
+Eine Integration der technischen und betriebswirtschaftlichen Aufgaben innerhalb der Produktherstellung soll durch die Nutzung einer gemeinsamen Datenbasis erreicht werden. 
+Das \ac{CIM}-Konzept umfasst die Anwendungen des Computer-aided Designs, des Computer-aided Plannings, des Computer-aided Manufacturings , der Computer-aided Quality Assurance und der \ac{PPS}.
+\cite{AusschufurWirtschaftlicheFertigung.1985}
 
+Im Zuge der Einführung eines \ac{PPS}-Systems, wird der reine Planungsaspekt jetzt durch Steuerungsfunktionalitäten ergänzt. Ein Beispiel stellt die Erfassung von Rückmeldedaten aus den Produktionsbereichen dar, wodurch gezielte Eingriffe zur Optimierung der Geschäftsprozesse durch transparente Zwischenstände in der Fertigung ermöglicht werden.
+\cite{Dickersbach.2014}
+Die \ac{PPS} sowie viele weitere Kernfunktionen eines Industriebetriebs lassen sich heute unter dem Begriff \textit{\acf{ERP}} subsumieren. Im Gegensatz zu \ac{CIM} geht die Vision eines \ac{ERP}-Systems noch einen Schritt weiter und unterstützt auf Basis einer gemeinsamen Datenbasis ganzheitlich alle betriebswirtschaftlichen Geschäftsprozesses eines Unternehmens.
+Insofern entsteht Transparenz über die gesamten betrieblichen Geschäftsprozesse eines Unternehmens von der strategischen Planung bis zur Qualitätssicherung.
+\cite{Leiting.2012}
 
-\todo{ERP System und SAP S/4HANA erklären}
-In der Produktion laufen zum einen die technisch orientierten Informationen mit den betriebswirtschaftlich orientierten Informationen eines Industriebetriebs zusammen, und zum anderen kommt es zu einer Verschmelzung von Informations- und Materialfluss innerhalb der physischen Produkterstellung.
-
-In den der Fertigung vorgelagerten Bereichen stehen vor allem die Gestaltung des Informationsflusses von Vertrieb, Einkauf, Materialwirtschaft, Entwicklung, Arbeitsplanung und Produktionsplanung sowie die möglichst konsistente und redundanzoptimierte Nutzung von gemeinsamen Stammdaten, wie den Stücklisten, Arbeitsplänen Fertigungsmitteln und Arbeitsplätzen im Vordergrund. Die Hauptaufgaben im kapitalintensiven Fertigungsbereich sind hingegen die Optimierung des Maschinenparks sowie die durchgängige Gestaltung des Materialflusses. Aus informationstechnischer Sicht sind im Produktionsbereich die Steuerungsanweisungen der Produktionseinrichtungen eng mit der zeitlichen und örtlichen Steuerung der Fertigungsaufträge sowie mit der Rückmeldung innerhalb der Betriebsdatenerfassung verbunden.
-
-
-\todo{wichtig}
-
-
-
-
-
-
-
-\missingfigure{Wertschöpfungskette}
-
-In einem Industriebetrieb läuft die Aufgabenerfüllung der Auftragsabwicklung und der Produktentstehung – hoffentlich abgestimmt – zunächst parallel ab. Lediglich in der Projekteinzelfertigung sind diese Aufgaben schon zu einem frühen Zeitpunkt eng miteinander verzahnt. Spätestens im Produktionsbereich werden die Aufgaben der Auftragsabwicklung und die Aufgaben der Produktentstehung integrativ abgearbeitet. Wird z. B. ein Produkt innerhalb der Produktentstehung fertiggestellt, erfolgt mit der Rückmeldung im Rahmen der Betriebsdatenerfassung die Fortschreibung in den betriebswirtschaftlichen Daten der Auftragsabwicklung. 
-
-Computer-integrated Manufacturing bezeichnet ein Konzept aus der Praxis, das sich mit der integrierten Informationsverarbeitung für betriebswirtschaftliche und technische Aufgaben in einem Industriebetrieb befasst. 
-
-\cite{Scheer.1990} CIM
-
-
-\todo{Zitieren relevanz bauernhanze Die vier Lebenszyklen der Produktion  \cite{Bauernhansl.2014} und \cite{Wagner.2018} kapitel Erst Lean-Management, dann Industrie 
-4.0! und \cite{Huber.2016}}
-
-
-
-
+Der Fokus der folgenden Betrachtungen dieser Bachelorarbeit liegt insbesondere auf dem Modul \ac{PPS} der \ac{ERP}-Lösung \textit{S/4HANA Cloud} von SAP, die als Nachfolger der verbreiteten \textit{SAP Business Suite} gilt. 
+\cite{Densborn.2018}
+Die Komponente \ac{PPS} ist seit der Einführung der \ac{ERP}-Lösung \textit{SAP R/2} im Jahre 1983 ein Bestandteil der SAP \ac{ERP}-Lösungen und wurde seit dem ständig weiterentwickelt.
+\cite{Frick.2008}
 
 \subsection{Geschäftsprozesse in der Produktionsplanung und -steuerung}
+Die Aufgabenberieche für die \ac{PPS} sind innerhalb von SAP S/4HANA Cloud, wie auch bei seinen Vorgängern, im Modul PP angeordnet. Die wesentlichen Geschäftsprozesse innerhalb von PP sind die Absatz- und Produktionsgrobplanung, die Programmplanung, die Materialbedarfsplanung, die Langfristplanung, die Fertigungsauftragseröffnung und -durchführung sowie die Kapazitätsplanung. 
+\cite{Akhtar.2019} 
 
- Die vier Zieldimensionen der Produktion\cite{Erlach.2010}
-
-Industriebetriebe mit mechanischer Fertigung befinden sich unter anderem in den Branchen Maschinen- und Anlagenbau, in der Automobilindustrie sowie in der Luftfahrtindustrie. Das Spektrum reicht hier von einfachen Einzelteilen bis hin zu komplexen Großanlagen (siehe Kagermann/Keller 2001, S. 29–48; S. 69–96; S. 127–144). Ins- besondere der deutsche Mittelstand ist eine tragende Säule im Maschinen- und Anlagenbau und durch eine tiefe Spezialisierung und Exportorientierung gekennzeichnet. So müssen hochqualifizierte Mitarbeiter den verschiedensten Anforderungen des Markts und des Gesetzgebers mit einer flexiblen Fertigungs- und Software- technologie Rechnung tragen.
-
-SAP ERP zeichnet sich durch ein umfassendes betriebswirtschaftliches Leistungsangebot, durch hohe Modularität bei gleichzeitiger Integration der einzelnen Komponenten, durch die Unterstützung internationaler Anforderungen mittels Anbieten von entsprechender landesspezifischer Funktionalität (z. B. Personalabrechnung in verschiedenen Ländern aufgrund unterschiedlicher Gesetze und Steuersätze) und Mehrsprachigkeit sowie durch die Lauffähigkeit auf verschiedenen Rechnerplattformen aus.
-
-SAP ERP basiert auf einer dreistufigen Client-Server-Architektur und kann in zwei Aufgabengebiete unterteilt werden: die Basisaufgaben und die betriebswirtschaftlichen Anwendungsaufgaben. Aufgabe der Basisschicht ist es, die betriebswirtschaftlichen Anwendungen unabhängig von den Systemschnittstellen des Betriebs- sowie des Datenbank- und Kommunikationssystems zu gestalten und für eine performante Abwicklung der betriebswirtschaftlichen Transaktionen zu sorgen. In der Anwendungsschicht ist das implementierte Lösungsangebot zur Unterstützung der betriebswirtschaftlichen Anforderungen der Unternehmen enthalten.
-
-Die Fertigungsart bzw. Produktionsart charakterisiert die Häufigkeit der Leistungswiederholung im Produktionsprozess. Charakterisie- rende Merkmale zur Bestimmung der Fertigungsart sind die Wiederholhäufigkeit gleicher oder ähnlicher Produkte sowie die Auflagen- höhe der Fertigungsaufträge. Eng verbunden mit der Fertigungsart ist die Fertigungsorganisation, da nicht selten die Fertigungsart maßgeb- lichen Einfluss auf die Gestaltung des Fertigungsablaufs hat. 
-
-Im Wesentlichen umfassen die Prozesse in der Produktionsplanung 
-und -steuerung die folgenden Bereiche:
+Im Wesentlichen umfassen diese Geschäftsprozesse in der Produktionsplanung und -steuerung die folgenden Bereiche:
 
 \begin{itemize}
     \item 
-    Absatz- und Produktionsgrobplanung zur Festlegung der zu produzierenden Mengen
+    Absatz- und Produktionsgrobplanung zur Bestimmung der herzustellenden Mengen
     \item 
-    Materialbedarfsplanung zur Nettobedarfsrechnung und Ermittlung der Komponentenbedarfe unter Berücksichtigung von Ausschuss und Losgrößen
+    Materialbedarfsplanung zur Bestimmung der Bedarfe unter Einbeziehung von Ausschuss und Losgrößen
     \item 
-    Kapazitätsplanung zur Feinplanung der Produktion unter Berücksichtigung der verfügbaren Kapazitäten
+    Kapazitätsplanung zur Feinplanung unter Einbeziehung der Produktionskapazitäten
     \item 
-    Fertigungssteuerung zur Steuerung und Erfassung der Fertigungsdurchführung (Erstellung der Fertigungspapiere, Erfassung der Rückmeldungen)
+    Fertigungssteuerung zur Steuerung und Erfassung der Fertigungsdurchführung
 \end{itemize}
 
+Diese vier Bereiche stellen den Prozessumfang jedoch nur sehr grob dar, weshalb Abbildung \ref{fig:Prozessüberblick der Produktionsplanung und -steuerung} einen detaillierteren Überblick geben soll. Hier sind die relevanten Geschäftsprozesse explizit mit ihren wichtigsten Eingangs- und Ausgangsgrößen dargestellt.
 
-Diese vier Bereiche stellen den Prozessumfang nur sehr grob dar – einen detaillierteren Überblick gibt Abbildung \ref{fig:Prozessüberblick der Produktionsplanung und -steuerung}. Hier sind die Prozessbausteine, die wir in den folgenden Kapiteln ausführlich behandeln, explizit mit ihren wichtigsten Eingangs- und Ausgangsgrößen dargestellt.
-
+Die Produktionsplanung umfasst sowohl die Absatz- als auch die Produktionsgrobplanung. Zukünftige Bedarfe werden in der Absatzplanung geplant. Dabei spielen weder Bestände noch Kapazitätsangebote eine Rolle. Die Verkaufshistorie stellt oft die Grundlage für die Absatzplanung dar. Basierend auf der Absatzplanung ermittelt die Produktionsgrobplanung nun die geplanten Produktionsmengen. Anfangsbestände und Kapazitäten können grob berücksichtigt werden. Die Programmplanung führt die Absatzplanung mit den Bedarfen aus Kundenaufträgen zusammen und ermittelt auf diese Weise die Primärbedarfe für die Produktion. 
+\cite{Dickersbach.2014} 
 
 \begin{figure}[H]
 	\centering 
     \includegraphics[width=\textwidth]{img/Produktion.png}	
     \caption[Prozessüberblick der Produktionsplanung und -steuerung]
-    {Prozessüberblick der Produktionsplanung und -steuerung \protect\footnotemark}
+    {Produktionsplanung und -steuerung in SAP S/4HANA Cloud\protect\footnotemark}
     \label{fig:Prozessüberblick der Produktionsplanung und -steuerung}
 \end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Dickersbach.2014} \citeyear{Dickersbach.2014} \cite{Dickersbach.2014} }
+\footnotetext{in Anlehnung an \citeauthor{Akhtar.2019} \citeyear{Akhtar.2019} \cite{Akhtar.2019} }
 
+Die Materialbedarfsplanung berechnet auf Basis des Produktionsplans für alle Ebenen die Bedarfsdeckung. Berücksichtigt werden unter anderem Durchlaufzeiten, Losgrößen und Ausschußmengen.
+In der Kapazitätsplanung wird der Arbeitsvorrat aus den Vorgängen eröffneter oder freigegebener Fertigungsaufträge eingeplant. Das Ergebnis der Kapazitätsplanung ist eine realisierbare Auftragsabfolge für die Fertigung.
+\cite{Dickersbach.2014} 
 
-Wichtige Fertigungsarten sind (siehe Keller/Curran 1999, S. 137–154): 
+Das zentrale Geschäftsobjekt für die Steuerung und Erfassung der Fertigung ist der Fertigungsauftrag. Die Fertigungsauftragseröffnung beschreibt die Erstellung des Fertigungsauftrags. 
+Während sich die vorhergehenden Prozesse mit der Produktionsplanung befassen, beschäftigt sich die Fertigungsdurchführung mit der Erfassung und Steuerung der Ist-Situation der Fertigung im Fertigungsauftrag.
+\cite{Dickersbach.2014} 
 
-diskrete Fertigung 
-
-Serienfertigung 
-
-Prozessfertigung 
-
-Kanban 
-
-Projektfertigung
-
-\todo{nur auf diskrete eingehen, auf literatur verweisen}
-
+Die zugrunde liegenden Stammdaten der Produktionsplanung und -steuerung in SAP S/4HANA Cloud sind der Materialstamm, die Stückliste, der Arbeitsplan und der Arbeitsplatz. 
+\cite{Dickersbach.2014}
 
 \subsection{Vorstellung der Fertigungsdurchführung in der diskreten Fertigung}
+In der Terminologie der SAP \ac{ERP}-Lösungen wird die Fertigung in die Fertigungsarten diskrete Fertigung, Serienfertigung, Prozessfertigung, Kanban und Projektfertigung einteilen. 
 
-\todo{Definition Fertigungsdurchführung}
+Die diskrete Fertigung\footnotetext{In anderer Literatur wird die \textit{diskrete Fertigung} auch als \textit{Werkstattfertigung bezeichnet.}} befasst sich mit der Herstellung von Produkten basierend auf Fertigungsaufträgen. 
+Die diskrete Fertigung ist dann erforderlich, wenn die Herstellung von Erzeugnissen in einer variantenreichen Ausprägung benötigt wird, wenn die Auftragslage sehr unregelmäßig ist und die Fertigung anhand von Arbeitsplätzen abläuft. 
+\cite{Mathieu.2014}
+Des Weiteren lässt sich die diskrete Fertigung im SAP-Standard auf verschiedene Wege durchführen. Auf der einen Seite gibt es die Lagerfertigung, bei der die gesamte Planung, unabhängig von Kundenaufträgen, auf Basis der Planprimärbedarfe erfolgt. Im Gegenzug dazu existiert die Kundeneinzelfertigung bei der ein Fertigungsauftrag erst mit Eingang eines expliziten Kundenauftrags erstellt wird. Eine umfassende Erörterung der anderen Fertigungsarten und Planungsstrategien ist in dieser Bachelorarbeit nicht angedacht, kann aber der verwendeten Literatur entnommen werden.
+\cite{Dickersbach.2014}
 
-\todo{Diskrete Fertigung}
-Die diskrete Fertigung \todo{fußnote(auch Werkstattfertigung) } beschreibt die Fertigung eines Erzeugnisses auf der Basis von Fertigungsaufträgen. Die diskrete Fertigung kommt zum Einsatz, wenn die zu produzierenden Erzeugnisse häufig wechseln, wenn die Bedarfe sehr unregelmäßig auftreten und die Fertigung einen werkstattorientierten Ablauf hat. Um eine diskrete Fertigung durchführen zu können, sind eine Reihe von Stammdaten erforderlich. Zu den wichtigsten Stammdaten gehören Material, Stückliste, Arbeitsplatz und Arbeitsplan.
+Der Produktionsprozess in der diskreten Fertigung beginnt, wenn ein Fertigungsauftrag erstellt wird. 
+Ein Fertigungsauftrag kann entweder manuell oder durch die Umwandlung eines Planauftrags, die das System nach der Ausführung der Bedarfsplanung erzeugt hat, erstellt werden. 
+Ein Fertigungsauftrag gibt an welches Produkt zu welchem bestimmten Zeitpunkt zu welcher Gutmenge zu produzieren ist. 
+Er legt ebenfalls die Arbeitsplätze und Materialien, die für die Fertigung benötigt werden, fest. 
+\cite{Dickersbach.2014}
 
-Die diskrete Fertigung beginnt mit der Eröffnung und Bearbeitung eines Fertigungsauftrags. Die Eröffnung des Fertigungsauftrags kann entweder durch Umsetzen eines in der Produktions- und Beschaffungsplanung erzeugten Planauftrags oder durch dessen manuelles Anlegen erfolgen. Ein Fertigungsauftrag ist eine Anforderung an die Produktion, Materialien bzw. Leistungen zu einem bestimmten Termin in einer bestimmten Menge herzustellen bzw. zu erbringen. Er legt fest, auf welchem Arbeitsplatz und mit welchen Einsatzmaterialien das entsprechende Material zu fertigen ist. Das Eröffnen eines Fertigungsauftrags erzeugt automatisch Materialreservierungen für die benötigten Materialkomponenten. Für fremdzubeschaffende Materialkomponenten bzw. Dienstleistungen werden Bestellanforderungen erstellt. An den Arbeitsplätzen, an denen der Auftrag durch- geführt wird, entstehen Kapazitätsbelastungen.
-
-Die Fertigungsaufträge werden bei Erreichen des Freigabetermins und bei vorhandener Material- und Kapazitätsverfügbarkeit freigegeben. Zur Vorbereitung der Durchführung können die entsprechenden Papiere des Fertigungsauftrags ausgedruckt werden. Die Auswertung der Kapazitätssituation und der gegebenenfalls notwendige Kapazitätsabgleich können in jeder Phase der Fertigungsauftragsabwicklung durchgeführt werden. Meist geschieht dies, bevor mit der Fertigung begonnen wird. Die zur Produktion der Erzeugnisse benötigten Komponenten werden aus dem Fertigungsauftrag entnommen, und der Warenausgang wird gebucht. Nun wird das Erzeugnis anhand des Fertigungsauftrags produziert. Die gefertigte Menge und die erbrachten Leistungen werden dem Fertigungsauftrag zurückgemeldet, das Erzeugnis auf Lager gelegt und der Wareneingang gebucht. Zum Abschluss wird der Fertigungsauftrag abgerechnet.
+Fertigungsaufträge werden am Tag der geplanten Freigabe, sofern die erforderlichen Materialien und Kapazitäten verfügbar sind, erteilt. 
+Dokumente, die sich auf den Fertigungsauftrag beziehen, werden gedruckt, um die Fertigungsdurchführung vorzubereiten. 
+Die zur Herstellung der Produkte erforderlichen Materialien werden anhand des Fertigungsauftrags entnommen, das Produkt anhand des Fertigungsauftrags hergestellt und die angefallenen Mengen \textit{(Gutmenge, Ausschuss, Nacharbeit)} werden anhand des Fertigungsauftrags zurückgemeldet.
+Das Produkt wird eingelagert und der Wareneingang gebucht. 
+Zur Minimierung des Aufwands während der Betriebsdatenerfassung kann der Wareneingang mithilfe der Rückmeldung des Auftrags in SAP S/4HANA Cloud automatisch gebucht werden.
+Die Abwicklung des Fertigungsauftrags ist anschließend sicherzustellen, woraufhin der Fertigungsauftrag als abgeschlossen deklariert wird und nicht mehr änderbar ist.
+\cite{Dickersbach.2014}
 
 \missingfigure{Prozessüberblick}
-Die Fertigungsauftragseröffnung leitet die kurzfristigen Aufgaben der Fertigungssteuerung ein. 
-Die Fertigungsdurchführung wird mit der Auftragsfreigabe eingeläutet. Diese bewirkt eine Statusänderung des Fertigungsauftrags und ist die systemtechnische Voraussetzung für die nachfolgenden Schritte – vom Auftragsdruck über die Materialentnahme für die Komponenten, über die Rückmeldung bis hin zum Lagerzugang sowie über die Abrechnung bis hin zum Abschluss. Bei der Freigabe kann erneut eine Verfügbarkeitsprüfung erfolgen.
 
-Die Aufgabe des Fertigungsauftrags ist es, sowohl die Fertigung zu steuern als auch die Fertigung mengen- und kostenmäßig zu erfassen. Zur Steuerung der Fertigung gehört unter anderem die Bereitstellung der Information, welches Produkt in welcher Menge mit welchen Ressourcen zu welchem Zeitpunkt gefertigt werden soll. Hierzu ist es erforderlich, dass der Fertigungsauftrag Stammdaten und Steuerungsparameter enthält. Entsprechend den Stammdaten Arbeitsplan und Stückliste gliedert sich der Fertigungsauftrag im Wesentlichen in:
+Der Fertigungsauftrags verfolgt die Zwecke, sowohl der Fertigungslenkungung als Schaffung der benötigen Transparenz bezüglich mengen- und kostenmäßigen Kennzahlen in der Fertigung. Zur Steuerung der Fertigung gehört unter anderem die Bereitstellung der für die Fertigung notwendigen Informationen über die auszuführenden Vorgänge. Hierzu wird es benötigt, dass der Fertigungsauftrag Stammdaten und Betriebsdaten behandelt. Basierend auf dem Arbeitsplan und der Stückliste lässt sich der Fertigungsauftrag im Wesentlichen auf folgende Daten unterteilen:
 
-Kopfdaten, die organisatorische Informationen, wie die Auftragsnummer, sowie Kosten, Mengen und Termine für den Auftrag als Ganzes enthalten 
+\begin{itemize}
+    \item \textbf{Kopfdaten} die den organisatorischen Rahmen formalisieren. Hierzu zählen die Auftragsnummer, die Kosten sowie die Terminierung des Auftrags.
+    \item \textbf{Vorgangsdaten} die neben den Details zu den durchzuführenden Vorgängen auch die Rückmeldungen aus der Fertigung sowie die geplanten Durchführungstermine enthalten.
+    \item \textbf{Komponentendaten} die den Bedarf an Materialien sowie deren Reservierungsinformationen angeben.
+\end{itemize}
 
-Vorgangsdaten, die detaillierte Vorgangstermine, Vorgabewerte und auch die rückgemeldeten Mengen und Termine enthalten 
+Im Rahmen der Betriebsdatenerfassung werden die realisierten Mengen- und Zeitwerte der Fertigungsaufträge und Mitarbeiter, Warte- und Ausfallzeiten von Betriebsmitteln sowie der Einsatz von Materialien in SAP S/4HANA Cloud zurückgemeldet. Insbesondere ein unmittelbarer Eingriff in die diskete Fertigung benötigt die Informationen über den Zustand des Produktionsprozesses in Echtzeit. 
 
-Komponentendaten zu den Vorgängen wie Bedarfsmenge und Reservierungsnummer
+Die SAP \ac{ERP}-Lösungen sehen dabei diverse Rollen für die Durchführung der Fertigung vor. In der Praxis hat sich jedoch gezeigt, dass diese oftmals vom Standard abweichen, da die Befugnisse der Fertigungsmitarbeiter stark an unternehmensspezifische Richtlinien gekoppelt sind.
+\cite{Frick.2008}
+In SAP S/4HANA Cloud werden für die Fertigungsdurchführung standardmäßig die folgenden zwei Rollen vorgesehen:
+\begin{itemize}
+    \item \textbf{Fertigungssteuerer}: Der Fertigungssteuerer ist laut dem Rollenkonzept der SAP verantwortlich für die Freigabe eines Fertigungsauftrags. Zudem liegt es in seinem Zuständigkeitsbereich auf veränderte Situationen in der Fertigungsdurchführung zu reagieren und unmittelbar kurzfristige Planungsentscheidungen zu treffen.
+    \item \textbf{Werker}: Der Werker hat Fertigungsaufträge und Vorgänge nach Anweisung auszuführen. Er steht in der Pflicht möglicht unmittelbar, aber zwingend fristgerecht Rückmeldungen bezüglich der Fortchritte zu erfassen.
+\end{itemize}
 
-Im Produktionsbereich treffen sich innerhalb der Fertigungsdurch- führung die bisher teilweise unterschiedlich verlaufenen Informa- tions- und Materialflüsse. Sind sämtliche für die Produktion benötig- ten Unterlagen (wie z. B. Zeichnung, Stückliste, Arbeitsplan mit seinen Kalkulationswerten, Fertigungsauftrag und Personalressour- cen) vorhanden und steht der Fertigungstermin unmittelbar bevor, müssen Sie dafür Sorge tragen, dass die fremd- und eigenbeschafften Rohmaterialien und Einbauteile physisch vorhanden, für die Produk- tion freigegeben und zur Produktionsstätte geliefert worden sind. Sind die Materialien, die Fertigungs- und Fertigungshilfsmittel sowie das Personal vor Ort, kann mit der physischen Produkterstellung begonnen werden.
-
-\todo{rollen}
-Während die in Abschnitt 3.3 aufgeführten Planer ausschließlich für die Stammdatenpflege zuständig sind, liegt die Produktionsplanung und -steuerung im Aufgabenbereich der Planer Disponent, Kapazitätsplaner und Fertigungssteuerer. Diese drei Planer entsprechen den Rollen, die SAP für die Produktionsplanung und -steuerung vorsieht – in einem Unternehmen können einer Person mehrere oder sogar alle Rollen zugeordnet sein. Die Bedeutung dieser Rollen liegt in erster Linie darin, dass sie eine schnelle Auswahl von Planungsobjekten nach Zuständigkeit erlaubt.
-
-Im Produktionsbereich treffen sich innerhalb der Fertigungsdurchführung die bisher teilweise unterschiedlich verlaufenen Informations- und Materialflüsse. Sind sämtliche für die Produktion benötigten Unterlagen (wie z. B. Zeichnung, Stückliste, Arbeitsplan mit seinen Kalkulationswerten, Fertigungsauftrag und Personalressourcen) vorhanden und steht der Fertigungstermin unmittelbar bevor, müssen Sie dafür Sorge tragen, dass die fremd- und eigenbeschafften Rohmaterialien und Einbauteile physisch vorhanden, für die Produktion freigegeben und zur Produktionsstätte geliefert worden sind. Sind die Materialien, die Fertigungs- und Fertigungshilfsmittel sowie das Personal vor Ort, kann mit der physischen Produktherstellung begonnen werden.
-
-
-Die Fertigungsdurchführung schließt an die Fertigungsauftragseröffnung oder an die Kapazitätsplanung an. Basierend auf Fertigungsauf- trägen mit festen Vorgangsterminen wird mit der Freigabe des Fertigungsauftrags der systemseitige Startschuss zur Durchführung der Fertigung gegeben. Zusammen mit der Freigabe wird in der Regel eine Verfügbarkeitsprüfung durchgeführt. Der Auftragsdruck erfolgt entweder ebenfalls mit der Freigabe oder im Anschluss daran in einem separaten Schritt. Die nachfolgenden Schritte sind die Materialentnahme der Komponenten, die Rückmeldung der erfolgten Fertigungsschritte – inklusive der Gutmengen und des Ausschusses – sowie der Lagerzugang. Die Fertigungsaufträge bleiben im System, bis sie archiviert oder gelöscht worden sind. An abgeschlossenen Fertigungsaufträgen ist keine Änderung mehr möglich.
-
-\todo{Alternative MES}
-Eine abweichende, jedoch ebenfalls gebräuchliche Vorgehensweise ist es, die erstellten und freigegebenen Fertigungsaufträge an ein Prozessleitsystem weiterzugeben, dort die eigentliche Fertigungssteuerung inklusive der kapazitiven Planung vorzunehmen und die Rückmeldung der Fertigungsaufträge an PP weiterzugeben. In diesem Fall wird die Produktionsplanungs- und -steuerungsfunktionalität von SAP ERP hauptsächlich für die Materialbedarfsplanung, für die Bestandsrechnung und für die Kostenabrechnung verwendet.
-
-Zur Verringerung des Pflegeaufwands kann der Wareneingang mithilfe der Rückmeldung des letzten Auftrags automatisch gebucht werden. Hierzu ist keine Endrückmeldung erforderlich; Der automatische Wareneingang funktioniert auch für teilrückgemeldete Mengen.
-
-Im Rahmen dieser Bachelorarbeit soll die \todo{Für die was?} für einen ausgewählten Teil des Geschäftsprozesses \textit{Fertigungsdurchführung} erfolgen.
+Eine Alternative, die als Vorgehensweise ebenfalls eine weite Verbreitung gefunden hat, ist es die erstellten und freigegebenen Fertigungsaufträge an ein sogenanntes \ac{MES} weiterzugeben, dort die eigentliche Fertigungssteuerung sowie die Kapazitätsplanung vorzunehmen und die Rückmeldungen der Fertigungsaufträge über Schnittstellen an SAP S/4HANA Cloud weiterzugeben. 
+\cite{Gerberich.2011}
+In diesem Fall wird der Funktionsumfang der \ac{PPS} von SAP S/4HANA Cloud  für die Materialbedarfsplanung, für die Bestandsrechnung und für die Kostenabrechnung verwendet.
+\cite{Dickersbach.2014}
+Das Konzept eines \ac{MES} wird in dieser Bachelorarbeit nicht weiter vertieft, daher sei lediglich auf weiterführende Literatur verwiesen.
+\cite{Kletti.2007} \cite{Gerberich.2011}
 
 
-Im Rahmen der Betriebsdatenerfassung (BDE) werden die realisierten Mengen- und Zeitwerte der Aufträge und Mitarbeiter, Stillstands- und Ausfallzeiten von Betriebsmitteln sowie der Einsatz von Materialien und Werkzeugen in den Planungs- und Steuerungsprozeß zurückgemeldet. Insbesondere eine zeitnahe Werkstattsteuerung setzt auch die laufende Information über den Ist-Zustand des Produktionsprozesses voraus. Für die Betriebsdatenerfassung werden spezielle Hardwaresysteme wie störungsunanfällige Terminals oder automatische Signalgeber an Produktionsanlagen eingesetzt, die zum Teil auch einen Prozeßrechner erfordern. Aus diesem Grunde führen BDE-Systeme in der Regel zu einer Vernetzung von mehreren Rechnersystemen.
+Das Prinzip der diskreten Fertigung stellt den Werker in den Mittelpunkt der Wertschöpfung. 
+Er verarbeitet die Materialien an einem Arbeitsplatz, falls nötig mit der Unterstützung von Maschinen und erzeugt das Endprodukt. 
+\cite{Gerberich.2011}
+Da die diskrete Fertigung zumeist in Form einer Kundeneinzelfertigung angewendet wird, sind niedrige bis mittlere Gutmengen und eine hohe Produktvarianz die Regel. 
+Eine weitere Eigenschaft der diskreten Fertigung ist bedingt durch die erwähnte Produktvarianz, eben diese macht es notwendig die Produktion flexibel planen zu können, da meist mehrere Vorgänge zur Herstellung eines Produktes von Nöten sind.
+Dabei werden Transporte von Arbeitsplatz zu Arbeitsplatz zum Normalfall.
+Eine vollautomatische Betriebsdatenerfassung und -verarbeitung ist in der Praxis daher beinahe ausgeschlossen.
+Die Betriebsdatenerfassung wird in der Regel manuell über sogenannte \ac{MES}-Terminals vorgenommen.
+\cite{Gerberich.2011}
+
+Die diskrete Fertigung bietet, aufgrund der hohen Transport- und Liegezeiten, ein hohes Potenzial für Maßnahmen der Durchlaufzeitreduzierung.
+Im Hinblick auf die Eigenschaften dynamischer Geschäftsprozesse kann die Fertigungsdurchführung in der diskreten Fertigung eines Industriebetriebs aus diesen Gründen als geeigneter Anwendungsfall betrachtet werden.  
 
