@@ -46,13 +46,13 @@ Im Wesentlichen umfassen diese Geschäftsprozesse in der Produktionsplanung und 
 
 \begin{itemize}
     \item 
-    Absatz- und Produktionsgrobplanung zur Bestimmung der herzustellenden Mengen
+    \textbf{Absatz- und Produktionsgrobplanung} zur Bestimmung der herzustellenden Mengen
     \item 
-    Materialbedarfsplanung zur Bestimmung der Bedarfe unter Einbeziehung von Ausschuss und Losgrößen
+    \textbf{Materialbedarfsplanung} zur Bestimmung der Bedarfe unter Einbeziehung von Ausschuss und Losgrößen
     \item 
-    Kapazitätsplanung zur Feinplanung unter Einbeziehung der Produktionskapazitäten
+    \textbf{Kapazitätsplanung} zur Feinplanung unter Einbeziehung der Produktionskapazitäten
     \item 
-    Fertigungssteuerung zur Steuerung und Erfassung der Fertigungsdurchführung
+    \textbf{Fertigungssteuerung} zur Steuerung und Erfassung der Fertigungsdurchführung
 \end{itemize}
 
 Diese vier Bereiche stellen den Prozessumfang jedoch nur sehr grob dar, weshalb Abbildung \ref{fig:Prozessüberblick der Produktionsplanung und -steuerung} einen detaillierteren Überblick geben soll. Hier sind die relevanten Geschäftsprozesse explizit mit ihren wichtigsten Eingangs- und Ausgangsgrößen dargestellt.
@@ -67,7 +67,8 @@ Die Produktionsplanung umfasst sowohl die Absatz- als auch die Produktionsgrobpl
     {Produktionsplanung und -steuerung in SAP S/4HANA Cloud\protect\footnotemark}
     \label{fig:Prozessüberblick der Produktionsplanung und -steuerung}
 \end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Akhtar.2019} \citeyear{Akhtar.2019} \cite{Akhtar.2019} }
+\footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Akhtar.2019} \citeyear{Akhtar.2019} \cite{Akhtar.2019} }
+\footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
 Die Materialbedarfsplanung berechnet auf Basis des Produktionsplans für alle Ebenen die Bedarfsdeckung. Berücksichtigt werden unter anderem Durchlaufzeiten, Losgrößen und Ausschußmengen.
 In der Kapazitätsplanung wird der Arbeitsvorrat aus den Vorgängen eröffneter oder freigegebener Fertigungsaufträge eingeplant. Das Ergebnis der Kapazitätsplanung ist eine realisierbare Auftragsabfolge für die Fertigung.
@@ -103,7 +104,15 @@ Zur Minimierung des Aufwands während der Betriebsdatenerfassung kann der Warene
 Die Abwicklung des Fertigungsauftrags ist anschließend sicherzustellen, woraufhin der Fertigungsauftrag als abgeschlossen deklariert wird und nicht mehr änderbar ist.
 \cite{Dickersbach.2014}
 
-\missingfigure{Prozessüberblick}
+\begin{figure}[H]
+	\centering 
+    \includegraphics[width=\textwidth]{img/fertigungsdurch_ist.png}	
+    \caption[Überblick über die Prozesse der diskreten Fertigung]
+    {Überblick über die Prozesse der diskreten Fertigung\protect\footnotemark}
+    \label{fig:Überblick über die Prozesse der diskreten Fertigung}
+\end{figure}
+\footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Dickersbach.2014} \citeyear{Dickersbach.2014} \cite{Dickersbach.2014} }
+\footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
 Der Fertigungsauftrags verfolgt die Zwecke, sowohl der Fertigungslenkungung als Schaffung der benötigen Transparenz bezüglich mengen- und kostenmäßigen Kennzahlen in der Fertigung. Zur Steuerung der Fertigung gehört unter anderem die Bereitstellung der für die Fertigung notwendigen Informationen über die auszuführenden Vorgänge. Hierzu wird es benötigt, dass der Fertigungsauftrag Stammdaten und Betriebsdaten behandelt. Basierend auf dem Arbeitsplan und der Stückliste lässt sich der Fertigungsauftrag im Wesentlichen auf folgende Daten unterteilen:
 
@@ -141,6 +150,6 @@ Eine vollautomatische Betriebsdatenerfassung und -verarbeitung ist in der Praxis
 Die Betriebsdatenerfassung wird in der Regel manuell über sogenannte \ac{MES}-Terminals vorgenommen.
 \cite{Gerberich.2011}
 
-Die diskrete Fertigung bietet, aufgrund der hohen Transport- und Liegezeiten, ein hohes Potenzial für Maßnahmen der Durchlaufzeitreduzierung.
+Die Fertigungsdurchführung in der diskreten Fertigung bietet, aufgrund der hohen Transport- und Liegezeiten, ein hohes Potenzial für Maßnahmen der Durchlaufzeitreduzierung.
 Im Hinblick auf die Eigenschaften dynamischer Geschäftsprozesse kann die Fertigungsdurchführung in der diskreten Fertigung eines Industriebetriebs aus diesen Gründen als geeigneter Anwendungsfall betrachtet werden.  
 

@@ -35,7 +35,7 @@ Abbildung \ref{fig:Grundschritte von ereignisgesteuerten Architekturen} illustri
     {Grundschritte von ereignisgesteuerten Architekturen \protect\footnotemark}
     \label{fig:Grundschritte von ereignisgesteuerten Architekturen}
 \end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Bruns.2010} \citeyear{Bruns.2010} \cite{Bruns.2010} }
+\footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Bruns.2010} \citeyear{Bruns.2010} \cite{Bruns.2010} }
 
 Demnach besteht eine zentrale Charakteristik von ereignisgesteuerten Architekturen aus der Komposition von drei Grundschritten: \textit{Erkennen, Verarbeiten und Reagieren von oder auf Ereignisse.}
 
@@ -67,8 +67,7 @@ Eingehende Ereignisse werden somit im Rahmen der Ereignisverarbeitung analysiert
 
 \subsection{Merkmale und Kriterien}
 Der Austausch von Ereignissen in einer \ac{EDA} wird typischerweise durch das in Abbildung \ref{fig:Publish-Subscribe-Paradigma} dargestellte \textit{Publish-Subscribe-Paradigma} realisiert. 
-Ein Produzent, englisch \textit{publisher}, sendet seine Ereignisse in Form von Ereignisobjekten an eine verarbeitende Schicht, um diese in sogenannten Ereigniskanälen kategorisiert zur Verfügung zu stellen. Die publizierten Ereignisobjekte sind Instanzen eines spezifischen Ereignisses.
-\cite{Metz.2014}
+Ein Produzent, englisch \textit{publisher}, sendet Ereignisse in Form von Ereignisobjekten an eine verarbeitende Schicht, um diese in sogenannten Ereigniskanälen zur Verfügung zu stellen. Die publizierten Ereignisobjekte sind Instanzen eines spezifischen Ereignisses. \cite{Metz.2014}
 
 \begin{figure}[H]
 	\centering 
@@ -77,7 +76,8 @@ Ein Produzent, englisch \textit{publisher}, sendet seine Ereignisse in Form von 
     {Publish-Subscribe-Paradigma \protect\footnotemark}
     \label{fig:Publish-Subscribe-Paradigma}
 \end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Metz.2014} \citeyear{Metz.2014} \cite{Metz.2014} }
+\footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Metz.2014} \citeyear{Metz.2014} \cite{Metz.2014} }
+\footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
 Ein oder mehrere Konsumenten, englisch \textit{subscriber}, bekunden ihr Interesse an einem oder mehreren Ereigniskanälen, indem sie sich mittels der Ereignisverarbeitung für diesen Ereigniskanal oder diese Ereigniskanäle registrieren. 
 Diese abonnieren somit die Zustellung aller Ereignisobjekte der registrierten Ereigniskanäle.
@@ -98,8 +98,9 @@ Zusammenspiel dieser drei Schichten wird  in Abbildung \ref{fig:Grundlegender ar
     {Grundlegender architektonischer Entwurf einer EDA \protect\footnotemark}
     \label{fig:Grundlegender architektonischer Entwurf einer EDA}
 \end{figure}
-\footnotetext{in Anlehnung an \citeauthor{Bruns.2010} \citeyear{Bruns.2010} \cite{Bruns.2010} }
-
+\footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Bruns.2010} \citeyear{Bruns.2010} \cite{Bruns.2010} }
+\footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
+\newpage
 Ein Ereignisproduzent, der relevante Sachverhalte und Informationen als Ereignisse erkennt und entsprechende Ereignisobjekte generiert, wird im Kontext von \ac{EDA} als Ereignisquelle bezeichnet.  
 \cite{Bruns.2010}
 Eine Ereignisquelle sendet eine Ereignisbenachrichtigung mit den Daten über das Auftreten eines Ereignisses an die Ereignisverarbeitung. 
@@ -115,7 +116,7 @@ In welcher Weise die Ereignisobjekte an die weiterverarbeitende Schicht gelangen
 
 Die eigentliche Verarbeitung der ankommenden Ereignisse erfolgt durch die Ereignisverarbeitung. 
 Die fachliche Logik zur Behandlung von Ereignisobjekten ist in Form von deklarativen Ereignisregeln modelliert und definiert Aktionen, die auszuführen sind. 
-Im Ereignismodell werden die in Betracht kommenden Eigenschaften, Verbindungen und Abhängigkeiten von Ereignissen konkretisiert. Im Sinne einer losen Kopplung muss jedes Ereignis alle für die Verarbeitung notwendigen Daten implizieren. Dazu gehören sowohl Metadaten wie Typ, Quelle und Auftrittszeitpunkt eines Ereignisses als auch die eigentlichen Betriebsdaten.
+Im Ereignismodell werden die in Betracht kommenden Eigenschaften, Verbindungen und Abhängigkeiten von Ereignissen konkretisiert. Im Sinne einer losen Kopplung muss jedes Ereignis alle für die Verarbeitung notwendigen Daten implizieren.
 \cite{Bruns.2010}
 Die eigentliche Ereignisbehandlung als Reaktion auf Ereignisobjekt erfolgt in den Anwendungssystemen nachgelagerten Ereignisverarbeitungsdiensten. 
 Das Anwendungssystem selbst realisiert den Geschäftsprozess oder die digitalen Dienste, die von den Ereignissen angestoßen werden. 
@@ -136,7 +137,6 @@ Um in diesem Kontext den betrachteten Defiziten angemessen begegnen zu können, 
 Die \ac{SOA}-Architektur beinhaltet, wie in Abschnitt \ref{sec:Automatisierung} beschrieben, die Konzepte, die notwendig sind, um Echtzeitmanagement zu ermöglichen und die Unterstützung der Dynamik ereignisgesteuerter Geschäftsprozesse zur selben Zeit zu gewährleisten, nicht vollständig.
 Eine \ac{SOA} ohne Ereignisverarbeitung ist folglich nicht in der Lage, den aktuellen Zustand von Aktivitäten zu erkennen, da hierzu in Echtzeit temporale und kausale Verbindungen zwischen Geschäftsprozessen und Aktivitäten identifiziert und analysiert werden müssen. 
 Eine \ac{EDA} kann als Maßnahme demnach eine \ac{SOA} komplementieren, zumal beide Konzepte grundsätzlich modulare und verteilte Informationssysteme mit loser Kopplung unterstützen, um durch die Nutzung der beiden Architekturen im Kollektiv zu profitieren. 
-Für diese Kombination von \ac{SOA} und \ac{EDA} wird in der Literatur auch die Bezeichnung Event-Driven SOA oder SOEDA genutzt.
 \cite{Bruns.2010}
 In dieser Ausprägung können Ereignisse den Aufruf von digitalen Diensten auslösen, woraufhin im Verlauf, deren Ausführung weitere Ereignisse generiert werden, die parallel von einem Ereignisverarbeitungsdienst analysiert und verarbeitet werden. 
 \cite{Bruns.2010}

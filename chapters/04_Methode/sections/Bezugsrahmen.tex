@@ -1,108 +1,114 @@
 \section{Verfahrensweisen und wesentliche Gestaltungsprinzipien}\label{sec:methodenGrundlage}
-Zur Konkretisierung des Verständnisses werden eingangs die Merkmale dynamischer Geschäftsprozesse beschrieben, um den inhaltlichen Fokus der Arbeit darzulegen.
-Da sich die Entwicklung der Methode grundsätzlich an den grundsätzlichen Ansätzen der Softwareentwicklung orientiert, werden nachfolgend dessen Grundlagen skizziert, um die wesentlichen Gestaltungselemente der Methode in Erfahrung bringen, bevor die Konzepte von Lean Management charakterisiert werden, auf die sich die Methode insbesondere auf der Geschäftsprozessebene stützt.
-
-
-% Mit den diskutierten informationstechnischen Konzepten, 
-% Methoden und Technologien ist es möglich, geschlossene Regel-
-% kreise zwischen der Unternehmensleitebene und der Fertigungs-
-% ebene aufzubauen. Grundgedanke des RTE ist es, Verzögerungen 
-% in Management und Ablauf kritischer Geschäftsprozesse durch 
-% Nutzung aktueller Informationen abzubauen [1]. Dieser Heraus-
-% forderung sollte nicht alleine mit dem Einsatz potenter IT-Tech-
-% nologien begegnet werden. Vielmehr sollte ein ganzheitlicher 
-% Ansatz gewählt werden, der bewährte Vorgehensmodelle und 
-% Methoden der Betriebswirtschaftslehre einschließt.
-% So können die Methoden des Business Process Managements 
-% (BPM) und des Business Process Reengineerings (BPR) durch-
-% aus auch auf wertschöpfende Unternehmensprozesse auf Ferti-
-% gungsebene angewandt werden. Vor der Implementierung kom-
-% plexer IT-Systeme muss das Verständnis der zu steuernden 
-% Unternehmensprozesse stehen. Des Weiteren kann es notwendig 
-% sein, die Unternehmensprozesse auf Basis der Prozessanalyse 
-% einer Neugestaltung zu unterziehen. Erst auf der Grundlage einer 
-% transparenten Prozessstruktur wird die Entwicklung komplexer 
-% informationstechnologischer Lösungen in einem (produ-
-% zierenden) Unternehmen erfolgreich verlaufen. Darüber hinaus 
-% sollte in einem ganzheitlichen Ansatz neben der Berücksichti-
-% gung der Unternehmensprozesse und deren Abbildung und 
-% Unterstützung mit (IT-)Systemen auch eine klare Ausarbeitung 
-% der Unternehmensstrategie stehen [6]. 
-\cite{Grauer.2010}
+Um eine einheitliche Auffassung der Charakteristika dynamischer Geschäftsprozesse zu beschrieben, wird der inhaltliche Rahmen der Bachelorarbeit zunächst dargelegt.
+Da sich die Entwicklung der Methode an fundamentalen Ansätzen der Softwareentwicklung orientiert, werden nachfolgend dessen Grundlagen dargestellt, um die wesentlichen Gestaltungselemente der Methode in Erfahrung bringen, bevor die Konzepte von Lean Management charakterisiert werden, auf die sich die Methode insbesondere bei der Modellierung auf der Geschäftsprozessebene stützt.
 
 \subsection{Charakterisierung dynamischer Geschäftsprozesse}
-\todo{defintion dynamischer Geschäftsprozess nochmals auf Basis von \ref{ch:Grundlagen}}
+Die Auffassung dynamischer Geschäftsprozesse im Rahmen dieser Bachelorarbeit versteht diese so, dass sich deren Ablauf, als unmittelbare und automatisierte Reaktion auf Ereignisse, in Echtzeit anpassen kann. Gemäß Abbildung \ref{fig:Grundlegender architektonischer Entwurf einer EDA} werden die zugehörigen Ereignisverarbeitungsregeln zur Echtzeitverarbeitung der relevanten Ereignisse und deren Beziehungen untereinander ausschließlich auf der Ereignisverarbeitungsebene implementiert, während die Kommunikation mit der Geschäftsprozessebene einzig mittels Ereignissen durch einen Ereignisverarbeitungsdienst abläuft.
+\cite{Vidackovic.2014}
 
-Im Verständnis dieser Arbeit werden dynamische Geschäftsprozesse so charakterisiert, dass sich deren Prozessablauf als unmittelbare und automatisierte Reaktion auf externe und interne Ereignisse sowie insbesondere auf identifizierte Ereignismuster zur Laufzeit ausrichten kann. Gemäß Abbildung \todo{} werden die zugehörigen Ereignisverarbeitungsregeln zur Echtzeitverarbeitung der relevanten Ereignisse und ihrer Beziehungen untereinander ausschließlich auf der Ereignisverarbeitungsebene implementiert, während die Kommunikation mit der Geschäftsprozessebene einzig mittels Ereignissen auf einer hohen Abstraktionsebene abläuft, die demnach als komplexe Ereignisse von ihrem jeweils zugrunde liegenden Ereignismuster abstrahieren.
-
-Die unmittelbare Reaktion auf ein solches komplexes Ereignis auf Geschäftsprozessebene soll sich im Rahmen der modellierten Optionen bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit dem Merkmal, möglichst reaktiv auf eintretende Ereignisse in der Ausführungsphase zu sein. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung in der Ereignisverarbeitungsebene, während der Prozessablauf selbst mit genügend Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßene Ausrichtung des Prozessablaufs als Reaktion auf die zur Laufzeit identifizierten Ereignisse und Ereignismuster realisieren zu können.
+Die unmittelbare Reaktion auf ein solches Ereignis auf Geschäftsprozessebene soll sich im Rahmen der Modellierungsmöglichkeiten von \ac{BPMN} 2.0 bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit der wesentlichen Eigenschaft, auf eintretende Ereignisse möglichst dynamisch reagieren zu können. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung auf der Ereignisverarbeitungsebene, während der Ablauf der Geschäftsprozesse mit ausreichender Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßenen Aktivitäten als Reaktion in Echtzeit aufgetretenen Ereignisse realisieren zu können.
 
 \subsection{Grundlagen der Softwareentwicklung}
-Mit zunehmendem Fortschritt von Softwaresystemen ging im Zeitverlauf zugleich auch eine steigende Komplexität im Entwicklungsprozess einher. Beim Rückblick in die Vergangenheit ist als Strategie zur Bewältigung dieser Komplexität ein Trend zur fortwährenden Erhöhung des Abstraktionsgrades zu erkennen, der von der anfänglichen Nutzung von Maschinensprachen über Assembler, prozedurale und objektorientierte Sprachen bis hin zur aktuell bevorzugten Verwendung von Modellierungssprachen führt.
+Ein wesentliches Ziel dieser Bachelorarbeit ist die Umsetzung des konzipierten Geschäftsprozesses in Form von Software. Daher wird an dieser Stelle zunächst der Begriff Software selbst spezifiziert.
 
-Der Ursprung des Methoden-Engineering entspringt der Disziplin der Wirtschaftsinformatik, de- ren Essenz in der Herleitung systematischer Handlungsempfehlungen mittels ingenieurmäßigen Verfahrensweisen liegt. Hauptgegenstand des Methoden-Engineering ist demnach die Anwendung ingenieurmäßiger Entwurfsmethoden für den Entwurf, die Beschreibung und häufig auch die Ausführung von Entwurfsmethoden selbst. Bestehende Arbeiten auf diesem Gebiet unterscheiden sich zwar meist in ihren Begrifflichkeiten und Verfahrensweisen, jedoch können allgemein- gültige Elemente der Beschreibung von Methoden konstatiert werden, die von den verschiedenen Ansätzen in der Literatur weitgehend unterstützt werden. Diese wesentlichen Elemente und ihre Beziehungen untereinander sind in Abbildung 4.1 in schematischer Darstellung illustriert und werden anschließend erläutert. 
+Laut \citeauthor{Balzert.2009} umfasst der Begriff \textit{Software} sowohl die Programme und Daten, als auch entsprechende Dokumentationen, die zur Anwendung der Software benötigt werden. Des Weiteren beschreibt er ein \textit{Softwaresystem}, das ein wesentlicher Bestandteil eines jeden modernen Informationssystems ist, als eine Ansammlung von Komponenten und Elementen, die wiederum aus Software bestehen. Softwaresysteme werden noch weiter unterteilt in Anwendungssoftware und Systemsoftware, wobei Systemsoftware grundsätzlich das Betriebssystem, in der Praxis aber auch den Compiler, Datenbanken, Kommunikationsprogramme und Dienstprogramme umfasst.
+\cite{Balzert.2009}
+Anwendungssoftware ist Software, die Tätigkeiten eines Anwenders durch die Unterstützung von \ac{IT} unterstützen sollen. 
+Anwendungssoftware nutzt in der Regel wesentliche Funktionalitäten der zugrunde liegenden Systemsoftware. Der Fokus der Softwareentwicklung in der vorliegenden Bachelorareit liegt auf der Entwicklung von Anwendungssoftware. 
+\cite{Balzert.2009}
+Die Softwareentwicklung als Ganzes betrachtet orientiert sich an der Zielsetzung, Softwaresysteme durch den systematischen Einsatz von Prinzipien, Vorgehensweisen und Werkzeugen für die Herstellung und Anwendung von Software.
+\cite{Balzert.2009}
+Bei der Softwareentwicklung, englisch \textit{Software-Engineering}, handelt es sich folglich, um eine ingenieurmäßige Vorgehensweise, da es sie eine die Schaffung von möglichst erffektiven sowie effizienten Lösungen für konkrete und praktische Problemstellungen.
+\cite{Balzert.2009}
 
-\todo{Ingenieurmäßiges Vorgehen hervorheben  nach \cite{Scheer.1991}}
-Die unmittelbare Reaktion auf ein solches komplexes Ereignis auf Geschäftsprozessebene soll sich im Rahmen der modellierten Optionen bewegen, sodass der Fokus hier auf der Modellierung automatisierbarer Geschäftsprozesse in der Entwurfsphase liegt mit dem Merkmal, möglichst reaktiv auf eintretende Ereignisse in der Ausführungsphase zu sein. Die Dynamik solcher ereignisgesteuerter Geschäftsprozesse basiert demnach auf der Ereignisverarbeitung in der Ereignisverarbeitungsebene, während der Prozessablauf selbst mit genügend Flexibilität auf der Geschäftsprozessebene ausgestattet sein muss, um die von der Ereignisverarbeitung angestoßene Ausrichtung des Prozessablaufs als Reaktion auf die zur Laufzeit identifizierten Ereignisse und Ereignismuster realisieren zu können.
-\todo{Softwareentwicklungsprozesses}
+Im Laufe der Zeit sind die Softwaresysteme weit vorangeschritten, wodurch auch die Komplexität im den Softwareentwicklungsprojekten stetig wächst. Heute sind iterative und agile Eigenschaften in einem Vorgehensmodell für komplexe Softwaresysteme kaum wegzudenken. Beispiele hierzu sind das \textit{Wasserfallmodell, V-Modell, Extreme Programming oder Scrum}, da diese Vorgehensmodelle jedoch zu komplex für eine softwaretechnische Implementierung im Rahmen dieser Bachelorarbeit sind, wird an dieser Stelle von einer expliziten Betrachtung der einzelnen Modelle abgesehen und der Ansatz verfolgt die notwendigen Gemeinsamkeiten darzustellen.
+\cite{Krypczyk.2018}
 
-\todo{Prototyping}
-Mit der Ausführung von Aktivitäten, die hierarchisch strukturiert sein können und in ihrer zeitlichen Abfolge als Gesamtheit das Vorgehen darstellen, werden im Rahmen einer Methode jeweils eines oder mehrere Ergebnisse erzeugt. Dabei können vorhandene Ergebnisse auch zur Generierung weiterer Ergebnisse oder zur Modifizierung bestehender Ergebnisse in Aktivitäten verwendet werden. 
-Die Ergebnisse, die ebenfalls hierarchisch strukturiert sein können, werden in geeigneter Weise erfasst, beispielsweise als formale Modelle, und in ihrer Gesamtheit als Dokumentationsmodell festgehalten. Das Metamodell repräsentiert dabei das konzeptuelle Modell für die Ergebnisse, welche somit in problemorientierter Weise jeweils eine Instanz des Metamodells darstellen. Um Ergebnisse zu erstellen, werden bei der Ausführung der Aktivitäten Techniken eingesetzt, die als Anleitung für diese Aktivitäten dienen und von Werkzeugen adäquat unterstützt werden können. Dieser kurze Abriss zu den Grundlagen des Methoden-Engineering soll an dieser Stelle genügen, während für weiterführende Erläuterungen auf die genannte Literatur in diesem Umfeld verwiesen sei.
+Im Wesentlichen umfasst ein jedes Vorgehensmodell zur Entwicklung von Software die drei, in Abbildung \ref{fig:Phasen der Softwareentwicklung} dargestellten, Phasen: \textit{Analyse, Entwurf und Implementierung}
 
-Dahingegen zielen das konzipierte Metamodell und die Technik der modellbasierten Entwicklung lediglich auf die Ereignisverarbeitungsebene ab, da mit der Nutzung von BPMN 2.0 auf der Geschäftsprozessebene bereits ein Standard vorliegt, für den ein entsprechendes Metamodell definiert ist und auch diverse Methoden zur Modellierung von Geschäftsprozessen verfügbar sind.
+\begin{figure}[H]
+	\centering 
+    \includegraphics[width=\textwidth]{img/entwicklung.png}	
+    \caption[Phasen der Softwareentwicklung]
+    {Phasen der Softwareentwicklung\protect\footnotemark}
+    \label{fig:Phasen der Softwareentwicklung}
+\end{figure}
+\footnotetext{Eigene Darstellung}
+\footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
-\cite{JorgBecker.2001}
+Die Analysephase beschäftigt sich eingehend damit welche erfolgskritischen Anforderungen an die zu erstellende Software existieren. Dabei erfolgt eine explizite Betrachtung der Ausgangslage, um die Probleme, die es mit Hilfe der Software zu lösen oder zu unterstützen gilt, zu identifizieren. Sind die wesentlichen Anforderungen zusammengetragen, werden Maßnahmen zur Problembehandlung erörtert und ausgewählt. Anschließend erfolgt der grundlegende Architekturentwurf der Software. In der letzten Phase, der Implementierung, wird die entworfene Software letzendlich in eine ausführbare Version transformiert. Die Aufgaben der Implementierung umfassen die Erstellung von Benutzerschnittstellen, die Erarbeitung der notwendigen Geschäftslogik und die Umsetzung der Datenhaltung in Form von Datenbanken oder Schnitttstellen zu weiterführender Software. Diese Phasen können bei Bedarf beliebig oft wiederholt werden.
+\cite{Krypczyk.2018}
 
- \missingfigure{Tabelle nach dissertation Wesentliche Gestaltungselemente der konzipierten Methode}
- \cite{Huber.2016}
- 
- \cite{Wagner.2018}
+Als bewährte Methode für diesen Minimalansatz der Softwareentwicklung wird im Rahmen dieser Bachelorarbeit das \textit{Design-Thinking} herangezogen. 
+\cite{Elsner.2018}
+Design-Thinking ist eine Methode, um zielorientiert Lösungen zu finden, die aus Anwendersicht gewünscht sind. Die Phasen des Design-Thinking-Prozesses heißen \textit{Discover, Design und Deliver}, die als Synonym zu den Phasen \textit{Analyse, Entwurf und Implementierung} angesehen werden dürfen. Ziel dieser Form der Softwareentwicklung ist es möglichst zeitnahe an einen funktionsfähiges Produkts zu gelangen.
+
+Im Zusammenhang mit dieserart Vorgehensmodellen hört man daher oft den Begriff \ac{MVP}. Ein \ac{MVP}, wörtlich ein minimales, überlebensfähiges Produkt, ist die erste Version eines Produkts, die entwickelt werden muss, um mit minimalem Aufwand die Mindestanforderungen eines Bedarfs zu decken. Das \ac{MVP} muss bereits insofern funktionsfähig sein, dass es vom Anwendern getestet werden kann.
+\cite{Elsner.2018}
+Die in dieser Bachelorarbeit konzipierte Methode orientiert sich an den grundlegenden Phasen der Softwareentwicklung, sowie den Prinzipien von Design-Thinking. 
 
 \subsection{Lean Management}
-Lean Production ist eines der zentralen Themen der Fertigungsoptimierung der letzten Jahre. Allerdings: Schlanke Ansätze, die durch visuelles Management gesteuert werden sollen und sich an physischen Beständen orientieren, stehen auf den ersten Blick in starkem Kontrast zu zentralen Planungslösungen wie der SAP-Software-Suite. Während im Automotive-Umfeld bekannte Elemente wie Kanban mittlerweile einen hohen Reifegrad an SAP-Integration besitzen, sind für viele andere Aspekte der Lean Production nur wenige Wege der SAP-Abbildung bekannt. An dieser Stelle setzt das vorliegende Buch an und zeigt, wie bestehende Installationen optimal für Lean Production genutzt werden können und welche Erweiterungen bei der Umsetzung weiterer Elemente der schlanken Fertigung unterstützen können. Unsere Zielgruppe
 
-Lean Management beschäftigt sich mit der Prozesseffizienz und Prozesseffektivität. Verschwendung steht der Effizienz und Effektivität entgegen und muss entsprechend vermieden werden.
+Lean Management beschäftigt sich mit der Effizienz und Effektivität von Geschäftsprozessen. Jede Art von Verschwendung steht der Effizienz und Effektivität entgegen und muss daher vermieden werden.
+Der Begriff \textit{Lean Management} beschreibt ein System, das vielfältige Ansätze und Philosophien miteinander verbindet, um Geschäftsprozessen im gesamten Unternehmen dadurch wertschöpfender zu gestalten, dass die Verschwendung von Ressourcen erkannt und eliminiert wird.
+Lean Management beinhaltet sowohl organisatorische Prinzipien, operative Strategien zur Erfüllung des Unternehmensziele, betriebswirtschaftliche Maßnahmen, aber auch Vorgaben an die einzelnen Angestellten.
+\cite{Schell.2017}
 
-Der Begriff Lean Management beschreibt ein komplexes System, das vielfältige Ansätze und Philosophien miteinander verbindet, um Prozesse im gesamten Unternehmen dadurch wertschöpfender zu gestalten, dass die Verschwendung von Ressourcen erkannt und eliminiert wird.
+Der Ursprung der heutigen Philosophie des \textit{Lean Management} liegt in Japan. Im wirtschaftlich angeschlagenen Japan der Nachkriegszeit des Zweiten Weltkriegs herrschte vor allem in den Industrieunternehmen ein akuter Ressourcenmangel, da Japan in diesen Jahren keine Wirtschaftshilfe von anderen Ländern erhielt. In dieser Notsituation mussten die Industrieunternehmen ihre Ressourcen schonend einsetzen, Verschwendung vermeiden, Prozesse optimieren und gleichzeitig die für den Markt notwendige Qualität liefern.
+Mit dieser Herausforderung konfrontiert, entstand bei der Firma Toyota das \textit{Toyota-Produktionssystem}, der Vorreiter von Lean Management.
+\cite{Morgan.2006}
 
-Lean Management beinhaltet organisatorische Prinzipien, integrierte Strategien zur Erreichung des Unternehmensziels, betriebswirtschaftliche, logistische und ingenieurwissenschaftliche Maßnahmen, aber auch Vorgaben an jeden einzelnen Mitarbeiter.
+Grundsätzlich werden unter Verschwendung alle Aktivitäten und Ressourcen verstanden, die nicht zur Wertschöpfung eines Industriesbetriebs beitragen. Diese nicht wertschöpfenden Tätigkeiten werden als überflüssig angesehen und sind zu eliminieren.
+Das \textit{Toyota-Produktionssystem} kennt 7 Arten der Verschwendung. Die unterschiedlichen Arten von Verschwendung werden in Tabelle \ref{tab:Arten von Verschwendung} dargestellt.
 
-Lean Production darf damit im Umfeld der Produktionsmethoden heute als
-einer der De-facto-Industriestandards gelten.
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{l X} 
+		\toprule
+		\textbf{Art}  &   
+		\textbf{Beschreibung}  \\ 		\midrule
+		
+		Bewegung &   
+		Lange Laufwege und umständliche Aktivitäten  \\  \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Defekte &   
+		Qualitätsmängel der Produkte \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Lagerbestand &   
+		Umlaufbestände oder Lager mit fertigen Produkten  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Transport &   
+		Häufige Transporte von Ressourcen  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Überproduktion &   
+	    Herstellung nicht benötigter Produkte \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Unnötige Prozesse &   
+		Prozesse oder Fertigungsverfahren ohne Notwendigkeit  \\ \cmidrule(r){1-1} \cmidrule(r){2-2}
+		
+		Warten &   
+		Verzögerung bei den Tätigkeiten  \\
+	    \bottomrule
+	\end{tabularx}
+	\caption{\label{tab:Arten von Verschwendung}Arten von Verschwendung}
+\end{table}
 
-In der Geschichte der Informationstechnologie sind Parallelen erkennbar. Auch die Anlagen zur Datenverarbeitung sind hochkomplexe Produkte, und die Architekturen und Prozesse, die in frühen Entwicklungsphasen etabliert wurden, waren starr strukturiert und zentral organisiert. Der gesamte Prozess der Informationsverarbeitung war von zentralen Instanzen starr geregelt, die einzelnen Mitarbeiter hatten klar verteilte Rollen mit scharf abgegrenzten Aufgabenbereichen.
+\newpage
 
-Die ursprüngliche Maxime, möglichst hohe Rechenleistung und Prozessorauslastung zu ermöglichen, rückte mit leistungsfähigerer und günstigerer Hardware gegenüber konkurrierenden Zielen wie der Flexibilität der Architektur oder der Gestaltung benutzerfreundlicher Oberflächen in den Hintergrund. Modulbasierter Einsatz, Benutzerorientierung und flexible Prozesse gewannen an Bedeutung.
+Aus der Lean-Philosophie lassen sich fünf wesentliche Prinzipien ableiten, die das Fundament für den Gebrauch von Lean Management bilden: \textit{Kundennutzen, Wertstrom, Fluss-Prinzip, Pull-Prinzip und Null Fehler}\begin{itemize}
+    \item 
+    Der \textbf{Kundennutzen} im Mittelpunkt stellt in der Lean-Philosophie eine fundamentale Leitlinie dar. 
+    Es ist somit notwendig, mit den Kunden im Dialog zustehen, um die Bedürfnisse dieser verstehen zu können.
+    \cite{Muller.2011} 
+    \item
+    Die \textbf{Wertstromanalyse} dient zur Identifizierung relevanter Stellen im Geschäftsprozess, die einen Beitrag zur Wertschöpfung leisten. Der Wertstrom wird durch alle Aktivitäten und Ereignisse gekennzeichnet, die für das Produkt notwendig ist. 
+    \item
+    Im Rahmen des \textbf{Fluss-Prinzips} wird, versucht die einzelnen Aktivitäten in einer optimalen Abfolge anzuordnen. Eine optimale Abfolge von Aktivitäten eines Geschäftsprozesses wird dann als nicht gegeben betrachtet, wenn es zu Wartezeiten oder Engpässen kommt.
+    \item
+    Das \textbf{Pull-Prinzip} beschreibt denselben Grundsatz wie die Kundeneinzelfertigung in der Produktionsplanung und -steuerung in SAP S/4HANA Cloud. Eine Fertigung darf nur erfolgen, wenn ein konkreter Bedarf durch einen Kundenauftrag existiert.
+    \item
+    Lean Management definiert einen Fehler als Abweichung von einem definierten Standard. Daher müssen für Geschäftsprozesse solche Toleranzgrenzen als regeln definiert werden, um mögliche Fehler und daraus abgeleitete Qualitätsmerkmale zu ermitteln. Dieser Gedanke wird als \textbf{Null-Fehler-Prinzip} bezeichnet.
+    Die Verantwortung für die Fehlererfassung und -behebung liegt bei den verantwortlichen Mitarbeiter.
+\end{itemize}
 
-Prozesse sollen nicht nur in der Lean-Production-Lehre so schlank und effizient wie möglich gestaltet werden. Aus Sicht schlanker, schnell veränderlicher Prozesse wirken auch IT-Systeme oft unnötig, komplex und unflexibel und scheinen nur mit hohem Aufwand an die konkreten Anforderungen angepasst werden zu können. Der Konflikt zwischen IT- und Prozessgestaltung soll in den folgenden Abschnitten weiter analysiert und auf Lösungsansätze hin untersucht werden.
-
-Lean Production stellt alle Tätigkeiten im Unternehmen infrage, die nicht direkt wertschöpfend sind.
-Konzentration auf die wertschöpfenden Prozesse ist eine der zentralen Ideen der Lean Production. Jede Tätigkeit wird zunächst daran gemessen, ob sie direkte Wertschöpfung aus Sicht des Kunden erzeugt. Nicht wertschöpfende Tätigkeiten stellen eine Verschwendung (Muda) dar, die es zu eliminieren gilt.
-      
-Sämtliche Tätigkeiten und Vorgehensweisen im Unternehmen werden im Rahmen der Muda-Reduzierung auf ihren direkten Beitrag zur Wertschöpfung hin untersucht. Elemente, die sich im Rahmen dieser Analyse als überflüssig oder kontraproduktiv erweisen, sollen dann eliminiert werden.
-\todo{Historie von lean Mangement}
-
-\todo{Kundenbedürfnisse nach \cite{Kieviet.2019}{S.23}}
-
-\todo{Kategorien und Verschwendung nach \cite{Kieviet.2019}{S.37} und \cite{Schell.2017}}
-
-\todo{Leanmanagement konzepte}
-% Forschungsseitiger Schwerpunkt seiner Tätigkeit am Institut liegt in den anwendungsorientierten Methoden der Schlanken Produktion, welche in der Prozesslernfabrik CiP erforscht und einem breiten Teilnehmerkreis aus Universität und Industrie vermittelt werden. Darüber hinaus werden Lösungsansätze zur nahtlosen Integration von Produktion, Logistik und Verkehr erarbeitet.
-
-% \hyperlink{https://www.ptw.tu-darmstadt.de/landingpage_ptw/das_ptw_1/geschichte_ptw_1/index.de.jsp}{Link zur Aussage}
-
-\todo{KVP}
-% Ausgangspunkt ist ein ausgeprägtes Verständnis der Anwender bezüglich der durch die Software unterstützten Prozesse. Ohne diese grundlegende Kenntnis ist es schwer mög- lieh, Verbesserungspotenziale zu erkennen und zu realisieren. Mit den folgenden Leitfra- gen kann geprüft werden, inwieweit die bestehende Prozessdokumentation ausreicht oder ob ein Nachholbedarf besteht:
-
-\missingfigure{Verschwendungsarten \cite{Muller.2011b}{S.140}}
-
-\paragraph{Probleme mit der Anwendung}
-
-\paragraph{Probleme mit der Datenqualität}
-
-\paragraph{Probleme mit papiergestützten Prozessen}
-
-\paragraph{Probleme im Prozess}
-
-\todo{Zielsetzung: Nutzenpotential VOB MES nach \cite{Gerberich.2011}{s.77}}
+Die Leitgedanken von Lean Management dienen in der vorliegenden Bachelorarbeit als Gedankenstütze bei der Identifizierung geeigneter Maßnahmen gegen Verschwendung und für Automatisierung und Reaktionsfähigkeit in der Fertigungsdurchführung mit SAP S/4HANA Cloud.
