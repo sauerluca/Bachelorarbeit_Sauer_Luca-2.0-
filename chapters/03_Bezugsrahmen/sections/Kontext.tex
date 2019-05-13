@@ -7,7 +7,7 @@ Demnach muss ein Unternehmen nach Agilität und Effizienz ihrer Geschäftsprozes
 \cite{Erlach.2010}
 
 Die Betriebswirtschaftslehre bezeichnet in diesem Kontext alle Komponenten, die in den betrieblichen Geschäftsprozessen zur Leistungserstellung miteinander kombiniert werden, als Produktionsfaktoren. 
-Traditionell wird die Arbeit dabei unterteilt in dispositive und ausführende Arbeit. Die anderen Produktionsfaktoren stellen Betriebsmittel und Anlagen und Kapital dar.
+Traditionell wird die Arbeit dabei unterteilt in dispositive und ausführende Arbeit. Die anderen Produktionsfaktoren stellen Betriebsmittel, Anlagen und Kapital dar.
 \cite{Kanel.2018}
 Informationen bilden die Grundlage bei stategischen sowie operativen Entscheidungen im Unternehmen und stellen damit einen wesentlichen Produktionsfaktor im betrieblichen Leistungserstellungsprozess dar.
 \cite{Scheer.1990}
@@ -82,7 +82,7 @@ Die zugrunde liegenden Stammdaten der Produktionsplanung und -steuerung in SAP S
 \cite{Dickersbach.2014}
 
 \subsection{Vorstellung der Fertigungsdurchführung in der diskreten Fertigung}
-In der Terminologie der SAP \ac{ERP}-Lösungen wird die Fertigung in die Fertigungsarten diskrete Fertigung, Serienfertigung, Prozessfertigung, Kanban und Projektfertigung einteilen. 
+In der Terminologie der SAP \ac{ERP}-Lösungen wird die Fertigung in die Fertigungsarten diskrete Fertigung, Serienfertigung, Prozessfertigung, Kanban und Projektfertigung eingeteilt. 
 
 Die diskrete Fertigung\footnotetext{In anderer Literatur wird die \textit{diskrete Fertigung} auch als \textit{Werkstattfertigung bezeichnet.}} befasst sich mit der Herstellung von Produkten basierend auf Fertigungsaufträgen. 
 Die diskrete Fertigung ist dann erforderlich, wenn die Herstellung von Erzeugnissen in einer variantenreichen Ausprägung benötigt wird, wenn die Auftragslage sehr unregelmäßig ist und die Fertigung anhand von Arbeitsplätzen abläuft. 
@@ -114,11 +114,11 @@ Die Abwicklung des Fertigungsauftrags ist anschließend sicherzustellen, woraufh
 \footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Dickersbach.2014} \citeyear{Dickersbach.2014} \cite{Dickersbach.2014} }
 \footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
-Der Fertigungsauftrags verfolgt die Zwecke, sowohl der Fertigungslenkungung als Schaffung der benötigen Transparenz bezüglich mengen- und kostenmäßigen Kennzahlen in der Fertigung. Zur Steuerung der Fertigung gehört unter anderem die Bereitstellung der für die Fertigung notwendigen Informationen über die auszuführenden Vorgänge. Hierzu wird es benötigt, dass der Fertigungsauftrag Stammdaten und Betriebsdaten behandelt. Basierend auf dem Arbeitsplan und der Stückliste lässt sich der Fertigungsauftrag im Wesentlichen auf folgende Daten unterteilen:
+Der Fertigungsauftrag verfolgt die Zwecke, sowohl der Fertigungslenkungung als Schaffung der benötigen Transparenz bezüglich mengen- und kostenmäßigen Kennzahlen in der Fertigung. Zur Steuerung der Fertigung gehört unter anderem die Bereitstellung der für die Fertigung notwendigen Informationen über die auszuführenden Vorgänge. Hierzu wird es benötigt, dass der Fertigungsauftrag Stammdaten und Betriebsdaten behandelt. Basierend auf dem Arbeitsplan und der Stückliste lässt sich der Fertigungsauftrag im Wesentlichen auf folgende Daten unterteilen:
 
 \begin{itemize}
-    \item \textbf{Kopfdaten} die den organisatorischen Rahmen formalisieren. Hierzu zählen die Auftragsnummer, die Kosten sowie die Terminierung des Auftrags.
-    \item \textbf{Vorgangsdaten} die neben den Details zu den durchzuführenden Vorgängen auch die Rückmeldungen aus der Fertigung sowie die geplanten Durchführungstermine enthalten.
+    \item \textbf{Kopfdaten} die den organisatorischen Rahmen formalisieren. Hierzu zählen die Auftragsnummer, die Kosten sowie die Terminierung des Auftrags
+    \item \textbf{Vorgangsdaten} die neben den Details zu den durchzuführenden Vorgängen auch die Rückmeldungen aus der Fertigung sowie die geplanten Durchführungstermine enthalten
     \item \textbf{Komponentendaten} die den Bedarf an Materialien sowie deren Reservierungsinformationen angeben.
 \end{itemize}
 
@@ -129,7 +129,7 @@ Die SAP \ac{ERP}-Lösungen sehen dabei diverse Rollen für die Durchführung der
 In SAP S/4HANA Cloud werden für die Fertigungsdurchführung standardmäßig die folgenden zwei Rollen vorgesehen:
 \begin{itemize}
     \item \textbf{Fertigungssteuerer}: Der Fertigungssteuerer ist laut dem Rollenkonzept der SAP verantwortlich für die Freigabe eines Fertigungsauftrags. Zudem liegt es in seinem Zuständigkeitsbereich auf veränderte Situationen in der Fertigungsdurchführung zu reagieren und unmittelbar kurzfristige Planungsentscheidungen zu treffen.
-    \item \textbf{Werker}: Der Werker hat Fertigungsaufträge und Vorgänge nach Anweisung auszuführen. Er steht in der Pflicht möglicht unmittelbar, aber zwingend fristgerecht Rückmeldungen bezüglich der Fortchritte zu erfassen.
+    \item \textbf{Werker}: Der Werker hat Fertigungsaufträge und Vorgänge nach Anweisung auszuführen. Er steht in der Pflicht möglicht unmittelbar, aber zwingend fristgerecht Rückmeldungen bezüglich der Fortschritte zu erfassen.
 \end{itemize}
 
 Eine Alternative, die als Vorgehensweise ebenfalls eine weite Verbreitung gefunden hat, ist es die erstellten und freigegebenen Fertigungsaufträge an ein sogenanntes \ac{MES} weiterzugeben, dort die eigentliche Fertigungssteuerung sowie die Kapazitätsplanung vorzunehmen und die Rückmeldungen der Fertigungsaufträge über Schnittstellen an SAP S/4HANA Cloud weiterzugeben. 
@@ -144,7 +144,7 @@ Das Prinzip der diskreten Fertigung stellt den Werker in den Mittelpunkt der Wer
 Er verarbeitet die Materialien an einem Arbeitsplatz, falls nötig mit der Unterstützung von Maschinen und erzeugt das Endprodukt. 
 \cite{Gerberich.2011}
 Da die diskrete Fertigung zumeist in Form einer Kundeneinzelfertigung angewendet wird, sind niedrige bis mittlere Gutmengen und eine hohe Produktvarianz die Regel. 
-Eine weitere Eigenschaft der diskreten Fertigung ist bedingt durch die erwähnte Produktvarianz, eben diese macht es notwendig die Produktion flexibel planen zu können, da meist mehrere Vorgänge zur Herstellung eines Produktes von Nöten sind.
+Eine weitere Eigenschaft der diskreten Fertigung ist bedingt durch die erwähnte Produktvarianz. Diese macht es notwendig die Produktion flexibel planen zu können, da meist mehrere Vorgänge zur Herstellung eines Produktes von Nöten sind.
 Dabei werden Transporte von Arbeitsplatz zu Arbeitsplatz zum Normalfall.
 Eine vollautomatische Betriebsdatenerfassung und -verarbeitung ist in der Praxis daher beinahe ausgeschlossen.
 Die Betriebsdatenerfassung wird in der Regel manuell über sogenannte \ac{MES}-Terminals vorgenommen.

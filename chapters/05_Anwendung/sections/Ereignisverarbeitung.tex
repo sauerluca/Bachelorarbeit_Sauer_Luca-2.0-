@@ -1,30 +1,57 @@
-\section{Konzeption des Ereignisverarbeitungsmodells}\label{sec:ereignismodell}
+\section{Konzeption auf  Ereignisverarbeitungsebene}\label{sec:ereignismodell}
+Diesesr Abschnitt behandelt die technische Sichtweise auf die Ereignisverarbeitungsebene, die mittels Echtzeitverarbeitung von zur Laufzeit auftretenden Ereignissen die Dynamik für den Ablauf der Geschäftsprozessebene liefert. Für die digitale Verarbeitung der Ereignisse ist eine explizite Spezifikation des Ereignismodells nötig. Im Sinne einer softwaretechnischen Implementierung wird darüber hinaus der Ereignisverarbeitungsdienst konzipert.
+
+Als Spezifikation einer allgemeinen Beschreibung von Ereignisobjekten dient die \textit{CloudEvents}-Spezifikation in der Version 0.3-wip. 
+\textit{CloudEvents} bietet eine standardisierte Definition der Struktur und Metadatenbeschreibung von Ereignissen. Diese Definition definiert, wie die in der \textit{CloudEvents}-Spezifikation definierten Elemente im \ac{JSON}-Format dargestellt werden sollen. \cite{CloudEvents.2019}
+
+Im weiteren Verlauf dieser Bachelorarbeit wird nun auch spezifischer auf eine Umsetzung mit SAP S/4HANA Cloud eingegangen. SAP S/4HANA Cloud bietet für die Behandlung von verschiedenen vordefinierten Geschäftsereignissen eigene Dienste zur Integration an. Der auf der SAP Cloud Platform basierte \textit{SAP Enterprise Messaging-Service} bietet Funktionalitäten für die Integration in SAP S/4HANA Cloud, um Ereignisse zu verbreiten und reaktive Geschäftsprozesse über Unternehmenslandschaften hinweg zu ermöglichen.
+\cite{Schneider.2018}
 
 \subsection{Spezifizierung des Ereignismodells}
+Ein Ereignisobjekt repräsentiert ein in der Realität eingetretenes Ereignis. Es muss somit alle relevanten Informationen beinhalten, die für eine anschließende Verarbeitung dieses Ereignisses notwendig sind.
 
-\todo{https://cloudevents.io/}
+Unterschieden wird dabei in verschiedene Ereignistypen. Ein Ereignistyp setzt sich laut der \textit{CloudEvents}-Spezifikation aus dem betroffenen Objekt und der Art der Veränderung zusammen. Einfach ausgedrückt werden durch ein Ereignisobjekt die folgenden vier Fragen beantwortet: \textit{Wann hat es sich ereignet? Was hat sich ereignet? Wer war betroffen?}
+Im Kontext dieser Bachelorarbeit wird die Antwort auf die erste Frage als der Zeitpunkt des Ereignissen verstanden. Die zweite Frage zielt auf die Veränderung eines Objektes ab, sie enthält somit die Antwort welcher Objekttyp verändert wurde und wie diese Veränderung aussieht. Die letzte Frage identifiziert schließlich ein eindeutiges Objekt des veränderten Objekttyps. \cite{CloudEvents.2019}
 
-\todo{eERM-Attributzuordnungsdiagramm}
+Beim Erstellen eines Ereignisobjektes im Rahmen dieser Bachelorarbeit müssen demnach mindestens die folgenden Daten an den Konstruktor der Ereignisgenerierung übergeben werden:
+\begin{itemize}
+    \item \textbf{Zeitstempel:} Er beschreibt wann das Ereignis ausgelöst wurde. 
+    \item \textbf{Objekttyp:} Er spezifiziert die Klasse des veränderten Objekts. 
+    \item \textbf{Ereignistyp:} Er definiert die Art und Weise wie ein Objekt verändert wurde. 
+    \item \textbf{Objektschlüssel:} Er identifiziert das betroffene Objekt. 
+\end{itemize}
 
-\todo{Generisches Event Datenmodell}
+Die SAP-spezifischen Geschäftsobjekte , auch \textit{SAP-Objekttyp} genannt, sind die Basis für Ereignisobjekte innerhalb von SAP S/4HANA Cloud. 
+Ein SAP-Objekttyp kann Geschäftsereignisse mit einer eindeutigen Semantik für bestimmte Situationen definieren.
+Ein Ereignis kann ausgelöst werden, wenn eine bestimmte Aktion für das Geschäftsobjekt ausgeführt wird oder wenn das Geschäftsobjekt einen bestimmten Status annimmt.
+Sobald Ereignisse von Geschäftsobjekten ausgelöst werden, werden diese Ereignisse von SAP S/4HANA Cloud an ein Framework zur Ereignisverarbeitungs weitergegeben. 
+\cite{Herzig.2018}
+Dieses Framework bildet aus der internen technischen Darstellung des Ereignisses eine Menschen-lesbare Darstellung im \ac{JSON}-Format. Diese Darstellung, wie im Quelltext \ref{code:jsonevent}, wird der \textit{CloudEvents}-Spezifikation gerecht und enthält alle notwendigen Daten.
+\cite{Herzig.2018}
 
-\todo{productionorder events}
+\begin{algorithm}[H]
+\centering 
+\inputminted[linenos]{js}{code/sapevent.json}
+\caption{Exemplarisches SAP-spezifisches Ereignisobjekt im JSON-Format \cite{Herzig.2018}}
+\label{code:jsonevent}
+\end{algorithm}
 
-\todo{Defect events}
+Um diese Integration zu erreichen, werden zwei Komponenten benötigt: Die allgemeine Integration in die ereignisgesteuerte Architektur von SAP S/4HANA Cloud und eine spezifische Integration mit dem SAP Enterprise Messaging-Service, der auf der SAP Cloud Platform angeboten wird. Beide Komponenten kommunizieren über Standard-Nachrichten- und Verbindungsprotokolle. Anwendungssoftware, die auf der SAP Cloud Platform basiert, kann dabei als Ereigniskonsument fungieren.
 
-\todo{Welche Ereignisse gibt es?}
+\subsection{Architektur der Ereignisverarbeitungsdienstes}
+Das Schlüsselelement reaktiver Systeme ist die asynchrone nachrichtengesteuerte Kommunikation zwischen den beteiligten Anwendungssystemen. SAP S/4HANA Cloud setzt hier auf das MQTT-Protokoll. MQTT steht für Message Queuing Telemetry Transport und ist ein standardisiertes Protokoll für die Maschine-to-Maschine-Kommunikation.
+Es lassen sich jedoch auch Ereignisverarbeitungsdienste nach den Konzepten des \textit{Publish-Subscribe-Paradigmas} (siehe Abschnitt \ref{sec:Ereignisverarbeitung}) damit umsetzen.
+\cite{Herzig.2018}
 
-\todo{Welche Daten braucht man?}
+In SAP S/4HANA Cloud werden zur Integration zwei Dienste angeboten:
+\begin{itemize}
+    \item Der \textbf{SAP Enterprise Messaging-Service} bietet Ereignisverarbeitungs-Funktionen mit Hilfe der SAP Cloud Platform. Der Diest umfasst die sofortige Integration in SAP S/4HANA Cloud, um Ereignisse zu verbreiten und reaktive Geschäftsprozesse über Anwendungssysteme hinweg zu ermöglichen.
+    \item Der \textbf{Business Event Handling-Service} in SAP S/4HANA Cloud, bietet einen standardisierten Weg zur Generierung von Ereignissen auf Basis von Geschäftsobjeken.
+\end{itemize}
 
-\subsection{Entwurf des Ereignisverarbeitungsdienstes}
+Geschäftsobjekte sind die Basis für die Ereignisverarbeitung in SAP S/4HANA Cloud. Geschäftsobjekte sind im Kontext von SAP ERP und in der SAP S/4HANA Cloud gut definiert. Ein Geschäftsobjekt ist eine Geschäftsfunktionalität, die eigenständig instanziiert werden kann. Während Geschäftsobjekte fast ständig verwendet werden, werden ihre Typen nur selten explizit berücksichtigt. In Geschäftsanwendungen werden die Typen der Geschäftsobjekte aus dem Kontext, in dem sie angezeigt werden, abgeleitet und sind bekannt, aber im Allgemeinen nicht explizit. Ein gemeinsames Typensystem zwischen dem SAP Enterprise Messaging-Service und SAP S/4HANA Cloud ist daher die Voraussetzung für die generische Interaktion zwischen den Systemen
+\cite{Herzig.2018}. 
 
-\todo{Wie werden in Abap events geworfen}
+Dieser kurze Abriss zu den Grundlagen der Ereignisverarbeitung in SAP S/4HANA Cloud  soll an dieser Stelle genügen, während für eine detaillierte Betrachtung der existierenden Dienste auf die genannte Literatur in diesem Umfeld verwiesen sei.\cite{Herzig.2018}
 
-
-\todo{Wie wird kommuniziert?}
-
-\todo{MQTT}
-
-\todo{wie werden events abgefangen}
-
-\missingfigure{Event Messaging Architecture}
+Zur Vorbereitung der Integration des Ereignisverarbeitungsdienstes muss folglich der \textit{SAP Enterprise Messaging-Service} auf der SAP Cloud Platform sowie \textit{Business Event Handling-Service} in SAP S/4HANA Cloud konfiguriert werden, diese Verfahren werden in Abschnitt \ref{sec:integration} noch näher beschrieben. 

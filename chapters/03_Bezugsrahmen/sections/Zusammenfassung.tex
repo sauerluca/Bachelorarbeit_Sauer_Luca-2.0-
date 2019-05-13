@@ -1,17 +1,164 @@
 \section{Anforderungen}\label{sec:anforderungen}
+Die \ac{ANF} an die zu entwickelnde Lösung entspringen im Allgemeinen bewährten Abläufen der Fertigungsdurchführung, wobei zur Konkretisierung der Anforderungen die in Abschnitt \ref{sec:untersuchung} dargelegten Erkenntnisse herangezogen werden. Die identifizierten Anforderungen an die Fertigungsdurchführung werden im Folgenden hergeleitet und tabellarisch beschrieben.
 
-\todo{Welche Aufgaben müssen erledigt werden? tabellarisch lösen mit input outpu und zeitpunkt der ausführung (start, ende, jederzeit, nach xy)}
+\paragraph{ANF-1: Freigabe des Fertigungsauftrags}
+Die Freigabe des Fertigungsauftrags stellt eine zentrale Rolle der Fertigungsdurchführung dar. 
+Sie wird vom Fertigungssteuerer durchgeführt und endet beim Empfang des freigegebenen Fertigungsauftrags auf Seiten der Werker.  Während der Übergabe der Fertigungsaufträge an den zuständigen Werker ist es notwendig einen digitalen als auch einen papierbasierten Weg anzubieten, um alle Bedürfnisse der Industriebetriebe erfüllen zu können (siehe Abschnitt \ref{sec:untersuchung}).
 
-\todo{Freigabe mit Papieren digital aber auch analog}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		Auslöser                                     &   
+		Termin der Freigabe erreicht \\ 
+		\hline\hline
+		Zeitpunkt                                     &   
+		Startpunkt der Fertigungsdurchführung \\ 
+		\hline\hline
+		Aktivitäten &   
+		\begin{minipage}{4.8in}
+    		\begin{compactenum} 
+        		\renewcommand{\labelenumi}{(\arabic{enumi})}
+        		\item Durchführung der Freigabe
+        		\item Übergabe des Fertigungsauftrags an den zuständigen Werker
+            		\begin{compactenum} 
+            		\renewcommand{\labelenumi}{(\arabic{enumi})}
+            		\item Druck und Abholung der Papiere
+            		\item Digitale Anzeige einer Vorgangsliste
+            		\end{compactenum}
+    		\end{compactenum}
+    		\vspace{1pt}		
+		\end{minipage} \\
+		\hline\hline
+		Herleitung                                        &   
+		Der Werker muss möglichst in Echtzeit über neue Fertigungsaufträge benachrichtigt werden. 
+		Ist das nicht der Fall können Wartezeit zu Auslastungslücken und Verzögerungen in der Produktion auftreten.\\
+		\hline\hline
+		Input                                         &   
+		Planauftrag  \\ 
+		\hline\hline
+		Output                                        &   
+		Fertigungsauftrag \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:anf1}\textbf{ANF-1:} Freigabe des Fertigungsauftrags}
+\end{table}
 
-\todo{}
 
 
+% -----------------------------------------------------------------------
+\paragraph{ANF-2: Rückmeldung des Fertigungsauftrags}
+Die Rückmeldung des Fertigungsauftrags ist verantwortlich für die Erfassung der Betriebsdaten und spiegelt den Herstellungsfortschritt eines Fertigungsauftrags. 
+Während der Rückmeldung eines Fertigungsauftrags sollte versucht werden, den Erfassungsaufwand minimal zu halten. Es ist es notwendig einen digitalen als auch einen papierbasierten Weg anzubieten, um alle Bedürfnisse der Industriebetriebe erfüllen zu können (siehe Abschnitt \ref{sec:untersuchung}). 
 
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		Auslöser                                     &   
+		Fortschritt in der Fertigung \\ 
+		\hline\hline
+		Zeitpunkt                                     &   
+		Jederzeit in der Fertigungsdurchführung \\ 
+		\hline\hline
+		Aktivitäten &   
+		\begin{minipage}{4.8in}
+    		\begin{compactenum}
+        		\renewcommand{\labelenumi}{(\arabic{enumi})}
+        		\item Erfassung der Betriebsdaten
+            		\begin{compactenum}
+            		\renewcommand{\labelenumi}{(\arabic{enumi})}
+            		\item Erfassung in Papierform und anschließende Übertragung in SAP S/4HANA Cloud
+            		\item Digitale Erfassung in SAP S/4HANA Cloud
+            		\end{compactenum}
+    		\end{compactenum}
+    		\vspace{1pt}		
+		\end{minipage} \\
+		\hline\hline
+		Herleitung                                        &   
+		Der Werker muss möglichst in Echtzeit über die Fortschritte der Fertigungsaufträge Auskunft geben. 
+		Ist das nicht der Fall kann nicht auf veränderte Gegebenheiten in der Fertigung reagiert werden.\\
+		\hline\hline
+		Input                                         &   
+		Fertigungsauftrag  \\ 
+		\hline\hline
+		Output                                        &   
+		Rückmeldung \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:anf1}\textbf{ANF-2:} Rückmeldung des Fertigungsauftrags}
+\end{table}
 
+% -----------------------------------------------------------------------
+\paragraph{ANF-3: Erfassung eines Defekts}
+Die Erfassung von Defekten ist verantwortlich für anschließende Qualitätsmaßnahemn. 
+Treten hierbei Defekte in Form von Qualitätsmängeln oder nicht funktionsfähigen Hilfsmitteln auf, kann das schwerwiegende Folgen haben. Deshalb ist eine unverzügliche Erfassung von Defekten in der Praxis unabkömmlich, auch wenn die Literatur diesen Schritt im Zuge von \ac{PPS} nicht explizit erwähnt (siehe Abschnitt \ref{sec:usecase}). Eine Benachrichtigung an den Fertigungssteuerer ist ein sinnvolles Mittel um Entscheidungen in Echtzeit zu ermöglichen.
 
-\todo{Weclhe Anforderungen liegen in der Fertigungsdurchführung vor}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+		\hline
+		Auslöser                                     &   
+		Defekt aufgetreten \\ 
+		\hline\hline
+		Zeitpunkt                                     &   
+		Jederzeit in der Fertigungsdurchführung \\ 
+		\hline\hline
+		Aktivitäten &   
+		\begin{minipage}{4.8in}
+    		\begin{compactenum}
+        		\renewcommand{\labelenumi}{(\arabic{enumi})}
+        		\item Erfassung eines Defekts
+            		\begin{compactenum}
+            		\renewcommand{\labelenumi}{(\arabic{enumi})}
+            		\item Erfassung in Papierform und anschließende Übertragung in SAP S/4HANA Cloud
+            		\item Digitale Erfassung in SAP S/4HANA Cloud
+            		\end{compactenum}
+    		\end{compactenum}
+    		\vspace{1pt}		
+		\end{minipage} \\
+		\hline\hline
+		Herleitung                                        &   
+		Der Fertigungssteuerer muss möglichst in Echtzeit über Einblicke in die Gegebenheiten der Fertigung verfügen. 
+		Ist das nicht der Fall kann nicht auf kritische Situationen in der Fertigung reagiert werden.\\
+		\hline\hline
+		Input                                         &   
+		-  \\ 
+		\hline\hline
+		Output                                        &   
+		Defekt \\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:anf1}\textbf{ANF-3:} Erfassung eines Defekts}
+\end{table}
 
-\todo{Anforderungen mit Bezug zur Software}
+% -----------------------------------------------------------------------
+\paragraph{ANF-4: Einsatz von mobilen Geräte}
+Der Einsatz von mobilen Geräten in der Fertigungsdurchführung verspricht eine Steigerung der Effizienz und Effektivität der Fertigungsdurchführung. Durch die Vermeidung von zusätzlichen Laufwegen zu Terminals und anderen Übergabestellen papierbasierter Betriebsdaten, werden Betriebsdaten direkt am Arbeitsplatz mithilfe von mobilen Geräten erfasst.
 
-\todo{Anforderungen mit Bezug zur Problemstellung}
+\begin{table}[H]
+	\centering
+	\begin{tabularx}{\textwidth}{|l|X|} 
+        \hline
+		Aufgaben &   
+		\begin{minipage}{4.8in}
+    		\begin{compactenum}
+        		\renewcommand{\labelenumi}{(\arabic{enumi})}
+        		\item Übersicht des Arbeitsvorrats einzelner Arbeitsplätze 
+        		\item Erfassung von Rückmeldungen über das mobile Gerät
+        		\item Erfassung von Defekten durch das mobile Gerät
+            % 		\begin{compactenum}
+            % 		\renewcommand{\labelenumi}{(\arabic{enumi})}
+            % 		\item Erfassung in Papierform und anschließende Übertragung in SAP S/4HANA Cloud
+            % 		\item Digitale Erfassung in SAP S/4HANA Cloud
+            % 		\end{compactenum}
+    		\end{compactenum}
+    		\vspace{1pt}		
+		\end{minipage} \\
+		\hline\hline
+		Herleitung                                        &   
+		Der Einsatz von mobilen Geräten kann maßgeblich zur Steigerung der Arbeitseffizienz und zur Erhöhung der Datenqualität beitragen, indem Laufwege eingespart werden, Plausibiltätsprüfungen digital ablaufen und die Transparenz durch Echtzeitdaten erhöht wird.\\
+		\hline
+	\end{tabularx}
+	\caption{\label{tab:anf1}\textbf{ANF-4:} Einsatz von mobilen Geräte}
+\end{table}

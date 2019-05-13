@@ -1,5 +1,5 @@
 \section{Konzept der Ereignisverarbeitung}\label{sec:Ereignisverarbeitung}
-In der realen Welt ist eine Wechselwirkung aller Geschehnisse mit einer Vielzahl von divergenten, meist nicht-deterministisch eintretenden Ereignissen zu beobachten, als Konsequenz folgt eine signifikante Beeinflussung auf den Fortgang der Geschehnisse.
+In der realen Welt ist eine Wechselwirkung aller Geschehnisse mit einer Vielzahl von divergenten, meist nicht-deterministisch eintretenden Ereignissen zu beobachten. Als Konsequenz folgt eine signifikante Beeinflussung auf den Fortgang der Geschehnisse.
 \cite{Grauer.2010}
 Dieser Tatbestand findet sich auch in den Abläufen und Geschäftsprozessen in Unternehmen wieder.
 Ein Unternehmen ist demzufolge gezwungen, auf diese Ereignisse angemessen und möglichst zeitnah zu reagieren – die Unternehmen operieren demnach ereignisgesteuert. 
@@ -43,11 +43,11 @@ Demnach besteht eine zentrale Charakteristik von ereignisgesteuerten Architektur
 Das Auftreten von relevanten Informationen und Sachverhalten in  den Geschäftsprozessen ist der Ausgangspunkt für die Erkennung von Ereignissen.
 Diese Informationen und Sachverhalte werden analysiert, als Ereignisse klassifiziert und spiegeln einen spezifizierten Ausschnitt des Zustands eines Geschäftsprozesses wieder. 
 Für registrierte Ereignisse wird ein entsprechendes Ereignisobjekt generiert.
-Entscheidend für ereignisgesteuerte Informationssysteme ist, dass die Ereignisse unmittelbar zum Zeitpunkt ihres Auftretens erkannt werden und nicht zeitverzögert.
+Entscheidend für ereignisgesteuerte Informationssysteme ist, dass die Ereignisse unmittelbar zum Zeitpunkt ihres Auftretens erkannt werden und nicht etwa zeitverzögert.
 \cite{Bruns.2010}
 
 % \paragraph{Verarbeiten}
-Im Verarbeitungsschritt werden die erkannten Ereignisse, die aus unterschiedlichen Ereignisquellen stammen können, analysiert. Bei der Analyse werden Ereignisse mit anderen Ereignissen verknüft, generalisiert, aufgeteilt oder aber auch als irrelevant eingestuft. 
+Im Verarbeitungsschritt werden die erkannten Ereignisse, die aus unterschiedlichen Ereignisquellen stammen können, analysiert. Bei der Analyse werden Ereignisse mit anderen Ereignissen verknüpft, generalisiert, aufgeteilt oder aber auch als irrelevant eingestuft. 
 Gesucht werden Paradigmen in den gesammelten Ereignissen, die bestimmte Beziehungen und Abhängigkeiten zwischen den Ereignissen ausdrücken.
 \cite{Hedtstuck.2017}
 
@@ -56,12 +56,12 @@ Aufgrund von identifizierten Ereignissobjekten, die im Fluss der eingetretenen E
 Die Reaktionen, die angestrebt werden, charkterisieren sich durch Aktualität und Individualität, wie etwa die unmittelbare Übergabe der Ereignisse an Anwendungssysteme, das Senden von Benachrichtigungen, der Aufruf von Funktionen in Form von digitalen Diensten, das Auslösen eines Geschäftsprozesses oder die Initiierung von manuellen Aktivitäten durch menschliche Benutzer, aber auch die Generierung neuer Ereignisse ist eine legitime Reaktion.
 \cite{Bruns.2010}
 
-Im Zusammenhang mit der Ereignisverarbeitung in Unternehmensanwendungen wird der Begriff Echtzeit, englisch \textit{real-time}, häufig verwendet, um die Aktualität von verarbeiteten Ereignissen zu hervorzuheben.
+Im Zusammenhang mit der Ereignisverarbeitung in Unternehmensanwendungen wird der Begriff Echtzeit, englisch \textit{real-time}, häufig verwendet, um die Aktualität von verarbeiteten Ereignissen hervorzuheben.
 \cite{Bruns.2015}
 Echtzeit wird jedoch nicht im Sinne der Informatik verstanden, wonach für jede Funktion die exakte Einhaltung einer restriktiv vorgeschriebenen Antwortzeit erforderlich ist, um die Gegenwartsbezogenheit und Vorhersagbarkeit von Informationssystemen sicherzustellen.
-Vielmehr dominiert ein betriebswirtschaftliches Verständnis, das darauf Bedacht ist, in allen relevanten Informationssystemen aktuelle Informationen bereitzustellen, ohne spezifizierte Leistungskennzahlen zur Erfüllung von Echtzeit zu formulieren.
+Vielmehr dominiert ein betriebswirtschaftliches Verständnis, das darauf bedacht ist, in allen relevanten Informationssystemen aktuelle Informationen bereitzustellen, ohne spezifizierte Leistungskennzahlen zur Erfüllung von Echtzeit zu formulieren.
 \cite{Worn.2005}
-Unter Echtzeit versteht man aus dieser Sicht daher die möglichst zeitnahe Verfügbarkeit, Transparenz und Nutzbarkeit von Informationen ohne unnötige Zeitverzögerung.
+Unter Echtzeit versteht man aus dieser Sicht die möglichst zeitnahe Verfügbarkeit, Transparenz und Nutzbarkeit von Informationen ohne unnötige Zeitverzögerung.
 Eingehende Ereignisse werden somit im Rahmen der Ereignisverarbeitung analysiert, sobald sie auftreten, um geeignete Reaktionen in Echtzeit auslösen zu können.
 \cite{Grauer.2010}
 
@@ -80,7 +80,7 @@ Ein Produzent, englisch \textit{publisher}, sendet Ereignisse in Form von Ereign
 \footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
 
 Ein oder mehrere Konsumenten, englisch \textit{subscriber}, bekunden ihr Interesse an einem oder mehreren Ereigniskanälen, indem sie sich mittels der Ereignisverarbeitung für diesen Ereigniskanal oder diese Ereigniskanäle registrieren. 
-Diese abonnieren somit die Zustellung aller Ereignisobjekte der registrierten Ereigniskanäle.
+Sie abonnieren somit die Zustellung aller Ereignisobjekte der registrierten Ereigniskanäle.
 Beim Abonnieren ist es möglich, dass mehrere Empfänger an demselben Ereigniskanal interessiert sind, sodass sich sowohl eine 1:1- als auch eine 1:n-Kommunikation realisieren lässt. 
 Beim Eintreffen eines neuen Ereignisobjekts benachrichtigt die Ereignisverarbeitung alle an dem zugehörigen Ereigniskanal interessierten Parteien über dessen Eintreffen. 
 Jeder Empfänger kann das neue Ereignisobjekt zu einem von ihm bestimmten Zeitpunkt verarbeiten.
@@ -100,7 +100,7 @@ Zusammenspiel dieser drei Schichten wird  in Abbildung \ref{fig:Grundlegender ar
 \end{figure}
 \footnotetext{Eigene Darstellung, in Anlehnung an \citeauthor{Bruns.2010} \citeyear{Bruns.2010} \cite{Bruns.2010} }
 \footnotetext{Die Abbildung dient lediglich der Visualisierung und ist nicht \ac{BPMN} 2.0 konform.}
-\newpage
+
 Ein Ereignisproduzent, der relevante Sachverhalte und Informationen als Ereignisse erkennt und entsprechende Ereignisobjekte generiert, wird im Kontext von \ac{EDA} als Ereignisquelle bezeichnet.  
 \cite{Bruns.2010}
 Eine Ereignisquelle sendet eine Ereignisbenachrichtigung mit den Daten über das Auftreten eines Ereignisses an die Ereignisverarbeitung. 
@@ -118,7 +118,7 @@ Die eigentliche Verarbeitung der ankommenden Ereignisse erfolgt durch die Ereign
 Die fachliche Logik zur Behandlung von Ereignisobjekten ist in Form von deklarativen Ereignisregeln modelliert und definiert Aktionen, die auszuführen sind. 
 Im Ereignismodell werden die in Betracht kommenden Eigenschaften, Verbindungen und Abhängigkeiten von Ereignissen konkretisiert. Im Sinne einer losen Kopplung muss jedes Ereignis alle für die Verarbeitung notwendigen Daten implizieren.
 \cite{Bruns.2010}
-Die eigentliche Ereignisbehandlung als Reaktion auf Ereignisobjekt erfolgt in den Anwendungssystemen nachgelagerten Ereignisverarbeitungsdiensten. 
+Die eigentliche Ereignisbehandlung als Reaktion auf ein Ereignisobjekt erfolgt in den Anwendungssystemen nachgelagerten Ereignisverarbeitungsdiensten. 
 Das Anwendungssystem selbst realisiert den Geschäftsprozess oder die digitalen Dienste, die von den Ereignissen angestoßen werden. 
 \cite{Muhl.2006}
 
@@ -129,7 +129,7 @@ Die unverzügliche Behandlung von Ereignissen, die Identifikation von Verknüpfu
 
 Auch wenn die technologischen Möglichkeiten als gegeben angesehen werden können, mangelt es dem Konzept der Ereignisverarbeitung für den praktischen Einsatz dennoch an Standards bei Ereignismodellen und Ereignisverarbeitungsdiensten sowie an grundsätzlichen Vorgehensweisen und dem unverzichtbaren Erfahrungswissen. 
 \cite{Etzion.2011}
-In der Realität existieren des Weiteren kaum Geschäftsprozesse, bei denen eine ausschließliche Kommunikation mithilfe von Ereignissen und ausschließlich im Rahmen der beschriebenen Grundschritte einer \ac{EDA} erfolgen, weshalb auch Anwendungssysteme mit teilweiser Ereignisverarbeitung und partieller Anwendung dieser Grundschritte die Umsetzung einer ereignisgesteuerten Architektur zugeschrieben.
+In der Realität existieren des Weiteren kaum Geschäftsprozesse, bei denen eine ausschließliche Kommunikation mithilfe von Ereignissen und rein im Rahmen der beschriebenen Grundschritte einer \ac{EDA} erfolgen, weshalb auch Anwendungssysteme mit teilweiser Ereignisverarbeitung und partieller Anwendung dieser Grundschritte die Umsetzung einer ereignisgesteuerten Architektur zugeschrieben werden.
 \cite{Etzion.2011}
 
 

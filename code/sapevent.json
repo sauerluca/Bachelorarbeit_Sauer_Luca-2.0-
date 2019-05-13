@@ -1,0 +1,8 @@
+{
+   "BusinessEvent":"1234",
+   "SAPBusinessObjectKey":"1234",
+   "CreationUTCDateTime":999999999999999,
+   "SAPObjectStatus":"Released",
+   "SAPObjectTypeName":"ProductionOrder",
+   "SAPObjectType":"BUS2005"
+}

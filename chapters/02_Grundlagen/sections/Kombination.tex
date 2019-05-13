@@ -6,20 +6,20 @@ Die Vorteile für ein Unternehmen bei einer solchen Vervollständigung der Gesch
 
 \begin{itemize}
     \item 
-    Identifizierung relevanter oder kritischer Situationen für den Geschäftsprozess unter Berücksichtigung externer Ereignisse aus dem Geschäftsumfeld und interner Ereignisse aus dem Geschäftsprozess.
+    Identifizierung relevanter oder kritischer Situationen für den Geschäftsprozess unter Berücksichtigung externer Ereignisse aus dem Geschäftsumfeld und interner Ereignisse aus dem Geschäftsprozess
     \item 
-    Möglichkeit der unmittelbaren Reaktion auf veränderliche Situationen durch Verarbeitung von Ereignissen in Echtzeit.
+    Möglichkeit der unmittelbaren Reaktion auf veränderliche Situationen durch Verarbeitung von Ereignissen in Echtzeit
     \item
-    Möglichkeit der Trennung der Ereignisverarbeitungslogik von der Geschäftsprozesslogik durch lose Kopplung und Kommunikation über Ereignisobjekte.Automatisierte Adaptionen von Geschäftsprozessen auf Basis von aktuellen Ereignissen.
+    Möglichkeit der Trennung der Ereignisverarbeitungslogik von der Geschäftsprozesslogik durch lose Kopplung und Kommunikation über Ereignisobjekte. Automatisierte Adaptionen von Geschäftsprozessen auf Basis von aktuellen Ereignissen
     \item
-    Gute Unterstützung von verteilten Umgebungen, die insbesondere in unternehmensübergreifenden Geschäftsprozessnetzwerken und \ac{SOA}-Umgebungen eine bedeutende Rolle spielen.
+    Gute Unterstützung von verteilten Umgebungen, die insbesondere in komplexen Geschäftsprozessen und \ac{SOA}-Umgebungen eine bedeutende Rolle spielen
 \end{itemize}
 
 Es existieren bereits erste Forschungsansätze mit dem Ziel der Anreicherung von Geschäftsprozessmodellen mit Konzepten der Ereignisverarbeitung, die unter der englischen Bezeichnung Event-Driven Business Process Management zusammengefasst werden. Ausgewählte Konzepte aus diesem Bereich werden im Folgenden vorgestellt und anschließend anhand wesentlicher Kriterien gegenübergestellt.
 
 \subsection{Merkmale und Kriterien}
 
-Dynamische und somit ereignisorientierte Geschäftsprozesse operieren prinzipiell auf zwei Ebenen, der Geschäftsprozessebene und der Ereignisverarbeitungsebene. 
+Dynamische und somit ereignisorientierte Geschäftsprozesse operieren prinzipiell auf zwei Ebenen: \textit{der Geschäftsprozessebene und der Ereignisverarbeitungsebene}
 Diese erfüllen ihre Aufgaben in erster Linie separat und in paralleler Weise, kommunizieren allerdings mittels des Austauschs von Ereignissen miteinander, was in diesem Kontext den maßgeblichen Aspekt darstellt. 
 Abbildung \ref{fig:Ebenen dynamischer Geschäftsprozesse} illustriert in schematischer Darstellung die Zusammenhänge.
 
@@ -54,7 +54,7 @@ Dieser Forschungsansatz von \citeauthor{Alexopoulou.2008} aus dem Jahr \citeyear
 \cite{Alexopoulou.2008} 
 Diese werden in Echtzeit auf der Ereignisverabreitungsebene ausgeführt und fügen den Geschäftsprozess dynamisch zusammen, wobei neue Ereignis-Aktivität-Einheiten bedarfsgerecht hinzugefügt werden können. 
 
-Ein Defizit dieses Forschungsansatzes ist die fehlende Betrachtung des gesamten Ablaufs. Das Konzept dieser Dynamikeinheiten wird auch in dieser Bachelorarbeiten aufgegriffen, allerdings ausgehend von einem in seiner Gesamtheit modellierten Geschäftsprozess, der in diese Einheiten zerlegt wird.
+Ein Defizit dieses Forschungsansatzes ist die fehlende Betrachtung des gesamten Ablaufs. Das Konzept der Dynamikeinheiten wird auch in dieser Bachelorarbeiten aufgegriffen, allerdings ausgehend von einem in seiner Gesamtheit modellierten Geschäftsprozess, der in diese Einheiten zerlegt wird.
 
 \paragraph{RESTful SOA zur Automatisierung von Geschäftsprozessen}
 Die Realisierung von \ac{SOA} in diesem Forschungsansatz von \citeauthor{Wolf.2016} ist in Übereinstimmung mit den Prinzipien von \ac{REST}. 
@@ -66,7 +66,7 @@ Die \ac{REST}ful \ac{SOA} entsteht durch den Entwurf serviceorientierter Archite
 
 Insbesondere die Überwindung der semantischen Lücke zwischen Geschäftsprozessmodell und Anwendungssystem durch ein systematisches Vorgehen wird in diesem Forschungsansatz behandelt. Die identifizierten Probleme werden durch einen Ansatz zur Konzeption eines Anwendungssystems auf Basis von auf fachlicher Ebene modellierten Geschäftsprozessen angegangen.  
 Es fehlen allerdings Möglichkeiten zur Modellierung wesentlicher Konzepte der Echtzeitverarbeitung von Ereignissen.
-Da der Forschungsansatz wohl aber auf die automatisierte Ausführung von Geschäftsprozessen mithilfe von digitalen Diensten ausgerichtet ist, bleibt der Ansatz für die softwaretechnische Implementierung in Kapitel von Relevanz. 
+Da der Forschungsansatz wohl aber auf die automatisierte Ausführung von Geschäftsprozessen mithilfe von digitalen Diensten ausgerichtet ist, bleibt der Ansatz für die softwaretechnische Implementierung in Kapitel \ref{ch:Implementierung} von Relevanz. 
 
 \paragraph{Methodology for Business Dynamics\textsuperscript{dbpm}}
 Der Forschungsansatz von \citeauthor{Vidackovic.2014} stellt die  Methode [moby]\textsuperscript{dbpm} zur Entwicklung dynamischer Geschäftsprozesse mit Ereignisverarbeitung dar. Der Name [moby]\textsuperscript{dbpm} steht dabei für Methodology for Business Dynamics und dbpm für Dynamic Business Process Management. Der Ansatz bietet einen geeigneten Lösungsansatz für die Problemstellung dynamischer Geschäftsprozesse mit Ereignisverabeitung an und stellt das dafür benötigte, webbasierte Modellierungswerkzeug zur Verfügung. 
@@ -77,7 +77,7 @@ Die Modellierung wird in einer von \citeauthor{Vidackovic.2014} erweiterten Form
 \paragraph{SOEDA-Methode}
 SOEDA beschreibt ein Verfahren zur Entwicklung von Anwendungssystemen durch die Zusammenführung von serviceorientierten (SOA) und ereignisgesteuerten Architekturen (EDA). Geschäftsprozesse werden hier mit \ac{EPK}s modelliert. 
 \cite{MatthiasWieland.2009} 
-Mit Hilfe von grafischen Modellierungswerkzeugen werden die zugrunde liegenden Aktivitäten modularisiert und mit entsprechenden Ereignissen gekoppelt, so dass ein Entwickler die Regeln der Ereignisverarbeitung anschließend in einer spezifischen Programmiersprache implementieren kann. 
+Mit Hilfe von grafischen Modellierungswerkzeugen werden die zugrunde liegenden Aktivitäten modularisiert und mit entsprechenden Ereignissen gekoppelt, sodass ein Entwickler die Regeln der Ereignisverarbeitung anschließend in einer spezifischen Programmiersprache implementieren kann. 
 \cite{Bruns.2010}
 
 Schwächen der SOEDA-Methode sind die unzureichende Modellierung von Ereignisverarbeitungsregeln durch die Verwendung von \ac{EPK}s. 
@@ -85,7 +85,7 @@ Schwächen der SOEDA-Methode sind die unzureichende Modellierung von Ereignisver
 Auch mangelt es an der Abbildung von Ereignissen im Geschäftsprozess, da Ereignisse nur als Teil des normalen Geschäftsprozessablaufs betrachtet werden. Mit der Version 2.0 verfügt die \ac{BPMN}, wie in Abschnitt \ref{sec:Automatisierung} erwähnt, nun nicht nur über eine grafische Notation, sondern auch über die Semantik der technischen Ausführung. Auf \ac{EPK}s kann demzufolge im Rahmen der Bachelorarbeit verzichtet werden, zumal eine Konsistenz des Geschäftsprozessmodells auf betriebswirtschaftlicher und technischer Ebene wünschenswert ist.
 
 \paragraph{Gegenüberstellung der Ansätze}
-Auf Basis der Darstellung der existierenden Forschungsansätze wird ersichtlich, dass die bestehenden Forschungsansätze für die Anreicherung von Geschäftsprozessmodellen mit Konzepten der Ereignisverarbeitung jeweils einen bestimmten Fokus besitzen, dessen Herausforderungen im Einzelfall ausreichend erfüllt werden. 
+Auf Basis der Darstellung der existierenden Forschungsansätze wird ersichtlich, dass der bestehende Stand der Forschung für die Anreicherung von Geschäftsprozessmodellen mit Konzepten der Ereignisverarbeitung jeweils einen bestimmten Fokus besitzen, dessen Herausforderungen im Einzelfall ausreichend erfüllt werden. 
 Eine Kopplung von Ereignissen und Aktivitäten mithilfe des Ansatzes von \citeauthor{Alexopoulou.2008}, fachliche Aspekte wie die der SOEDA-Methode, die technischen Möglichkeiten der \enquote{RESTful SOA} oder eine automatisierte Ausführung der [moby]\textsuperscript{dbpm} finden beispielsweise keine Betrachtung. 
 
 Folglich lässt sich sagen, dass bisher noch kein Lösungsansatz mit einer ganzheitlichen und durchgängigen Vorgehensweise existiert, die eine vollständige, formale sowie fachlich orientierte Modellierung von Geschäftsprozessen mit dynamischen Eigenschaften auf Basis von Ereignisverarbeitung ermöglicht.
